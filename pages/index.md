@@ -7,7 +7,7 @@ art: random
 
 Hey! I’m Joel Xiao, a full-stack frontend engineer with 6 years of experience and an open-source contributor.
 
-Working at `SOHU`、`China Bidding Co., Ltd.`、`Shenzhou Lingyun (Beijing) Technology Co., Ltd. (2021.04-Present)`
+Working at `SOHU`、`China Bidding Co., Ltd.`、`Shenzhou Lingyun (Beijing) Technology Co., Ltd. (2021.04-Present)`<br>
 Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)
 Practitioner of `Vue` 、`React` 、`Node.js` 、`TypeScript`
 Cross-Platform Development (`uni-app`、`Tauri`)
