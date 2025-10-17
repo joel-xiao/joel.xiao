@@ -32,8 +32,8 @@ Find me on
   <!-- <a href="https://chat.antfu.me" target="_blank"><span op75 i-simple-icons-discord /> Discord Server</a> -->
   <!-- <a href="https://www.youtube.com/@Joel-hq3le" target="_blank"><span op75 i-simple-icons-youtube /> YouTube</a> -->
   <!-- <a href="https://www.instagram.com/antfu7" target="_blank"><span op75 i-simple-icons-instagram /> Instagram</a> -->
-  <a href="https://www.douyin.com/user/MS4wLjABAAAAkej6XwMY9kQbtT_jwMR5-gNcXPi7yIc2JTb_LF8ChNupKFUFNJvBI2NcNEIaEZ9H" target="_blank"><span op75 i-simple-icons-tiktok /> 抖音</a>
-  <a href="https://space.bilibili.com/429725209" target="_blank"><span op75 i-simple-icons-bilibili /> 哔哩哔哩</a>
+  <!-- <a href="https://www.douyin.com/user/MS4wLjABAAAAkej6XwMY9kQbtT_jwMR5-gNcXPi7yIc2JTb_LF8ChNupKFUFNJvBI2NcNEIaEZ9H" target="_blank"><span op75 i-simple-icons-tiktok /> 抖音</a> -->
+  <!-- <a href="https://space.bilibili.com/429725209" target="_blank"><span op75 i-simple-icons-bilibili /> 哔哩哔哩</a> -->
   <!-- <a href="https://x.com/antfuzh" target="_blank"><span op75 i-ri-twitter-x-fill /> 中文推</a> -->
   <!-- <a href="https://x.com/antfujp" target="_blank"><span op75 i-ri-twitter-x-fill /> 日本語</a> -->
 </p>
