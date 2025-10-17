@@ -8,9 +8,9 @@ art: random
 Hey! I’m Joel Xiao, a full-stack frontend engineer with 6 years of experience and an open-source contributor.
 
 Working at `SOHU`、`China Bidding Co., Ltd.`、`Shenzhou Lingyun (Beijing) Technology Co., Ltd. (2021.04-Present)`<br>
-Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)
-Practitioner of `Vue` 、`React` 、`Node.js` 、`TypeScript`
-Cross-Platform Development (`uni-app`、`Tauri`)
+Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)<br>
+Practitioner of `Vue` 、`React` 、`Node.js` 、`TypeScript`<br>
+Cross-Platform Development (`uni-app`、`Tauri`)<br>
 Maintaining `SVG Topology Editor` 、`Cross-Platform SDK` 、`Data Visualization Engine` 、`Performance Monitoring System`
 
 I focus on turning technical solutions into practical tools that boost productivity, including Vue2→Vue3 upgrades, cross-platform tools (~70% code reuse), and data visualization editors. You can see my [projects](/projects).
