@@ -38,7 +38,7 @@ Find me on
   <!-- <a href="https://x.com/antfujp" target="_blank"><span op75 i-ri-twitter-x-fill /> 日本語</a> -->
 </p>
 
-Or mail me at <span font-mono>xiao2731962667<span i-carbon-at/>.gmail.com</span>
+Or mail me at <span font-mono>xiao2731962667<span i-carbon-at/>.163.com</span>
 
 <!-- <span op50>(</span> Inactive on <span flex="~ inline gap-2 wrap"><a href="https://elk.zone/m.webtoo.ls/@antfu" target="_blank"><span op75 i-simple-icons-mastodon/> Mastodon</a> <a href="https://x.com/antfu7" target="_blank"><span op75 i-ri-twitter-x-fill /> Twitter</a> -->
 <!-- <a href="https://www.zhihu.com/people/antfu" target="_blank"><span op75 i-simple-icons-zhihu /> 知乎</a> -->
