@@ -7,11 +7,11 @@ art: random
 
 Hey! I’m Joel Xiao, a full-stack frontend engineer with 6 years of experience and an open-source contributor.
 
-Working at `SOHU`、`China Bidding Co., Ltd.`、`Shenzhou Lingyun (Beijing) Technology Co., Ltd. (2021.04-Present)`  
-Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)  
-Practitioner of `Vue` 、`React` 、`Node.js` 、`TypeScript`  
-Cross-Platform Development (`uni-app`、`Tauri`)  
-Maintaining `SVG Topology Editor` 、`Cross-Platform SDK` 、`Data Visualization Engine` 、`Performance Monitoring System`  
+Working at `SOHU`、`China Bidding Co., Ltd.`、`Shenzhou Lingyun (Beijing) Technology Co., Ltd. (2021.04-Present)`
+Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)
+Practitioner of `Vue` 、`React` 、`Node.js` 、`TypeScript`
+Cross-Platform Development (`uni-app`、`Tauri`)
+Maintaining `SVG Topology Editor` 、`Cross-Platform SDK` 、`Data Visualization Engine` 、`Performance Monitoring System`
 
 I focus on turning technical solutions into practical tools that boost productivity, including Vue2→Vue3 upgrades, cross-platform tools (~70% code reuse), and data visualization editors. You can see my [projects](/projects).
 
@@ -42,7 +42,7 @@ Or mail me at <span font-mono>xiao2731962667<span i-carbon-at/>.gmail.com</span>
 
 <!-- <span op50>(</span> Inactive on <span flex="~ inline gap-2 wrap"><a href="https://elk.zone/m.webtoo.ls/@antfu" target="_blank"><span op75 i-simple-icons-mastodon/> Mastodon</a> <a href="https://x.com/antfu7" target="_blank"><span op75 i-ri-twitter-x-fill /> Twitter</a> -->
 <!-- <a href="https://www.zhihu.com/people/antfu" target="_blank"><span op75 i-simple-icons-zhihu /> 知乎</a> -->
-<!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
----
+
+## <!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
 
 <!-- <SponsorButtons /> -->

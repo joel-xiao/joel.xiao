@@ -7,21 +7,23 @@ art: random
 
 Full-Stack Frontend Engineer | 6 yrs | Open-Source Contributor | Beijing
 
-**Experience:**  
+**Experience:**
 `Shenzhou Lingyun (2021.04-Present)` / `China Bidding Co. (2019.01-2021.04)` / `SOHU (2017.10-2019.01)`
 
-**Projects & Tools:**  
-- Creator: `Visual Studio`, `Universal Registration System`  
-- Maintainer: `SVG Topology Editor`, `Cross-Platform SDK`, `Data Visualization Engine`  
-- Tech: `Vue` / `React` / `Node.js` / `TypeScript`  
-- Cross-Platform: `uni-app` / `Tauri`  
+**Projects & Tools:**
 
-**Highlights:**  
-- Vue2 → Vue3 upgrades  
-- Cross-platform tools (~70% code reuse)  
-- Data visualization editors & performance optimization  
+- Creator: `Visual Studio`, `Universal Registration System`
+- Maintainer: `SVG Topology Editor`, `Cross-Platform SDK`, `Data Visualization Engine`
+- Tech: `Vue` / `React` / `Node.js` / `TypeScript`
+- Cross-Platform: `uni-app` / `Tauri`
 
-**Links:**  
+**Highlights:**
+
+- Vue2 → Vue3 upgrades
+- Cross-platform tools (~70% code reuse)
+- Data visualization editors & performance optimization
+
+**Links:**
 [Blog](https://blog.csdn.net/XLL20001022) | [LeetCode](https://leetcode.cn/u/xiaowenlong1022/) | [GitHub](https://github.com/joel-xiao)
 
 Open to technical exchanges & collaborations.
@@ -47,7 +49,7 @@ Or mail me at <span font-mono>xiao2731962667<span i-carbon-at/>.gmail.com</span>
 
 <!-- <span op50>(</span> Inactive on <span flex="~ inline gap-2 wrap"><a href="https://elk.zone/m.webtoo.ls/@antfu" target="_blank"><span op75 i-simple-icons-mastodon/> Mastodon</a> <a href="https://x.com/antfu7" target="_blank"><span op75 i-ri-twitter-x-fill /> Twitter</a> -->
 <!-- <a href="https://www.zhihu.com/people/antfu" target="_blank"><span op75 i-simple-icons-zhihu /> 知乎</a> -->
-<!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
----
+
+## <!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
 
 <!-- <SponsorButtons /> -->

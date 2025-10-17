@@ -4,33 +4,38 @@ description: Jeol Xiao's Portfolio
 image: https://antfu.me/og.png
 art: random
 ---
+
 Hey! I’m Joel Xiao, a full-stack frontend engineer with 6 years of experience and an open-source contributor.
 
-**Work Experience:**  
-`SOHU New Media Information Technology Co., Ltd. (2017.10-2019.01)`  
-`China Bidding Co., Ltd. (2019.01-2021.04)`  
+**Work Experience:**
+`SOHU New Media Information Technology Co., Ltd. (2017.10-2019.01)`
+`China Bidding Co., Ltd. (2019.01-2021.04)`
 `Shenzhou Lingyun (Beijing) Technology Co., Ltd. (2021.04-Present)`
 
-**Projects & Tools:**  
-- Creator: `Visual Studio`, `Universal Registration System`  
-- Maintainer: `SVG Topology Editor`, `Cross-Platform SDK`, `Data Visualization Engine`, `Performance Monitoring System`  
-- Tech Stack: `Vue` / `React` / `Node.js` / `TypeScript`  
-- Cross-Platform: `uni-app`, `Tauri`  
+**Projects & Tools:**
 
-I turn technical solutions into practical tools that boost productivity, e.g.,  
-- Vue2 → Vue3 architecture upgrades  
-- Cross-platform tools with ~70% code reuse  
-- Complex data visualization editors  
+- Creator: `Visual Studio`, `Universal Registration System`
+- Maintainer: `SVG Topology Editor`, `Cross-Platform SDK`, `Data Visualization Engine`, `Performance Monitoring System`
+- Tech Stack: `Vue` / `React` / `Node.js` / `TypeScript`
+- Cross-Platform: `uni-app`, `Tauri`
 
-**Sharing & Open Source:**  
-- [Blog](https://blog.csdn.net/XLL20001022) on frontend and full-stack development  
-- [LeetCode](https://leetcode.cn/u/xiaowenlong1022/) problem-solving  
-- [GitHub](https://github.com/joel-xiao) demos & Vue3 contributions  
+I turn technical solutions into practical tools that boost productivity, e.g.,
 
-**Interests:**  
-- Cutting-edge frontend tech (AI tools)  
-- System design & tech-business integration  
-- Optimizing large-scale data performance  
+- Vue2 → Vue3 architecture upgrades
+- Cross-platform tools with ~70% code reuse
+- Complex data visualization editors
+
+**Sharing & Open Source:**
+
+- [Blog](https://blog.csdn.net/XLL20001022) on frontend and full-stack development
+- [LeetCode](https://leetcode.cn/u/xiaowenlong1022/) problem-solving
+- [GitHub](https://github.com/joel-xiao) demos & Vue3 contributions
+
+**Interests:**
+
+- Cutting-edge frontend tech (AI tools)
+- System design & tech-business integration
+- Optimizing large-scale data performance
 
 Based in `Beijing` — open to technical exchanges and collaborations.
 
@@ -55,7 +60,7 @@ Or mail me at <span font-mono>xiao2731962667<span i-carbon-at/>.gmail.com</span>
 
 <!-- <span op50>(</span> Inactive on <span flex="~ inline gap-2 wrap"><a href="https://elk.zone/m.webtoo.ls/@antfu" target="_blank"><span op75 i-simple-icons-mastodon/> Mastodon</a> <a href="https://x.com/antfu7" target="_blank"><span op75 i-ri-twitter-x-fill /> Twitter</a> -->
 <!-- <a href="https://www.zhihu.com/people/antfu" target="_blank"><span op75 i-simple-icons-zhihu /> 知乎</a> -->
-<!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
----
+
+## <!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
 
 <!-- <SponsorButtons /> -->
