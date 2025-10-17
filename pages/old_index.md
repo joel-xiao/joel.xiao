@@ -5,21 +5,47 @@ image: https://antfu.me/og.png
 art: random
 ---
 
-Hey! I’m Joel Xiao, a full-stack frontend engineer with 6 years of experience and an open-source contributor.
+**Full-Stack Frontend Engineer | 6+ Years Experience | Open-Source Contributor**  
+Based in Beijing | Open to technical collaborations
 
-Working at `SOHU`、`China Bidding Co., Ltd.`、`Shenzhou Lingyun (Beijing) Technology Co., Ltd. (2021.04-Present)`  
-Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)  
-Practitioner of `Vue` 、`React` 、`Node.js` 、`TypeScript`  
-Cross-Platform Development (`uni-app`、`Tauri`)  
-Maintaining `SVG Topology Editor` 、`Cross-Platform SDK` 、`Data Visualization Engine` 、`Performance Monitoring System`  
+---
 
-I focus on turning technical solutions into practical tools that boost productivity, including Vue2→Vue3 upgrades, cross-platform tools (~70% code reuse), and data visualization editors. You can see my [projects](/projects).
+## Work Experience
+- **Shenzhou Lingyun (Beijing) Technology Co., Ltd.** (2021.04-Present)  
+- **China Bidding Co., Ltd.** (2019.01-2021.04)  
+- **SOHU New Media Information Technology Co., Ltd.** (2017.10-2019.01)  
 
-I share insights via [technical blogs](https://blog.csdn.net/XLL20001022), occasionally post on [LeetCode](https://leetcode.cn/u/xiaowenlong1022/), and contribute to Vue3 open-source projects. Demos are on [GitHub](https://github.com/joel-xiao).
+---
 
-Outside of coding, I explore frontend tech, refine system design ideas, and focus on tech-business integration, balancing elegance with practical needs.
+## Projects & Contributions
+- **Creator:** Visual Studio, Universal Registration System  
+- **Maintainer:** SVG Topology Editor, Cross-Platform SDK, Data Visualization Engine, Performance Monitoring System  
+- **Practitioner of:** Vue / React / Node.js / TypeScript  
+- **Cross-Platform Development:** uni-app, Tauri  
 
-Based in `Beijing` — open to technical exchanges and collaborations.
+> Focused on building robust systems, optimizing team workflow, and turning technical solutions into practical tools.  
+
+---
+
+## Highlights
+- Led Vue2 → Vue3 architecture upgrades  
+- Developed cross-platform tools with ~70% code reuse  
+- Built complex data visualization editors  
+- Optimized large-scale data rendering and performance  
+
+---
+
+## Sharing & Open Source
+- [Technical Blogs](https://blog.csdn.net/XLL20001022) on frontend, full-stack, and performance  
+- [LeetCode](https://leetcode.cn/u/xiaowenlong1022/) problem-solving  
+- [GitHub](https://github.com/joel-xiao) demos and Vue3 ecosystem contributions  
+
+---
+
+## Interests
+- Cutting-edge frontend tech (AI-driven tools)  
+- System design and tech-business integration  
+- Improving technical elegance while meeting practical business needs---
 
 ---
 
@@ -45,4 +71,4 @@ Or mail me at <span font-mono>xiao2731962667<span i-carbon-at/>.gmail.com</span>
 <!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
 ---
 
-<!-- <SponsorButtons /> -->
+<SponsorButtons />
