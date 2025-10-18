@@ -142,7 +142,7 @@ export function ModalBody({
             }}
           >
             <CloseIcon />
-            <ScrollArea className="h-[80dvh] w-full rounded-md border">
+            <ScrollArea className="h-[80dvh] w-full rounded-md border" style={{ borderRadius: '1rem' }}>
               {children}
             </ScrollArea>
           </motion.div>
