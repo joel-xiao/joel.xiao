@@ -1,3 +1,4 @@
+import React from 'react'
 import type { App } from 'vue'
 import React from 'react'
 import Portfolio3D from './3d-portfolio/app/page'

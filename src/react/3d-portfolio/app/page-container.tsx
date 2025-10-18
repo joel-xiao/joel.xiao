@@ -38,5 +38,5 @@ export default function RootLayout({
         </Preloader>
       </ThemeProvider>
     </div>
-  )
+  );
 }

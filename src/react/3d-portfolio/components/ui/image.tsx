@@ -1,12 +1,14 @@
+
 interface ImageProps {
   src: string
   alt: string
   width?: number
   height?: number
   className?: string
+  style?: React.CSSProperties
 }
 
-export default function Image({ src, alt, width, height, className }: ImageProps) {
+export default function Image({ src, alt, width, height, className, style }: ImageProps) {
   return (
     <img
       src={src}
@@ -14,8 +16,11 @@ export default function Image({ src, alt, width, height, className }: ImageProps
       width={width}
       height={height}
       className={className}
-      loading="lazy"
-      style={{ objectFit: 'cover' }}
+      loading="lazy" // 懒加载
+      style={{
+        objectFit: "cover",
+        ...style,
+      }}
     />
   )
 }
