@@ -1,12 +1,7 @@
-import AceTernityLogo from "../components/logos/aceternity";
-import SlideShow from "../components/slide-show";
-import { Button } from "../components/ui/button";
-import { TypographyH3, TypographyP } from "../components/ui/typography";
-import { ArrowUpRight, ExternalLink, Link2, MoveUpRight } from "lucide-react";
-import Image from "../components/ui/image";
-import Link from "next/link";
-import { ReactNode } from "react";
-import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
+import type { ReactNode } from 'react'
+import { ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
+import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from 'react-icons/ri'
 import {
   SiChakraui,
   SiDocker,
@@ -26,11 +21,16 @@ import {
   SiThreedotjs,
   SiTypescript,
   SiVuedotjs,
-} from "react-icons/si";
-import { TbBrandFramerMotion } from "react-icons/tb";
-const BASE_PATH = "/assets/projects-screenshots";
+} from 'react-icons/si'
+import { TbBrandFramerMotion } from 'react-icons/tb'
+import AceTernityLogo from '../components/logos/aceternity'
+import SlideShow from '../components/slide-show'
+import { Button } from '../components/ui/button'
+import { TypographyH3, TypographyP } from '../components/ui/typography'
 
-const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
+const BASE_PATH = '/assets/projects-screenshots'
+
+function ProjectsLinks({ live, repo }: { live: string, repo?: string }) {
   return (
     <div className="flex flex-col md:flex-row items-center justify-start gap-3 my-3 mb-8">
       <Link
@@ -39,7 +39,7 @@ const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
         target="_new"
         href={live}
       >
-        <Button variant={"default"} size={"sm"}>
+        <Button variant="default" size="sm">
           Visit Website
           <ArrowUpRight className="ml-3 w-5 h-5" />
         </Button>
@@ -51,196 +51,197 @@ const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
           target="_new"
           href={repo}
         >
-          <Button variant={"default"} size={"sm"}>
+          <Button variant="default" size="sm">
             Github
             <ArrowUpRight className="ml-3 w-5 h-5" />
           </Button>
         </Link>
       )}
     </div>
-  );
-};
+  )
+}
 
-export type Skill = {
-  title: string;
-  bg: string;
-  fg: string;
-  icon: ReactNode;
-};
+export interface Skill {
+  title: string
+  bg: string
+  fg: string
+  icon: ReactNode
+}
 const PROJECT_SKILLS = {
   next: {
-    title: "Next.js",
-    bg: "black",
-    fg: "white",
+    title: 'Next.js',
+    bg: 'black',
+    fg: 'white',
     icon: <RiNextjsFill />,
   },
   chakra: {
-    title: "Chakra UI",
-    bg: "black",
-    fg: "white",
+    title: 'Chakra UI',
+    bg: 'black',
+    fg: 'white',
     icon: <SiChakraui />,
   },
   node: {
-    title: "Node.js",
-    bg: "black",
-    fg: "white",
+    title: 'Node.js',
+    bg: 'black',
+    fg: 'white',
     icon: <RiNodejsFill />,
   },
   python: {
-    title: "Python",
-    bg: "black",
-    fg: "white",
+    title: 'Python',
+    bg: 'black',
+    fg: 'white',
     icon: <SiPython />,
   },
   prisma: {
-    title: "prisma",
-    bg: "black",
-    fg: "white",
+    title: 'prisma',
+    bg: 'black',
+    fg: 'white',
     icon: <SiPrisma />,
   },
   postgres: {
-    title: "PostgreSQL",
-    bg: "black",
-    fg: "white",
+    title: 'PostgreSQL',
+    bg: 'black',
+    fg: 'white',
     icon: <SiPostgresql />,
   },
   mongo: {
-    title: "MongoDB",
-    bg: "black",
-    fg: "white",
+    title: 'MongoDB',
+    bg: 'black',
+    fg: 'white',
     icon: <SiMongodb />,
   },
   express: {
-    title: "Express",
-    bg: "black",
-    fg: "white",
+    title: 'Express',
+    bg: 'black',
+    fg: 'white',
     icon: <SiExpress />,
   },
   reactQuery: {
-    title: "React Query",
-    bg: "black",
-    fg: "white",
+    title: 'React Query',
+    bg: 'black',
+    fg: 'white',
     icon: <SiReactquery />,
   },
   shadcn: {
-    title: "ShanCN UI",
-    bg: "black",
-    fg: "white",
+    title: 'ShanCN UI',
+    bg: 'black',
+    fg: 'white',
     icon: <SiShadcnui />,
   },
   aceternity: {
-    title: "Aceternity",
-    bg: "black",
-    fg: "white",
+    title: 'Aceternity',
+    bg: 'black',
+    fg: 'white',
     icon: <AceTernityLogo />,
   },
   tailwind: {
-    title: "Tailwind",
-    bg: "black",
-    fg: "white",
+    title: 'Tailwind',
+    bg: 'black',
+    fg: 'white',
     icon: <SiTailwindcss />,
   },
   docker: {
-    title: "Docker",
-    bg: "black",
-    fg: "white",
+    title: 'Docker',
+    bg: 'black',
+    fg: 'white',
     icon: <SiDocker />,
   },
   yjs: {
-    title: "Y.js",
-    bg: "black",
-    fg: "white",
+    title: 'Y.js',
+    bg: 'black',
+    fg: 'white',
     icon: (
       <span>
-        <strong>Y</strong>js
+        <strong>Y</strong>
+        js
       </span>
     ),
   },
   firebase: {
-    title: "Firebase",
-    bg: "black",
-    fg: "white",
+    title: 'Firebase',
+    bg: 'black',
+    fg: 'white',
     icon: <SiFirebase />,
   },
   sockerio: {
-    title: "Socket.io",
-    bg: "black",
-    fg: "white",
+    title: 'Socket.io',
+    bg: 'black',
+    fg: 'white',
     icon: <SiSocketdotio />,
   },
   js: {
-    title: "JavaScript",
-    bg: "black",
-    fg: "white",
+    title: 'JavaScript',
+    bg: 'black',
+    fg: 'white',
     icon: <SiJavascript />,
   },
   ts: {
-    title: "TypeScript",
-    bg: "black",
-    fg: "white",
+    title: 'TypeScript',
+    bg: 'black',
+    fg: 'white',
     icon: <SiTypescript />,
   },
   vue: {
-    title: "Vue.js",
-    bg: "black",
-    fg: "white",
+    title: 'Vue.js',
+    bg: 'black',
+    fg: 'white',
     icon: <SiVuedotjs />,
   },
   react: {
-    title: "React.js",
-    bg: "black",
-    fg: "white",
+    title: 'React.js',
+    bg: 'black',
+    fg: 'white',
     icon: <RiReactjsFill />,
   },
   sanity: {
-    title: "Sanity",
-    bg: "black",
-    fg: "white",
+    title: 'Sanity',
+    bg: 'black',
+    fg: 'white',
     icon: <SiSanity />,
   },
   spline: {
-    title: "Spline",
-    bg: "black",
-    fg: "white",
+    title: 'Spline',
+    bg: 'black',
+    fg: 'white',
     icon: <SiThreedotjs />,
   },
   gsap: {
-    title: "GSAP",
-    bg: "black",
-    fg: "white",
-    icon: "",
+    title: 'GSAP',
+    bg: 'black',
+    fg: 'white',
+    icon: '',
   },
   framerMotion: {
-    title: "Framer Motion",
-    bg: "black",
-    fg: "white",
+    title: 'Framer Motion',
+    bg: 'black',
+    fg: 'white',
     icon: <TbBrandFramerMotion />,
   },
   supabase: {
-    title: "Supabase",
-    bg: "black",
-    fg: "white",
+    title: 'Supabase',
+    bg: 'black',
+    fg: 'white',
     icon: <SiSupabase />,
   },
-};
-export type Project = {
-  id: string;
-  category: string;
-  title: string;
-  src: string;
-  screenshots: string[];
-  skills: { frontend: Skill[]; backend: Skill[] };
-  content: React.ReactNode | any;
-  github?: string;
-  live: string;
-};
+}
+export interface Project {
+  id: string
+  category: string
+  title: string
+  src: string
+  screenshots: string[]
+  skills: { frontend: Skill[], backend: Skill[] }
+  content: React.ReactNode | any
+  github?: string
+  live: string
+}
 const projects: Project[] = [
   {
-    id: "codingducks",
-    category: "Coding platform",
-    title: "Coding Ducks",
-    src: "/assets/projects-screenshots/codingducks/landing.png",
-    screenshots: ["landing.png"],
+    id: 'codingducks',
+    category: 'Coding platform',
+    title: 'Coding Ducks',
+    src: '/assets/projects-screenshots/codingducks/landing.png',
+    screenshots: ['landing.png'],
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
@@ -258,8 +259,8 @@ const projects: Project[] = [
         PROJECT_SKILLS.sockerio,
       ],
     },
-    live: "https://www.codingducks.xyz/",
-    github: "https://github.com/Naresh-Khatri/Coding-Ducks",
+    live: 'https://www.codingducks.xyz/',
+    github: 'https://github.com/Naresh-Khatri/Coding-Ducks',
     get content() {
       return (
         <div>
@@ -334,16 +335,16 @@ const projects: Project[] = [
             ]}
           />
         </div>
-      );
+      )
     },
   },
   {
-    id: "couponluxury",
-    category: "Coupon site",
-    title: "Coupon Luxury",
-    src: "/assets/projects-screenshots/couponluxury/landing.png",
-    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
-    live: "https://www.couponluxury.com/",
+    id: 'couponluxury',
+    category: 'Coupon site',
+    title: 'Coupon Luxury',
+    src: '/assets/projects-screenshots/couponluxury/landing.png',
+    screenshots: ['1.png', '2.png', '3.png', '4.png', '5.png'],
+    live: 'https://www.couponluxury.com/',
     skills: {
       frontend: [
         PROJECT_SKILLS.js,
@@ -425,16 +426,16 @@ const projects: Project[] = [
           For all the novice coders out there ready to make their mark.
         </TypographyP> */}
         </div>
-      );
+      )
     },
   },
   {
-    id: "the-booking-desk",
-    category: "Travel",
-    title: "The Booking Desk",
-    src: "/assets/projects-screenshots/the-booking-desk/landing.png",
-    screenshots: ["1.png"],
-    live: "https://thebookingdesk.com/",
+    id: 'the-booking-desk',
+    category: 'Travel',
+    title: 'The Booking Desk',
+    src: '/assets/projects-screenshots/the-booking-desk/landing.png',
+    screenshots: ['1.png'],
+    live: 'https://thebookingdesk.com/',
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
@@ -491,17 +492,17 @@ const projects: Project[] = [
             experience that&apos;s both informative and enjoyable.
           </p>
         </div>
-      );
+      )
     },
   },
   {
-    id: "portfolio",
-    category: "Portfolio",
-    title: "My Portfolio",
-    src: "/assets/projects-screenshots/portfolio/landing.png",
-    screenshots: ["1.png"],
-    live: "http://nareshkhatri.vercel.app",
-    github:"https://github.com/Naresh-Khatri/Portfolio",
+    id: 'portfolio',
+    category: 'Portfolio',
+    title: 'My Portfolio',
+    src: '/assets/projects-screenshots/portfolio/landing.png',
+    screenshots: ['1.png'],
+    live: 'http://nareshkhatri.vercel.app',
+    github: 'https://github.com/Naresh-Khatri/Portfolio',
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
@@ -523,7 +524,8 @@ const projects: Project[] = [
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <TypographyH3 className="my-4 mt-8">
-            Beautiful 3D Objects{" "}
+            Beautiful 3D Objects
+            {' '}
           </TypographyH3>
           <p className="font-mono mb-2">
             Did you see that 3D keyboard modal? Yeah! I made that. That
@@ -557,17 +559,17 @@ const projects: Project[] = [
             This site&apos;s not just a portfolio — it&apos;s a whole vibe.
           </p>
         </div>
-      );
+      )
     },
   },
   {
-    id: "ghostchat",
-    category: "Anonymous chat",
-    title: "GhostChat",
-    src: "/assets/projects-screenshots/ghostchat/1.png",
-    screenshots: ["1.png", "2.png", "3.png", "4.png"],
-    live: "https://ghostchat.vercel.app",
-    github:"https://github.com/Naresh-Khatri/GhostChat",
+    id: 'ghostchat',
+    category: 'Anonymous chat',
+    title: 'GhostChat',
+    src: '/assets/projects-screenshots/ghostchat/1.png',
+    screenshots: ['1.png', '2.png', '3.png', '4.png'],
+    live: 'https://ghostchat.vercel.app',
+    github: 'https://github.com/Naresh-Khatri/GhostChat',
     skills: {
       frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra],
       backend: [PROJECT_SKILLS.supabase],
@@ -593,16 +595,16 @@ const projects: Project[] = [
             ]}
           />
         </div>
-      );
+      )
     },
   },
   {
-    id: "jra",
-    category: "Result analyzer",
-    title: "JNTUA Results Analyzer",
-    src: "/assets/projects-screenshots/jra/1.png",
-    screenshots: ["1.png"],
-    live: "https://naresh-khatri.github.io/JNTUA-result-analyser-spa/#/",
+    id: 'jra',
+    category: 'Result analyzer',
+    title: 'JNTUA Results Analyzer',
+    src: '/assets/projects-screenshots/jra/1.png',
+    screenshots: ['1.png'],
+    live: 'https://naresh-khatri.github.io/JNTUA-result-analyser-spa/#/',
     skills: {
       frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.vue],
       backend: [
@@ -657,19 +659,25 @@ const projects: Project[] = [
               Each result came with additional features including:
               <ul className="list-disc font-mono ml-6">
                 <li>
-                  <strong>CGPA Calculations: </strong>Easily track your
+                  <strong>CGPA Calculations: </strong>
+                  Easily track your
                   cumulative grade point average.
                 </li>
                 <li>
-                  <strong>Charts:</strong> Visualize your academic performance
+                  <strong>Charts:</strong>
+                  {' '}
+                  Visualize your academic performance
                   with comprehensive charts.
                 </li>
                 <li>
-                  <strong>Future Projections:</strong> Get insights into
+                  <strong>Future Projections:</strong>
+                  {' '}
+                  Get insights into
                   potential future outcomes based on current performance.
                 </li>
                 <li>
-                  <strong> Backlog Counts: </strong>Keep track of your backlog
+                  <strong> Backlog Counts: </strong>
+                  Keep track of your backlog
                   subjects at a glance.
                 </li>
               </ul>
@@ -694,8 +702,8 @@ const projects: Project[] = [
             </li>
           </ul>
         </div>
-      );
+      )
     },
   },
-];
-export default projects;
+]
+export default projects

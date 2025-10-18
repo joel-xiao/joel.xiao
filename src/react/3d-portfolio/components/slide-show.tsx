@@ -1,31 +1,30 @@
 // @ts-expect-error: Splide types are not available
-import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import { motion } from "framer-motion";
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide'
+import { AnimatePresence, motion } from 'framer-motion'
 
-import "@splidejs/react-splide/css";
+import { useState } from 'react'
 
-import Image from "../components/ui/image";
+import Image from '../components/ui/image'
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTrigger,
-} from "./ui/dialog";
-import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+} from './ui/dialog'
+import '@splidejs/react-splide/css'
 
-const SlideShow = ({ images }: { images: string[] }) => {
-  const [hovering, setHovering] = useState(false);
+function SlideShow({ images }: { images: string[] }) {
+  const [hovering, setHovering] = useState(false)
   return (
     <Splide
       options={{
-        autoplay: "true",
+        autoplay: 'true',
         perPage: 1,
         start: 0,
         rewind: true,
-        padding: {left:'3rem',right:'3rem'},
-        gap: "1rem",
+        padding: { left: '3rem', right: '3rem' },
+        gap: '1rem',
       }}
       hasTrack={false}
     >
@@ -61,7 +60,7 @@ const SlideShow = ({ images }: { images: string[] }) => {
               <DialogContent className="min-w-[90vw] h-[90vh] bg-transparent outline-none border-none p-0 m-0">
                 <DialogHeader className="w-full">
                   <DialogDescription>
-                    {image.split("/").pop()}
+                    {image.split('/').pop()}
                   </DialogDescription>
                 </DialogHeader>
                 <Image
@@ -70,7 +69,7 @@ const SlideShow = ({ images }: { images: string[] }) => {
                   width={1000}
                   height={1000}
                   className="w-full"
-                  style={{ objectFit: "contain", width: "100vw" }}
+                  style={{ objectFit: 'contain', width: '100vw' }}
                 />
               </DialogContent>
             </Dialog>
@@ -81,6 +80,6 @@ const SlideShow = ({ images }: { images: string[] }) => {
         <div className="splide__progress__bar"></div>
       </div>
     </Splide>
-  );
-};
-export default SlideShow;
+  )
+}
+export default SlideShow

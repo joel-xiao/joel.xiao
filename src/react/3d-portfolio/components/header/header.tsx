@@ -1,30 +1,30 @@
-"use client";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import styles from "./style.module.scss";
-import { opacity, background } from "./anim";
-import Nav from "./nav";
-import { cn } from "../../lib/utils";
-import FunnyThemeToggle from "../theme/funny-theme-toggle";
-import { Button } from "../ui/button";
-import { config } from "../..//data/config";
-import OnlineUsers from "../realtime/online-users";
+'use client'
+import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
+import { useState } from 'react'
+import { config } from '../..//data/config'
+import { cn } from '../../lib/utils'
+import OnlineUsers from '../realtime/online-users'
+import FunnyThemeToggle from '../theme/funny-theme-toggle'
+import { Button } from '../ui/button'
+import { background, opacity } from './anim'
+import Nav from './nav'
+import styles from './style.module.scss'
 
 interface HeaderProps {
-  loader?: boolean;
+  loader?: boolean
 }
 
-const Header = ({ loader }: HeaderProps) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+function Header({ loader }: HeaderProps) {
+  const [isActive, setIsActive] = useState<boolean>(false)
   return (
     <motion.header
       className={cn(
         styles.header,
-        "transition-colors delay-100 duration-500 ease-in"
+        'transition-colors delay-100 duration-500 ease-in',
       )}
       style={{
-        background: isActive ? "hsl(var(--background) / .8)" : "transparent",
+        background: isActive ? 'hsl(var(--background) / .8)' : 'transparent',
         // backgroundImage:
         //   "linear-gradient(0deg, rgba(0, 0, 0, 0), rgb(0, 0, 0))",
       }}
@@ -46,9 +46,9 @@ const Header = ({ loader }: HeaderProps) => {
         }}
       >
       </div> */}
-      <div className={cn(styles.bar, "flex items-center justify-between")}>
+      <div className={cn(styles.bar, 'flex items-center justify-between')}>
         <Link href="/" className="flex items-center justify-center">
-          <Button variant={"link"} className="text-md">
+          <Button variant="link" className="text-md">
             {config.author}
           </Button>
         </Link>
@@ -56,42 +56,44 @@ const Header = ({ loader }: HeaderProps) => {
         <OnlineUsers />
         <FunnyThemeToggle className="w-6 h-6 mr-4" />
         <Button
-          variant={"ghost"}
+          variant="ghost"
           onClick={() => setIsActive(!isActive)}
           className={cn(
             styles.el,
-            "m-0 p-0 h-6 bg-transparent flex items-center justify-center"
+            'm-0 p-0 h-6 bg-transparent flex items-center justify-center',
           )}
         >
           <div className="relative flex items-center">
             <motion.p
               variants={opacity}
-              animate={!isActive ? "open" : "closed"}
+              animate={!isActive ? 'open' : 'closed'}
             >
               Menu
             </motion.p>
-            <motion.p variants={opacity} animate={isActive ? "open" : "closed"}>
+            <motion.p variants={opacity} animate={isActive ? 'open' : 'closed'}>
               Close
             </motion.p>
           </div>
           <div
             className={`${styles.burger} ${
-              isActive ? styles.burgerActive : ""
+              isActive ? styles.burgerActive : ''
             }`}
-          ></div>
+          >
+          </div>
         </Button>
       </div>
       <motion.div
         variants={background}
         initial="initial"
-        animate={isActive ? "open" : "closed"}
+        animate={isActive ? 'open' : 'closed'}
         className={styles.background}
-      ></motion.div>
+      >
+      </motion.div>
       <AnimatePresence mode="wait">
         {isActive && <Nav setIsActive={setIsActive} />}
       </AnimatePresence>
     </motion.header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

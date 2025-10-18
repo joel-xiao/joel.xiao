@@ -1,20 +1,22 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+'use client'
+import { AnimatePresence, motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
 
-const ScrollDownIcon = () => {
-  const [show, setShow] = useState(true);
+function ScrollDownIcon() {
+  const [show, setShow] = useState(true)
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined')
+      return
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       if (window.scrollY > 10) {
-        setShow(false);
-      } else {
-        setShow(true);
+        setShow(false)
       }
-    });
-  });
+      else {
+        setShow(true)
+      }
+    })
+  })
   return (
     <AnimatePresence>
       {show && (
@@ -30,7 +32,7 @@ const ScrollDownIcon = () => {
             animate={{ y: [0, 25], opacity: [1, 0] }}
             transition={{
               duration: 1,
-              ease: "easeOut",
+              ease: 'easeOut',
               repeat: Infinity,
               repeatDelay: 1,
             }}
@@ -39,7 +41,7 @@ const ScrollDownIcon = () => {
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default ScrollDownIcon;
+export default ScrollDownIcon

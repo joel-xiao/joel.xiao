@@ -1,6 +1,6 @@
-import styles from './style.module.scss';
-import { translate } from '../../anim';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { translate } from '../../anim'
+import styles from './style.module.scss'
 
 export default function Footer() {
   return (
@@ -14,7 +14,9 @@ export default function Footer() {
           exit="exit"
         >
           {/* space */}
-          <span>Inspired by:</span> Studio Lumio
+          <span>Inspired by:</span>
+          {' '}
+          Studio Lumio
         </motion.li>
       </ul>
       <ul>
@@ -25,7 +27,9 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Typography:</span> Inter
+          <span>Typography:</span>
+          {' '}
+          Inter
         </motion.li>
       </ul>
       <ul>
@@ -36,7 +40,9 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Images:</span> Unsplash
+          <span>Images:</span>
+          {' '}
+          Unsplash
         </motion.li>
       </ul>
       <ul>
@@ -60,5 +66,5 @@ export default function Footer() {
         </motion.li>
       </ul>
     </div>
-  );
+  )
 }

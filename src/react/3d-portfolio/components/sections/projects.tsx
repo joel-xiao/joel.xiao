@@ -1,50 +1,51 @@
-"use client";
-import Image from "../ui/image";
-import React from "react";
+'use client'
+import type { Project } from '../../data/projects'
+import Link from 'next/link'
+import React from 'react'
+import projects from '../../data/projects'
+import { cn } from '../../lib/utils'
+import SmoothScroll from '../smooth-scroll'
+
 import {
   Modal,
   ModalBody,
   ModalContent,
   ModalFooter,
   ModalTrigger,
-} from "../ui/animated-modal";
-import { FloatingDock } from "../ui/floating-dock";
-import Link from "next/link";
+} from '../ui/animated-modal'
+import { FloatingDock } from '../ui/floating-dock'
+import Image from '../ui/image'
 
-import SmoothScroll from "../smooth-scroll";
-import projects, { Project } from "../../data/projects";
-import { cn } from "../../lib/utils";
-
-const ProjectsSection = () => {
+function ProjectsSection() {
   return (
     <section id="projects" className="max-w-7xl mx-auto md:h-[130vh]">
-      <Link href={"#projects"}>
+      <Link href="#projects">
         <h2
           className={cn(
-            "bg-clip-text text-4xl text-center text-transparent md:text-7xl pt-16",
-            "bg-gradient-to-b from-black/80 to-black/50",
-            "dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50 mb-32"
+            'bg-clip-text text-4xl text-center text-transparent md:text-7xl pt-16',
+            'bg-gradient-to-b from-black/80 to-black/50',
+            'dark:bg-gradient-to-b dark:from-white/80 dark:to-white/20 dark:bg-opacity-50 mb-32',
           )}
         >
           Projects
         </h2>
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-3">
-        {projects.map((project) => (
+        {projects.map(project => (
           <Modall key={project.src} project={project} />
         ))}
       </div>
     </section>
-  );
-};
-const Modall = ({ project }: { project: Project }) => {
+  )
+}
+function Modall({ project }: { project: Project }) {
   return (
     <div className="flex items-center justify-center">
       <Modal>
         <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
           <div
             className="relative w-[400px] h-auto rounded-lg overflow-hidden"
-            style={{ aspectRatio: "3/2" }}
+            style={{ aspectRatio: '3/2' }}
           >
             <Image
               className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
@@ -82,11 +83,11 @@ const Modall = ({ project }: { project: Project }) => {
         </ModalBody>
       </Modal>
     </div>
-  );
-};
-export default ProjectsSection;
+  )
+}
+export default ProjectsSection
 
-const ProjectContents = ({ project }: { project: Project }) => {
+function ProjectContents({ project }: { project: Project }) {
   return (
     <>
       <h4 className="text-lg md:text-2xl text-neutral-600 dark:text-neutral-100 font-bold text-center mb-8">
@@ -112,5 +113,5 @@ const ProjectContents = ({ project }: { project: Project }) => {
       </div>
       {project.content}
     </>
-  );
-};
+  )
+}

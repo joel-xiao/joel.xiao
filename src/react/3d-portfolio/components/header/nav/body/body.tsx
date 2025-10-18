@@ -1,22 +1,22 @@
-import { motion } from "framer-motion";
-import Link from "next/link";
-import styles from "./style.module.scss";
-import { blur, translate } from "../../anim";
-import { Link as LinkType } from "../../../../types";
-import { cn } from "../../../../lib/utils";
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import type { Link as LinkType } from '../../../../types'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { cn } from '../../../../lib/utils'
+import { blur, translate } from '../../anim'
+import styles from './style.module.scss'
 
 interface SelectedLink {
-  isActive: boolean;
-  index: number;
+  isActive: boolean
+  index: number
 }
 
 interface BodyProps {
-  links: LinkType[];
-  selectedLink: SelectedLink;
-  setSelectedLink: (selectedLink: SelectedLink) => void;
-  setIsActive: (isActive: boolean) => void;
+  links: LinkType[]
+  selectedLink: SelectedLink
+  setSelectedLink: (selectedLink: SelectedLink) => void
+  setIsActive: (isActive: boolean) => void
 }
 
 export default function Body({
@@ -25,17 +25,18 @@ export default function Body({
   setSelectedLink,
   setIsActive,
 }: BodyProps) {
-  const params = useParams();
-  const [currentHref, setCurrentHref] = useState("/");
+  const params = useParams()
+  const [currentHref, setCurrentHref] = useState('/')
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const { pathname, hash } = window.location;
-    setCurrentHref(pathname + hash);
-  }, [params]);
+    if (typeof window === 'undefined')
+      return
+    const { pathname, hash } = window.location
+    setCurrentHref(pathname + hash)
+  }, [params])
 
   const getChars = (word: string) => {
-    let chars: JSX.Element[] = [];
-    word.split("").forEach((char, i) => {
+    const chars: JSX.Element[] = []
+    word.split('').forEach((char, i) => {
       chars.push(
         <motion.span
           className="pointer-events-none"
@@ -47,16 +48,16 @@ export default function Body({
           key={char + i}
         >
           {char}
-        </motion.span>
-      );
-    });
-    return chars;
-  };
+        </motion.span>,
+      )
+    })
+    return chars
+  }
 
   return (
-    <div className={cn(styles.body, "flex flex-col items-end md:flex-row")}>
+    <div className={cn(styles.body, 'flex flex-col items-end md:flex-row')}>
       {links.map((link, index) => {
-        const { title, href, target } = link;
+        const { title, href, target } = link
 
         return (
           <Link
@@ -67,8 +68,8 @@ export default function Body({
           >
             <motion.p
               className={cn(
-                "rounded-lg",
-                currentHref !== href ? "text-muted-foreground" : "underline"
+                'rounded-lg',
+                currentHref !== href ? 'text-muted-foreground' : 'underline',
               )}
               onClick={() => setIsActive(false)}
               onMouseOver={() => setSelectedLink({ isActive: true, index })}
@@ -76,15 +77,15 @@ export default function Body({
               variants={blur}
               animate={
                 selectedLink.isActive && selectedLink.index !== index
-                  ? "open"
-                  : "closed"
+                  ? 'open'
+                  : 'closed'
               }
             >
               {getChars(title)}
             </motion.p>
           </Link>
-        );
+        )
       })}
     </div>
-  );
+  )
 }

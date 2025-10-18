@@ -1,28 +1,27 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import styles from "./style.module.scss";
-import { height } from "../anim";
-import Body from "./body/body";
-import Footer from "./footer/footer";
-import Image from "./image/image";
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { links } from '../../../components/header/config'
+import { cn } from '../../../lib/utils'
+import { height } from '../anim'
+import Body from './body/body'
 
-import { links } from "../../../components/header/config";
-import { cn } from "../../../lib/utils";
+import Image from './image/image'
+import styles from './style.module.scss'
 
 interface IndexProps {
-  setIsActive: (isActive: boolean) => void;
+  setIsActive: (isActive: boolean) => void
 }
 
 interface SelectedLinkState {
-  isActive: boolean;
-  index: number;
+  isActive: boolean
+  index: number
 }
 
 const Index: React.FC<IndexProps> = ({ setIsActive }) => {
   const [selectedLink, setSelectedLink] = useState<SelectedLinkState>({
     isActive: false,
     index: 0,
-  });
+  })
 
   return (
     <motion.div
@@ -49,7 +48,7 @@ const Index: React.FC<IndexProps> = ({ setIsActive }) => {
         {/* <p>{links[selectedLink.index].thumbnail}</p> */}
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

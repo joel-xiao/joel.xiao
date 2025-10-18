@@ -1,32 +1,33 @@
-"use client";
+'use client'
 
-import { motion, useAnimation, useInView } from "framer-motion";
+import type { ReactNode } from 'react'
 
-import { cn } from "../lib/utils";
-import { ReactNode, useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { cn } from '../lib/utils'
 
 interface BlurIntProps {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
+  children: ReactNode
+  className?: string
+  delay?: number
   variant?: {
-    hidden: { filter: string; opacity: number };
-    visible: { filter: string; opacity: number };
-  };
-  duration?: number;
+    hidden: { filter: string, opacity: number }
+    visible: { filter: string, opacity: number }
+  }
+  duration?: number
 }
-export const BlurIn = ({
+export function BlurIn({
   children,
   className,
   variant,
   delay = 0,
   duration = 1,
-}: BlurIntProps) => {
+}: BlurIntProps) {
   const defaultVariants = {
-    hidden: { filter: "blur(10px)", opacity: 0 },
-    visible: { filter: "blur(0px)", opacity: 1 },
-  };
-  const combinedVariants = variant || defaultVariants;
+    hidden: { filter: 'blur(10px)', opacity: 0 },
+    visible: { filter: 'blur(0px)', opacity: 1 },
+  }
+  const combinedVariants = variant || defaultVariants
 
   return (
     <motion.h1
@@ -35,49 +36,50 @@ export const BlurIn = ({
       transition={{ duration, delay }}
       variants={combinedVariants}
       className={cn(
-        className
+        className,
         // "font-display text-center text-4xl font-bold tracking-[-0.02em] drop-shadow-sm md:text-7xl md:leading-[5rem]"
       )}
     >
       {children}
     </motion.h1>
-  );
-};
+  )
+}
 
 interface BoxRevealProps {
-  children: JSX.Element;
-  width?: "fit-content" | "100%";
-  boxColor?: string;
-  duration?: number;
-  delay?: number;
-  once?: boolean;
+  children: JSX.Element
+  width?: 'fit-content' | '100%'
+  boxColor?: string
+  duration?: number
+  delay?: number
+  once?: boolean
 }
-export const BoxReveal = ({
+export function BoxReveal({
   children,
-  width = "fit-content",
+  width = 'fit-content',
   boxColor,
   duration,
   delay,
   once = true,
-}: BoxRevealProps) => {
-  const mainControls = useAnimation();
-  const slideControls = useAnimation();
+}: BoxRevealProps) {
+  const mainControls = useAnimation()
+  const slideControls = useAnimation()
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once });
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once })
 
   useEffect(() => {
     if (isInView) {
-      slideControls.start("visible");
-      mainControls.start("visible");
-    } else {
-      slideControls.start("hidden");
-      mainControls.start("hidden");
+      slideControls.start('visible')
+      mainControls.start('visible')
     }
-  }, [isInView, mainControls, slideControls]);
+    else {
+      slideControls.start('hidden')
+      mainControls.start('hidden')
+    }
+  }, [isInView, mainControls, slideControls])
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+    <div ref={ref} style={{ position: 'relative', width, overflow: 'hidden' }}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -85,7 +87,7 @@ export const BoxReveal = ({
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: duration ? duration : 0.5, delay }}
+        transition={{ duration: duration || 0.5, delay }}
       >
         {children}
       </motion.div>
@@ -93,25 +95,25 @@ export const BoxReveal = ({
       <motion.div
         variants={{
           hidden: { left: 0 },
-          visible: { left: "100%" },
+          visible: { left: '100%' },
         }}
         initial="hidden"
         animate={slideControls}
         transition={{
-          duration: duration ? duration : 0.5,
-          ease: "easeIn",
+          duration: duration || 0.5,
+          ease: 'easeIn',
           delay,
         }}
         style={{
-          position: "absolute",
+          position: 'absolute',
           top: 4,
           bottom: 4,
           left: 0,
           right: 0,
           zIndex: 20,
-          background: boxColor ? boxColor : "#ffffff00",
+          background: boxColor || '#ffffff00',
         }}
       />
     </div>
-  );
-};
+  )
+}

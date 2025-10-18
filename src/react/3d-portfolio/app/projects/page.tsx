@@ -1,91 +1,91 @@
-"use client";
-import Image from "../../components/ui/image";
-import React from "react";
+'use client'
 // @ts-expect-error: Splide types missing or incompatible with Next.js SSR
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css/core";
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+import React from 'react'
+import Image from '../../components/ui/image'
+import '@splidejs/react-splide/css/core'
 
-import "@splidejs/react-splide/css";
+import '@splidejs/react-splide/css'
 
 const PROJECTS = [
   {
     id: 1,
-    name: "Coding Ducks",
+    name: 'Coding Ducks',
     description: `Dive into CodingDucks, a fusion of CodePen's creative playground with LeetCode's problem-solving realm.
 Whether you're a newbie or a seasoned coder, join the community to paddle through coding adventures and let your
 creativity soar.`,
-    link: "https://www.codingducks.live",
+    link: 'https://www.codingducks.live',
     images: [
-      "/assets/projects-screenshots/codingducks/1.png",
-      "/assets/projects-screenshots/codingducks/2.png",
-      "/assets/projects-screenshots/codingducks/3.png",
-      "/assets/projects-screenshots/codingducks/4.png",
-      "/assets/projects-screenshots/codingducks/5.png",
+      '/assets/projects-screenshots/codingducks/1.png',
+      '/assets/projects-screenshots/codingducks/2.png',
+      '/assets/projects-screenshots/codingducks/3.png',
+      '/assets/projects-screenshots/codingducks/4.png',
+      '/assets/projects-screenshots/codingducks/5.png',
     ],
   },
   {
     id: 2,
-    name: "Ghost Chat",
+    name: 'Ghost Chat',
     description: `GhostChat is an anonymous messaging app that allows users to connect without revealing their identities. 
 Join the community for intriguing conversations and mysterious encounters.`,
-    link: "https://ghostchatt.vercel.app/",
+    link: 'https://ghostchatt.vercel.app/',
     images: [
-      "/assets/projects-screenshots/ghostchat/1.png",
-      "/assets/projects-screenshots/ghostchat/2.png",
-      "/assets/projects-screenshots/ghostchat/3.png",
-      "/assets/projects-screenshots/ghostchat/4.png",
+      '/assets/projects-screenshots/ghostchat/1.png',
+      '/assets/projects-screenshots/ghostchat/2.png',
+      '/assets/projects-screenshots/ghostchat/3.png',
+      '/assets/projects-screenshots/ghostchat/4.png',
     ],
   },
   {
     id: 3,
-    name: "Coupon Luxury",
+    name: 'Coupon Luxury',
     description: `Welcome to CouponLuxury, your destination for exclusive discounts and savings. Explore the platform to find the
 best deals on luxury brands and products. Join our savvy community of shoppers and unlock access to premium coupons.`,
-    link: "https://www.couponluxury.com/",
+    link: 'https://www.couponluxury.com/',
     images: [
-      "/assets/projects-screenshots/couponluxury/1.png",
-      "/assets/projects-screenshots/couponluxury/2.png",
-      "/assets/projects-screenshots/couponluxury/3.png",
-      "/assets/projects-screenshots/couponluxury/4.png",
-      "/assets/projects-screenshots/couponluxury/5.png",
+      '/assets/projects-screenshots/couponluxury/1.png',
+      '/assets/projects-screenshots/couponluxury/2.png',
+      '/assets/projects-screenshots/couponluxury/3.png',
+      '/assets/projects-screenshots/couponluxury/4.png',
+      '/assets/projects-screenshots/couponluxury/5.png',
     ],
   },
   {
     id: 4,
-    name: "JNTUA Results Analyser",
+    name: 'JNTUA Results Analyser',
     description: `the go-to app for JNTUA students, empowering them to analyze, compare, and view classwise results effortlessly.
      Dive into your academic journey with ease, track your progress, and gain valuable insights.`,
-    link: "/projects/4",
-    images: ["/assets/projects-screenshots/jra/1.png"],
+    link: '/projects/4',
+    images: ['/assets/projects-screenshots/jra/1.png'],
   },
-];
+]
 function Page() {
   return (
     <>
       <div className="container mx-auto md:px-[50px] xl:px-[150px] text-zinc-300 h-full">
         <h1 className="text-4xl mt-[100px] mb-[50px]">Projects</h1>
         <ul className="grid  md:grid-cols-2 lg:grid-cols-3 gap-10 place-content-around ">
-          {PROJECTS.map((project) => (
+          {PROJECTS.map(project => (
             <li
               className="w-[300px] h-[400px] border-[.5px] rounded-md border-zinc-600"
               key={project.id}
-              style={{ backdropFilter: "blur(2px)" }}
+              style={{ backdropFilter: 'blur(2px)' }}
             >
               <div className="h-[200px]">
                 <Splide
                   options={{
-                    type: "loop",
+                    type: 'loop',
                     interval: 3000,
                     autoplay: true,
                     speed: 2000,
                     perMove: 1,
                     rewind: true,
-                    easing: "cubic-bezier(0.25, 1, 0.5, 1)",
+                    easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
                     arrows: false,
                   }}
                   aria-label="My Favorite Images"
                 >
-                  {project.images.map((image) => (
+                  {project.images.map(image => (
                     <SplideSlide key={image}>
                       <Image
                         src={image}
@@ -93,7 +93,7 @@ function Page() {
                         className="w-[300px] h-[200px] rounded-md bg-zinc-900 "
                         width={300}
                         height={400}
-                        style={{ height: "200px" }}
+                        style={{ height: '200px' }}
                       />
                     </SplideSlide>
                   ))}
@@ -110,7 +110,7 @@ function Page() {
         </ul>
       </div>
     </>
-  );
+  )
 }
 
-export default Page;
+export default Page

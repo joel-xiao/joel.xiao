@@ -1,25 +1,25 @@
-import { Link } from "@/types";
+import type { Link } from '@/types'
 
 const links: Link[] = [
   {
     title: 'Home',
     href: '/',
-    thumbnail: '/assets/nav-link-previews/landing.png'
+    thumbnail: '/assets/nav-link-previews/landing.png',
   },
   {
     title: 'About',
     href: '/#about',
-    thumbnail: '/assets/nav-link-previews/about.png'
+    thumbnail: '/assets/nav-link-previews/about.png',
   },
   {
     title: 'Skills',
     href: '/#skills',
-    thumbnail: '/assets/nav-link-previews/skills.png'
+    thumbnail: '/assets/nav-link-previews/skills.png',
   },
   {
     title: 'Projects',
     href: '/#projects',
-    thumbnail: '/assets/nav-link-previews/projects.png'
+    thumbnail: '/assets/nav-link-previews/projects.png',
   },
   // {
   //   title: 'Skills',
@@ -39,8 +39,8 @@ const links: Link[] = [
   {
     title: 'Contact',
     href: '/#contact',
-    thumbnail: '/assets/nav-link-previews/contact.png'
-  }
-];
+    thumbnail: '/assets/nav-link-previews/contact.png',
+  },
+]
 
-export { links };
+export { links }

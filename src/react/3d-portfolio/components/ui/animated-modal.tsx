@@ -1,93 +1,97 @@
-"use client";
-import { cn } from "../../lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import React, {
+'use client'
+import type {
   ReactNode,
+} from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import React, {
   createContext,
   useContext,
   useEffect,
   useRef,
   useState,
-} from "react";
-import { ScrollArea } from "./scroll-area";
+} from 'react'
+import { cn } from '../../lib/utils'
+import { ScrollArea } from './scroll-area'
 
 interface ModalContextType {
-  open: boolean;
-  setOpen: (open: boolean) => void;
+  open: boolean
+  setOpen: (open: boolean) => void
 }
 
-const ModalContext = createContext<ModalContextType | undefined>(undefined);
+const ModalContext = createContext<ModalContextType | undefined>(undefined)
 
-export const ModalProvider = ({ children }: { children: ReactNode }) => {
-  const [open, setOpen] = useState(false);
+export function ModalProvider({ children }: { children: ReactNode }) {
+  const [open, setOpen] = useState(false)
 
   return (
     <ModalContext.Provider value={{ open, setOpen }}>
       {children}
     </ModalContext.Provider>
-  );
-};
-
-export const useModal = () => {
-  const context = useContext(ModalContext);
-  if (!context) {
-    throw new Error("useModal must be used within a ModalProvider");
-  }
-  return context;
-};
-
-export function Modal({ children }: { children: ReactNode }) {
-  return <ModalProvider>{children}</ModalProvider>;
+  )
 }
 
-export const ModalTrigger = ({
+export function useModal() {
+  const context = useContext(ModalContext)
+  if (!context) {
+    throw new Error('useModal must be used within a ModalProvider')
+  }
+  return context
+}
+
+export function Modal({ children }: { children: ReactNode }) {
+  return <ModalProvider>{children}</ModalProvider>
+}
+
+export function ModalTrigger({
   children,
   className,
 }: {
-  children: ReactNode;
-  className?: string;
-}) => {
-  const { setOpen } = useModal();
+  children: ReactNode
+  className?: string
+}) {
+  const { setOpen } = useModal()
   return (
     <button
       className={cn(
-        "px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden",
-        className
+        'px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden',
+        className,
       )}
       onClick={() => setOpen(true)}
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export const ModalBody = ({
+export function ModalBody({
   children,
   className,
 }: {
-  children: ReactNode;
-  className?: string;
-}) => {
-  const { open, setOpen } = useModal();
+  children: ReactNode
+  className?: string
+}) {
+  const { open, setOpen } = useModal()
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      document.addEventListener("keydown", (e) => {
-        const { setOpen } = useModal();
-        if (e.key === "Escape") setOpen(false);
-      });
+    if (typeof window !== 'undefined') {
+      document.addEventListener('keydown', (e) => {
+        const { setOpen } = useModal()
+        if (e.key === 'Escape')
+          setOpen(false)
+      })
     }
-  }, [setOpen]);
+  }, [setOpen])
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'hidden'
     }
-  }, [open]);
+    else {
+      document.body.style.overflow = 'auto'
+    }
+  }, [open])
 
-  const modalRef = useRef(null);
-  useOutsideClick(modalRef, () => setOpen(false));
+  const modalRef = useRef(null)
+  useOutsideClick(modalRef, () => setOpen(false))
 
   return (
     <AnimatePresence>
@@ -98,11 +102,11 @@ export const ModalBody = ({
           }}
           animate={{
             opacity: 1,
-            backdropFilter: "blur(10px)",
+            backdropFilter: 'blur(10px)',
           }}
           exit={{
             opacity: 0,
-            backdropFilter: "blur(0px)",
+            backdropFilter: 'blur(0px)',
           }}
           className="modall fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full  flex items-center justify-center z-50"
         >
@@ -111,8 +115,8 @@ export const ModalBody = ({
           <motion.div
             ref={modalRef}
             className={cn(
-              "min-h-[50%] max-h-[90%] md:max-w-[40%] bg-white dark:bg-neutral-950 border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden",
-              className
+              'min-h-[50%] max-h-[90%] md:max-w-[40%] bg-white dark:bg-neutral-950 border border-transparent dark:border-neutral-800 md:rounded-2xl relative z-50 flex flex-col flex-1 overflow-hidden',
+              className,
             )}
             initial={{
               opacity: 0,
@@ -132,7 +136,7 @@ export const ModalBody = ({
               rotateX: 10,
             }}
             transition={{
-              type: "spring",
+              type: 'spring',
               stiffness: 260,
               damping: 15,
             }}
@@ -145,44 +149,44 @@ export const ModalBody = ({
         </motion.div>
       )}
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export const ModalContent = ({
+export function ModalContent({
   children,
   className,
 }: {
-  children: ReactNode;
-  className?: string;
-}) => {
+  children: ReactNode
+  className?: string
+}) {
   return (
-    <div className={cn("flex flex-col flex-1 p-3 md:p-10", className)}>
+    <div className={cn('flex flex-col flex-1 p-3 md:p-10', className)}>
       {children}
     </div>
-  );
-};
+  )
+}
 
-export const ModalFooter = ({
+export function ModalFooter({
   children,
   className,
 }: {
-  children: ReactNode;
-  className?: string;
-}) => {
+  children: ReactNode
+  className?: string
+}) {
   return (
     <div
       className={cn(
-        "flex justify-end p-4 bg-gray-100 dark:bg-neutral-900",
-        className
+        'flex justify-end p-4 bg-gray-100 dark:bg-neutral-900',
+        className,
       )}
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
-const Overlay = ({ className }: { className?: string }) => {
-  const { setOpen } = useModal();
+function Overlay({ className }: { className?: string }) {
+  const { setOpen } = useModal()
   return (
     <motion.div
       initial={{
@@ -190,20 +194,21 @@ const Overlay = ({ className }: { className?: string }) => {
       }}
       animate={{
         opacity: 1,
-        backdropFilter: "blur(10px)",
+        backdropFilter: 'blur(10px)',
       }}
       exit={{
         opacity: 0,
-        backdropFilter: "blur(0px)",
+        backdropFilter: 'blur(0px)',
       }}
       className={`modal-overlay fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 ${className}`}
       onClick={() => setOpen(false)}
-    ></motion.div>
-  );
-};
+    >
+    </motion.div>
+  )
+}
 
-const CloseIcon = () => {
-  const { setOpen } = useModal();
+function CloseIcon() {
+  const { setOpen } = useModal()
   return (
     <button
       onClick={() => setOpen(false)}
@@ -226,37 +231,34 @@ const CloseIcon = () => {
         <path d="M6 6l12 12" />
       </svg>
     </button>
-  );
-};
+  )
+}
 
 // Hook to detect clicks outside of a component.
 // Add it in a separate file, I've added here for simplicity
-export const useOutsideClick = (
-  ref: React.RefObject<HTMLDivElement>,
-  callback: (event: any) => void
-) => {
+export function useOutsideClick(ref: React.RefObject<HTMLDivElement>, callback: (event: any) => void) {
   useEffect(() => {
     const listener = (
-      event: any
+      event: any,
       //  React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>
     ) => {
       // DO NOTHING if the element being clicked is the target element or their children
       if (
-        !ref.current ||
-        ref.current.contains(event.target) ||
-        !event.target.classList.contains("no-click-outside")
+        !ref.current
+        || ref.current.contains(event.target)
+        || !event.target.classList.contains('no-click-outside')
       ) {
-        return;
+        return
       }
-      callback(event);
-    };
+      callback(event)
+    }
 
-    document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
+    document.addEventListener('mousedown', listener)
+    document.addEventListener('touchstart', listener)
 
     return () => {
-      document.removeEventListener("mousedown", listener);
-      document.removeEventListener("touchstart", listener);
-    };
-  }, [ref, callback]);
-};
+      document.removeEventListener('mousedown', listener)
+      document.removeEventListener('touchstart', listener)
+    }
+  }, [ref, callback])
+}

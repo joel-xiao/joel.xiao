@@ -1,4 +1,3 @@
-
 interface ImageProps {
   src: string
   alt: string
@@ -18,7 +17,7 @@ export default function Image({ src, alt, width, height, className, style }: Ima
       className={className}
       loading="lazy" // 懒加载
       style={{
-        objectFit: "cover",
+        objectFit: 'cover',
         ...style,
       }}
     />
