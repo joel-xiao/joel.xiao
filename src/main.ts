@@ -7,10 +7,11 @@ import { ViteSSG } from 'vite-ssg'
 import { setupRouterScroller } from 'vue-router-better-scroller'
 import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
+import TestReactPlugin from './react/react-vue-plugin'
+
 import '@unocss/reset/tailwind.css'
 
 import 'floating-vue/dist/style.css'
-
 import 'markdown-it-github-alerts/styles/github-colors-light.css'
 import 'markdown-it-github-alerts/styles/github-colors-dark-class.css'
 import 'markdown-it-github-alerts/styles/github-base.css'
@@ -19,6 +20,7 @@ import 'shiki-magic-move/style.css'
 import './styles/main.css'
 import './styles/prose.css'
 import './styles/markdown.css'
+
 import 'uno.css'
 
 export const createApp = ViteSSG(
@@ -28,7 +30,7 @@ export const createApp = ViteSSG(
   },
   ({ router, app, isClient }) => {
     dayjs.extend(LocalizedFormat)
-
+    app.use(TestReactPlugin)
     app.use(FloatingVue)
     app.use(createPinia())
 

@@ -3,6 +3,7 @@ import { basename, dirname, resolve } from 'node:path'
 import MarkdownItShiki from '@shikijs/markdown-it'
 import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
+import React from '@vitejs/plugin-react'
 import Vue from '@vitejs/plugin-vue'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
@@ -56,7 +57,7 @@ export default defineConfig({
         if (!path)
           return
 
-        if (!path.includes('projects.md') && path.endsWith('.md')) {
+        if (!path.includes('projects.md') && !path.includes('books.md') && path.endsWith('.md')) {
           const { data } = matter(fs.readFileSync(path, 'utf-8'))
           route.addToMeta({
             frontmatter: data,
@@ -67,6 +68,11 @@ export default defineConfig({
 
     Vue({
       include: [/\.vue$/, /\.md$/],
+    }),
+
+    React({
+      include: [/src\/react\/.*\.(tsx|jsx)$/],
+      exclude: [/\.md$/],
     }),
 
     Markdown({
