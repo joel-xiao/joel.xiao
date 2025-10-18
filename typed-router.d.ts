@@ -22,6 +22,7 @@ declare module 'vue-router/auto-routes' {
     '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
     '/bar': RouteRecordInfo<'/bar', '/bar', Record<never, never>, Record<never, never>>,
     '/bookmarks': RouteRecordInfo<'/bookmarks', '/bookmarks', Record<never, never>, Record<never, never>>,
+    '/books': RouteRecordInfo<'/books', '/books', Record<never, never>, Record<never, never>>,
     '/chat': RouteRecordInfo<'/chat', '/chat', Record<never, never>, Record<never, never>>,
     '/chat-zh': RouteRecordInfo<'/chat-zh', '/chat-zh', Record<never, never>, Record<never, never>>,
     '/collective-sponsor-onetime': RouteRecordInfo<'/collective-sponsor-onetime', '/collective-sponsor-onetime', Record<never, never>, Record<never, never>>,
@@ -29,6 +30,9 @@ declare module 'vue-router/auto-routes' {
     '/giving-talks': RouteRecordInfo<'/giving-talks', '/giving-talks', Record<never, never>, Record<never, never>>,
     '/media': RouteRecordInfo<'/media', '/media', Record<never, never>, Record<never, never>>,
     '/notes': RouteRecordInfo<'/notes', '/notes', Record<never, never>, Record<never, never>>,
+    '/old_index': RouteRecordInfo<'/old_index', '/old_index', Record<never, never>, Record<never, never>>,
+    '/old_index_v2': RouteRecordInfo<'/old_index_v2', '/old_index_v2', Record<never, never>, Record<never, never>>,
+    '/old_index_v3': RouteRecordInfo<'/old_index_v3', '/old_index_v3', Record<never, never>, Record<never, never>>,
     '/photos': RouteRecordInfo<'/photos', '/photos', Record<never, never>, Record<never, never>>,
     '/podcasts': RouteRecordInfo<'/podcasts', '/podcasts', Record<never, never>, Record<never, never>>,
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
@@ -150,6 +154,10 @@ declare module 'vue-router/auto-routes' {
       routes: '/bookmarks'
       views: never
     }
+    'pages/books.md': {
+      routes: '/books'
+      views: never
+    }
     'pages/chat.md': {
       routes: '/chat'
       views: never
@@ -176,6 +184,18 @@ declare module 'vue-router/auto-routes' {
     }
     'pages/notes.md': {
       routes: '/notes'
+      views: never
+    }
+    'pages/old_index.md': {
+      routes: '/old_index'
+      views: never
+    }
+    'pages/old_index_v2.md': {
+      routes: '/old_index_v2'
+      views: never
+    }
+    'pages/old_index_v3.md': {
+      routes: '/old_index_v3'
       views: never
     }
     'pages/photos.md': {
