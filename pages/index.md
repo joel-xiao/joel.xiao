@@ -45,5 +45,4 @@ Or mail me at <span font-mono>xiao2731962667<span i-carbon-at/>.163.com</span>
 
 ## <!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
 
-<TestReact title="Manual Import Works Too!" />
 <SponsorButtons />
