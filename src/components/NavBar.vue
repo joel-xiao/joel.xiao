@@ -12,6 +12,7 @@ const { y: scroll } = useWindowScroll()
 <template>
   <header class="header z-40">
     <RouterLink
+      style="z-index: 2;"
       class="w-12 h-12 absolute xl:fixed m-5 select-none outline-none"
       to="/"
       focusable="false"
@@ -30,6 +31,10 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
+        <RouterLink to="/3d-portfolio" title="3D Portfolio">
+          <span class="lt-md:hidden">3D Portfolio</span>
+          <div i-ri-lightbulb-line class="md:hidden" />
+        </RouterLink>
         <!-- <RouterLink to="/posts" title="Blog"> -->
         <!--   <span class="lt-md:hidden">Blog</span> -->
         <!--   <div i-ri-article-line md:hidden /> -->
@@ -77,6 +82,9 @@ const { y: scroll } = useWindowScroll()
 </template>
 
 <style scoped>
+.header {
+  height: 88px;
+}
 .header h1 {
   margin-bottom: 0;
 }
@@ -88,11 +96,13 @@ const { y: scroll } = useWindowScroll()
 }
 
 .nav {
+  position: fixed;
   padding: 2rem;
   width: 100%;
   display: grid;
   grid-template-columns: auto max-content;
   box-sizing: border-box;
+  z-index: 1;
 }
 
 .nav > * {
