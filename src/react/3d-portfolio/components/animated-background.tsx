@@ -592,17 +592,32 @@ function AnimatedBackground() {
     }
     return { start, stop }
   }
+
+  const splineWrapperRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!splineWrapperRef.current)
+      return
+    gsap.to(splineWrapperRef.current, {
+      opacity: isLoading ? 0 : 1,
+      duration: 1,
+      ease: 'power2.out',
+    })
+  }, [isLoading])
+
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
-        <Spline
-          ref={splineContainer}
-          onLoad={(app: Application) => {
-            setSplineApp(app)
-            bypassLoading()
-          }}
-          scene="/assets/skills-keyboard.spline"
-        />
+        <div ref={splineWrapperRef} style={{ opacity: 0 }}>
+          <Spline
+            ref={splineContainer}
+            onLoad={(app: Application) => {
+              setSplineApp(app)
+              bypassLoading()
+            }}
+            scene="/assets/skills-keyboard.spline"
+          />
+        </div>
       </Suspense>
     </>
   )

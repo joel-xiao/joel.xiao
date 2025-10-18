@@ -11,7 +11,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import Loader from './loader'
+// import Loader from './loader'
 
 interface PreloaderContextType {
   isLoading: boolean
@@ -71,7 +71,7 @@ function Preloader({ children, disabled: _disabled = false }: PreloaderProps) {
     <preloaderContext.Provider
       value={{ isLoading, bypassLoading, loadingPercent }}
     >
-      <AnimatePresence mode="wait">{isLoading && <Loader />}</AnimatePresence>
+      {/* <AnimatePresence mode="wait">{isLoading && <Loader />}</AnimatePresence> */}
       {children}
     </preloaderContext.Provider>
   )
