@@ -9,7 +9,7 @@ Hi! I’m **Joel Xiao**, a full-stack frontend engineer based in **Beijing** wit
 
 I love transforming technical challenges into practical tools that enhance productivity — from Vue 2→3 migrations to AI-powered data visualization editors. Along the way, I’ve created projects like [Visualization Editor](https://visual-studio-one.vercel.app/) and maintained open-source tools such as `SVG Topology Editor` and `Cross-Platform SDK`.
 
-When I’m not coding, I share insights on [my blog](https://blog.csdn.net/XLL20001022), solve problems on [LeetCode](https://leetcode.cn/u/xiaowenlong1022/), and experiment with new open-source projects on [GitHub](https://github.com/joel-xiao). I’m always open to technical discussions and collaborations.
+When I’m not coding, I share insights on [my blog](https://blog.csdn.net/XLL20001022), solve problems on [LeetCode](https://leetcode.cn/u/xiaowenlong1022/), and experiment with new open-source [projects](/projects) on [GitHub](https://github.com/joel-xiao). I’m always open to technical discussions and collaborations.
 
 ---
 
