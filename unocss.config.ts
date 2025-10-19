@@ -51,4 +51,14 @@ export default defineConfig({
   safelist: [
     'i-ri-menu-2-fill',
   ],
+
+  content: {
+    pipeline: {
+      exclude: [
+        // /\.vite-ssg-temp/,
+        // /\.output/,
+        // /src\/react\/3d-portfolio/,
+      ],
+    },
+  },
 })

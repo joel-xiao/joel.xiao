@@ -13,8 +13,9 @@ import { usePreloader } from './preloader'
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'))
 // import { useRouter } from "next/navigation";
-
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 const STATES = {
   hero: {
