@@ -607,7 +607,7 @@ function AnimatedBackground() {
 
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div></div>}>
         <div ref={splineWrapperRef} style={{ opacity: 0 }}>
           <Spline
             ref={splineContainer}
