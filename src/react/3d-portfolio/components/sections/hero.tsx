@@ -21,6 +21,7 @@ function HeroSection() {
     <section id="hero" className={cn('relative w-full h-screen')}>
       <div className="grid md:grid-cols-2">
         <div
+          style={{ transform: 'translateY(-110px)' }}
           className={cn(
             'h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]',
             'col-span-1',
