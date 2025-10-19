@@ -14,7 +14,7 @@ function slug(name: string) {
     <div class="prose pb5 mx-auto mt10 text-center">
       <div flex="~ gap-2 justify-center">
         <a
-          href="https://github.com/antfu"
+          href="https://github.com/joel-xiap"
           target="_blank"
           class="group btn-blue inline-block"
         >
@@ -24,28 +24,28 @@ function slug(name: string) {
           />
           GitHub
         </a>
-        <a
-          href="https://releases.antfu.me"
-          target="_blank"
-          class="group btn-amber inline-block"
-        >
-          <div
-            i-ph-rocket-launch-duotone
-            group-hover="i-ph-rocket-launch-fill text-amber"
-          />
-          Recent Releases
-        </a>
-        <a
-          href="https://yak.antfu.me"
-          target="_blank"
-          class="group btn-lime inline-block"
-        >
-          <div
-            i-ph-cow-duotone
-            group-hover="i-ph-cow-duotone-fill text-lime"
-          />
-          Yak Map
-        </a>
+        <!-- <a -->
+        <!--   href="https://releases.antfu.me" -->
+        <!--   target="_blank" -->
+        <!--   class="group btn-amber inline-block" -->
+        <!-- > -->
+        <!--   <div -->
+        <!--     i-ph-rocket-launch-duotone -->
+        <!--     group-hover="i-ph-rocket-launch-fill text-amber" -->
+        <!--   /> -->
+        <!--   Recent Releases -->
+        <!-- </a> -->
+        <!-- <a -->
+        <!--   href="https://yak.antfu.me" -->
+        <!--   target="_blank" -->
+        <!--   class="group btn-lime inline-block" -->
+        <!-- > -->
+        <!--   <div -->
+        <!--     i-ph-cow-duotone -->
+        <!--     group-hover="i-ph-cow-duotone-fill text-lime" -->
+        <!--   /> -->
+        <!--   Yak Map -->
+        <!-- </a> -->
       </div>
       <hr>
     </div>

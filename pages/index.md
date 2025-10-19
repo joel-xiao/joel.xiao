@@ -5,21 +5,19 @@ image: https://antfu.me/og.png
 art: random
 ---
 
-Hey! I’m Joel Xiao, a full-stack frontend engineer with 6 years of experience and an open-source contributor.
+Hey! I’m **Joel Xiao**, a full-stack frontend engineer with 6 years of experience and an open-source contributor.
 
-Working at `SOHU`、`China Bidding Co., Ltd.`、`Shenzhou Lingyun (Beijing) Technology Co., Ltd. (2021.04-Present)`<br>
-Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)<br>
-Practitioner of `Vue` 、`React` 、`Node.js` 、`TypeScript`<br>
-Cross-Platform Development (`uni-app`、`Tauri`)<br>
-Maintaining `SVG Topology Editor` 、`Cross-Platform SDK` 、`Data Visualization Engine` 、`Performance Monitoring System`
+I’ve worked at `SOHU`, `China Bidding Co., Ltd.`, and `Shenzhou Lingyun (Beijing) Technology Co., Ltd.` (2021.04–Present).
+Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)
+Practitioner of `Vue`, `React`, `Node.js`, and `TypeScript`
+Experienced in cross-platform development (`uni-app`, `Tauri`)
+Maintainer of `SVG Topology Editor`, `Cross-Platform SDK`, `Data Visualization Engine`, and `Performance Monitoring System`
 
-I focus on turning technical solutions into practical tools that boost productivity, including Vue2→Vue3 upgrades, cross-platform tools (~70% code reuse), and data visualization editors. You can see my [projects](/projects).
+I focus on transforming technical ideas into practical tools that enhance productivity — including Vue 2→3 migrations, cross-platform solutions (with ~70% code reuse), and data visualization editors. You can check out my [projects](/projects).
 
-I share insights via [technical blogs](https://blog.csdn.net/XLL20001022), occasionally post on [LeetCode](https://leetcode.cn/u/xiaowenlong1022/), and contribute to Vue3 open-source projects. Demos are on [GitHub](https://github.com/joel-xiao).
+I’m currently working full-time as a software engineer. In my spare time, I share insights through [technical blogs](https://blog.csdn.net/XLL20001022), post coding solutions on [LeetCode](https://leetcode.cn/u/xiaowenlong1022/), and contribute to Vue 3 open-source projects. My demos and experiments are available on [GitHub](https://github.com/joel-xiao).
 
-Outside of coding, I explore frontend tech, refine system design ideas, and focus on tech-business integration, balancing elegance with practical needs.
-
-Based in `Beijing` — open to technical exchanges and collaborations.
+Based in `Beijing` — open to technical discussions and collaborations.
 
 ---
 
