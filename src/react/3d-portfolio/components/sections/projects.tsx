@@ -40,7 +40,7 @@ function ProjectsSection() {
 }
 function Modall({ project }: { project: Project }) {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center w-[400px]">
       <Modal>
         <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
           <div
