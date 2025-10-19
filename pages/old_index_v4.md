@@ -5,11 +5,19 @@ image: https://antfu.me/og.png
 art: random
 ---
 
-Hi! I’m **Joel Xiao**, a full-stack frontend engineer based in **Beijing** with 6 years of experience building high-performance web applications and cross-platform SDKs. I’ve had the opportunity to contribute to `SOHU`, `China Bidding Co., Ltd.`, and `Shenzhou Lingyun`, leading frontend architecture, creating dashboards, topology editors, and cross-platform solutions that bring complex ideas to life.
+Hey! I’m **Joel Xiao**, a full-stack frontend engineer with 6 years of experience and an open-source contributor.
 
-I love transforming technical challenges into practical tools that enhance productivity — from Vue 2→3 migrations to AI-powered data visualization editors. Along the way, I’ve created projects like [Visualization Editor](https://visual-studio-one.vercel.app/) and maintained open-source tools such as `SVG Topology Editor` and `Cross-Platform SDK`.
+I’ve worked at `SOHU`, `China Bidding Co., Ltd.`, and `Shenzhou Lingyun (Beijing) Technology Co., Ltd.` (2021.04–Present).
+Creator of [Visualization Editor](https://visual-studio-one.vercel.app/)
+Practitioner of `Vue`, `React`, `Node.js`, and `TypeScript`
+Experienced in cross-platform development (`uni-app`, `Tauri`)
+Maintainer of `SVG Topology Editor`, `Cross-Platform SDK`, `Data Visualization Engine`, and `Performance Monitoring System`
 
-When I’m not coding, I share insights on [my blog](https://blog.csdn.net/XLL20001022), solve problems on [LeetCode](https://leetcode.cn/u/xiaowenlong1022/), and experiment with new open-source projects on [GitHub](https://github.com/joel-xiao). I’m always open to technical discussions and collaborations.
+I focus on transforming technical ideas into practical tools that enhance productivity — including Vue 2→3 migrations, cross-platform solutions (with ~70% code reuse), and data visualization editors. You can check out my [projects](/projects).
+
+I’m currently working full-time as a software engineer. In my spare time, I share insights through [technical blogs](https://blog.csdn.net/XLL20001022), post coding solutions on [LeetCode](https://leetcode.cn/u/xiaowenlong1022/), and contribute to Vue 3 open-source projects. My demos and experiments are available on [GitHub](https://github.com/joel-xiao).
+
+Based in `Beijing` — open to technical discussions and collaborations.
 
 ---
 
@@ -33,6 +41,6 @@ Or mail me at <span font-mono>xiao2731962667<span i-carbon-at/>.163.com</span>
 <!-- <span op50>(</span> Inactive on <span flex="~ inline gap-2 wrap"><a href="https://elk.zone/m.webtoo.ls/@antfu" target="_blank"><span op75 i-simple-icons-mastodon/> Mastodon</a> <a href="https://x.com/antfu7" target="_blank"><span op75 i-ri-twitter-x-fill /> Twitter</a> -->
 <!-- <a href="https://www.zhihu.com/people/antfu" target="_blank"><span op75 i-simple-icons-zhihu /> 知乎</a> -->
 
-<!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
+## <!-- <a href="https://weibo.com/u/7485197193" target="_blank"><span op75 i-simple-icons-sinaweibo /> 微博</a></span> <span op50>)</span> -->
 
 <SponsorButtons />

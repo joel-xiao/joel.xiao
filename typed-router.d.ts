@@ -34,6 +34,7 @@ declare module 'vue-router/auto-routes' {
     '/old_index': RouteRecordInfo<'/old_index', '/old_index', Record<never, never>, Record<never, never>>,
     '/old_index_v2': RouteRecordInfo<'/old_index_v2', '/old_index_v2', Record<never, never>, Record<never, never>>,
     '/old_index_v3': RouteRecordInfo<'/old_index_v3', '/old_index_v3', Record<never, never>, Record<never, never>>,
+    '/old_index_v4': RouteRecordInfo<'/old_index_v4', '/old_index_v4', Record<never, never>, Record<never, never>>,
     '/photos': RouteRecordInfo<'/photos', '/photos', Record<never, never>, Record<never, never>>,
     '/podcasts': RouteRecordInfo<'/podcasts', '/podcasts', Record<never, never>, Record<never, never>>,
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
@@ -201,6 +202,10 @@ declare module 'vue-router/auto-routes' {
     }
     'pages/old_index_v3.md': {
       routes: '/old_index_v3'
+      views: never
+    }
+    'pages/old_index_v4.md': {
+      routes: '/old_index_v4'
       views: never
     }
     'pages/photos.md': {
