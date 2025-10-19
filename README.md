@@ -1,4 +1,4 @@
-**[Joel Xiao](https://joel-xiao.vercel.app/)**
+**[joel.xiao](https://joel-xiao.vercel.app/)**
 
 my personal website
 
