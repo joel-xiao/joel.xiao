@@ -32,7 +32,7 @@ export default {
   setup() {
     provide(InjectKeyUser, {
       id: '117', // type error: should be number
-      name: 'Anthony',
+      name: 'Joel',
     })
   },
 }
@@ -48,7 +48,7 @@ export default {
     const user = inject(InjectKeyUser) // UserInfo | undefined
 
     if (user)
-      console.log(user.name) // Anthony
+      console.log(user.name) // Joel
   },
 }
 ```
