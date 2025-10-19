@@ -3,6 +3,7 @@ import Particles from '../components/Particles'
 import Preloader from '../components/preloader'
 import RemoteCursors from '../components/realtime/remote-cursors'
 import { ThemeProvider } from '../components/theme-provider'
+import ElasticCursor from '../components/ui/ElasticCursor'
 import { Toaster } from '../components/ui/toaster'
 import { TooltipProvider } from '../components/ui/tooltip'
 import SocketContextProvider from '../contexts/socketio'
@@ -14,7 +15,7 @@ export default function RootLayout({
   children?: React.ReactNode
 }) {
   return (
-    <div className="font-archivo-black">
+    <div className="react-portfolio-3d">
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
@@ -33,7 +34,7 @@ export default function RootLayout({
           </SocketContextProvider>
           <Toaster />
           <EasterEggs />
-          {/* <ElasticCursor /> */}
+          <ElasticCursor />
         </Preloader>
       </ThemeProvider>
     </div>

@@ -19,9 +19,8 @@ function HeroSection() {
 
   return (
     <section id="hero" className={cn('relative w-full h-screen')}>
-      <div className="grid md:grid-cols-2">
+      <div className="grid md:grid-cols-2" style={{ transform: 'translateY(-60px)' }}>
         <div
-          style={{ transform: 'translateY(-110px)' }}
           className={cn(
             'h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]',
             'col-span-1',
@@ -46,24 +45,21 @@ function HeroSection() {
                 <BlurIn delay={1}>
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
-                      <div>
-                        <h1
-                          className={cn(
-                            'font-thin text-6xl text-transparent text-slate-800 ml-1 text-left',
-                            'cursor-default text-edge-outline font-display sm:text-7xl md:text-9xl ',
-                          )}
-                        >
-                          {config.author}
-                          {/* {config.author.split(" ")[0]} */}
-                          {/* <br className="md:block hiidden" /> */}
-                          {/* {config.author.split(" ")[1]} */}
-                          {/* PLEASE hello?? */}
-                          {/**/}
-                          {/* <br className="md:block hiidden" /> */}
-                          {/* UNMUTE ME 😢😢 */}
-                        </h1>
-
-                      </div>
+                      <h1
+                        className={cn(
+                          'font-thin text-6xl text-transparent text-slate-800 ml-1 text-left',
+                          'cursor-default text-edge-outline font-display sm:text-7xl md:text-8xl ',
+                        )}
+                      >
+                        {config.author}
+                        {/* {config.author.split(" ")[0]} */}
+                        {/* <br className="md:block hiidden" /> */}
+                        {/* {config.author.split(" ")[1]} */}
+                        {/* PLEASE hello?? */}
+                        {/**/}
+                        {/* <br className="md:block hiidden" /> */}
+                        {/* UNMUTE ME 😢😢 */}
+                      </h1>
                     </TooltipTrigger>
                     <TooltipContent
                       side="top"

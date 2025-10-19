@@ -55,9 +55,7 @@ export default defineConfig({
   content: {
     pipeline: {
       exclude: [
-        // /\.vite-ssg-temp/,
-        // /\.output/,
-        // /src\/react\/3d-portfolio/,
+        /src\/react\/3d-portfolio/,
       ],
     },
   },
