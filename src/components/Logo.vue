@@ -1,65 +1,231 @@
-<!-- 字体转换: https://text-to-svg.com/allura-font-to-svg -->
+<script setup>
+// 可在这里添加 props 控制 logo 尺寸或颜色
+</script>
+
 <template>
-  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <title>Joel Xiao @ joel.xiao</title>
-    <mask id="mask0_634_3" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="24" y="7" width="50" height="87">
+  <div class="logo" style="transform: scale(8) translate(-4px, -3px); transform-origin: top left;">
+    <svg
+      viewBox="0 0 400 150"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full max-w-2xl h-auto text-gray-900 dark:text-gray-100"
+    >
+      <title>Joel Xiao 肖文龙</title>
       <path
-        d="M73.7892 9.12595C69.3501 1.20478 61.8262 17.7197 60.2461 21.1572C56.9356 28.6299 55.2305 35.5788 53.5 43.5C51.5438 41.4076 48.5048 36.8913 47 34.5C46 32.5 44.178 33.3348 45.2582 35.5C44.2048 33.7065 44 31 40.4582 28.8541C31.3543 28.0321 23.7209 43.6536 25 51.5C28.5029 62.7044 40 53 42.8659 47.9845C42.5649 50.8241 42.5649 54.7847 45.424 56.1298C48.5 57 49.8631 54.9342 51.8194 52.9913C50.6908 64.7236 49.2612 76.9042 53.1737 88.4123C54.9794 94.9884 61.3747 96.6324 62.0519 88.5618C62.9547 78.5482 60.4719 68.7589 57.4623 59.3431C56.6347 56.6529 55.5 54.5 54.6886 51.7956C54.6886 48 55.6585 50.6972 57.0861 52.244C58.7413 54.0375 64.309 59.3431 66.5 59.5C65 57.5 64.5348 56.8771 64.309 56.6529C61.9014 53.6638 59.0423 50.8989 56.4842 47.9845C61.6757 40.5117 66.7167 32.3663 70.1777 23.7726C71.6825 19.3637 74.8425 13.7591 73.7892 9.12595ZM43.3926 40.8853C41.7373 45.4437 39.7811 48.956 35.9439 52.0945C26.1502 60.1051 25.1428 47.741 28.6457 41.8568C33.16 32.4411 42.7154 24.0715 43.3926 40.8853ZM52.5 49C51.2962 50.7187 49.5314 53.3274 47.5 54C45.8447 54.4484 45.3488 53.2902 45.0478 51.7956C44.145 46.8636 45.725 42.0063 46.4021 37.2237C48.0574 40.3622 50.119 42.8614 52 46C52.3762 46.822 53.0267 48.1033 52.5 49ZM55.1299 56.1298C58.3652 65.9192 60.5471 76.1569 59.6442 86.3947C58.7413 95.362 55.8823 88.8607 54.7537 84.3023C52.4213 74.2887 53 63.5 54.227 53.8133C54.528 54.5606 54.9042 55.6067 55.1299 56.1298ZM71.4568 11.1436C69.8767 21.755 62.0519 36.7006 55.4308 45.0701C56.7851 38.0457 58.7413 31.2454 61.45 24.5946C61.6757 23.2495 71.6072 3.52135 71.4568 11.1436Z"
-        fill="white"
+        class="signature-path-1"
+        d="M 40 85 Q 35 60 35 50 Q 35 30 40 25 C 42 23 45 25 45 30 Q 45 50 42 70 Q 40 85 38 100 Q 36 115 32 120"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
       />
-    </mask>
-    <g mask="url(#mask0_634_3)">
+      <circle class="signature-path-2" cx="40" cy="15" r="3" fill="currentColor" />
       <path
-        class="path1"
-        d="M43.8252 39.3048C43.5 29 38 27 31 35.5C16.9959 58.4158 35 61 42.5 46C44.4559 42.5 45.5001 37 45.5001 37C44.8789 42.2731 43.8252 45.9801 43.8252 50C43.8252 56.6285 48 57.9 54.5 48.4C60.5 40.9 68.5 27.5 72 15.5C74.4792 7 70.5 4.5 64 16.5C55 31.5 50.7595 59 52.3 78C53.8038 96.5469 63 97.5 61 79.5C59.5082 66.0734 52 42.5 45.5001 33C48 38.5 57 52 65.5 58.5"
-        stroke="black" stroke-width="2.5" stroke-linecap="round"
+        class="signature-path-3"
+        d="M 65 55 Q 55 45 55 50 Q 55 65 65 70 Q 75 70 80 65 Q 80 50 70 45 Q 65 45 65 55"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
       />
-    </g>
-  </svg>
+      <path
+        class="signature-path-4"
+        d="M 95 55 L 115 55 Q 115 45 105 45 Q 95 45 95 55 Q 95 70 105 70 Q 112 70 115 68"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+      <path
+        class="signature-path-5"
+        d="M 130 25 L 130 70 Q 130 75 135 75"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+      <path
+        class="signature-path-6"
+        d="M 135 75 Q 150 80 165 75"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+        opacity="0.7"
+      />
+      <path
+        class="signature-path-7"
+        d="M 170 45 Q 185 55 200 70 Q 210 80 215 85"
+        stroke="currentColor"
+        stroke-width="3.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+      <path
+        class="signature-path-8"
+        d="M 215 45 Q 205 55 190 70 Q 180 80 175 85"
+        stroke="currentColor"
+        stroke-width="3.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+      <path
+        class="signature-path-9"
+        d="M 230 50 L 230 75"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+      <circle class="signature-path-10" cx="230" cy="42" r="2.5" fill="currentColor" />
+      <path
+        class="signature-path-11"
+        d="M 265 50 Q 250 50 245 60 Q 245 70 255 73 Q 265 73 268 68 L 268 50 L 268 75"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+      <path
+        class="signature-path-12"
+        d="M 285 55 Q 275 50 275 57 Q 275 68 285 73 Q 295 73 298 68 Q 298 57 290 50 Q 285 50 285 55"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+      <path
+        class="signature-path-13"
+        d="M 25 95 Q 100 88 200 92 Q 280 95 315 90"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+        opacity="0.6"
+      />
+    </svg>
+  </div>
 </template>
 
 <style scoped>
 @media (prefers-reduced-motion) {
-  .path1 {
+  [class^='signature-path-'] {
     animation: none !important;
     stroke-dasharray: unset !important;
   }
 }
 @media print {
-  .path1 {
+  [class^='signature-path-'] {
     animation: none !important;
     stroke-dasharray: unset !important;
   }
 }
-@keyframes grow {
+
+@keyframes signature-draw {
   0% {
     stroke-dashoffset: 1px;
-    stroke-dasharray: 0 350px;
+    stroke-dasharray: 0 500px;
     opacity: 0;
   }
   10% {
     opacity: 1;
   }
-  40% {
-    stroke-dasharray: 350px 0;
+  50% {
+    stroke-dasharray: 500px 0;
   }
-  85% {
-    stroke-dasharray: 350px 0;
+  90% {
+    stroke-dasharray: 500px 0;
+    opacity: 1;
   }
-  95%,
-  to {
-    stroke-dasharray: 0 350px;
+  100% {
+    stroke-dasharray: 0 500px;
+    opacity: 0;
   }
 }
-.path1 {
-  stroke-dashoffset: 1px;
-  stroke-dasharray: 350px 0;
-  animation: grow 10s ease forwards infinite;
-  transform-origin: center;
-  stroke: #303030;
+
+@keyframes signature-dot {
+  0%,
+  10% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  15% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.signature-path-1 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
   animation-delay: 0s;
 }
-.dark .path1 {
-  stroke: #fdfdfd;
+.signature-path-2 {
+  animation: signature-dot 8s ease-in-out forwards infinite;
+  animation-delay: 0.3s;
+  transform-origin: center;
+}
+.signature-path-3 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 0.4s;
+}
+.signature-path-4 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 0.7s;
+}
+.signature-path-5 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 1s;
+}
+.signature-path-6 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 1.2s;
+}
+.signature-path-7 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 1.4s;
+}
+.signature-path-8 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 1.7s;
+}
+.signature-path-9 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 2s;
+}
+.signature-path-10 {
+  animation: signature-dot 8s ease-in-out forwards infinite;
+  animation-delay: 2.1s;
+  transform-origin: center;
+}
+.signature-path-11 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 2.3s;
+}
+.signature-path-12 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 2.6s;
+}
+.signature-path-13 {
+  animation: signature-draw 8s ease-in-out forwards infinite;
+  animation-delay: 3s;
 }
 </style>
