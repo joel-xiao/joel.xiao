@@ -30,7 +30,7 @@ function ProjectsSection() {
           Projects
         </h2>
       </Link>
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid sm:grid-cols-1 md:grid-cols-3">
         {projects.map(project => (
           <Modall key={project.src} project={project} />
         ))}
@@ -40,7 +40,7 @@ function ProjectsSection() {
 }
 function Modall({ project }: { project: Project }) {
   return (
-    <div className="flex items-center justify-center w-[400px]">
+    <div className="flex items-center justify-center">
       <Modal>
         <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
           <div
