@@ -1,14 +1,14 @@
 /* eslint-disable no-console */
 'use client'
 import React, { useEffect } from 'react'
-import { useDevToolsOpen } from '../hooks/use-devtools-open'
+// import { useDevToolsOpen } from '../hooks/use-devtools-open'
 import NyanCat from './nyan-cat'
 
 function EasterEggs() {
-  const { isDevToolsOpen } = useDevToolsOpen()
+  // const { isDevToolsOpen } = useDevToolsOpen()
   useEffect(() => {
-    if (!isDevToolsOpen)
-      return
+    // if (!isDevToolsOpen)
+    //   return
     if (typeof console !== 'undefined') {
       console.log(
         '%cWhoa, look at you! 🕵️‍♂️\n'
@@ -45,7 +45,8 @@ function EasterEggs() {
         })
       })
     }
-  }, [isDevToolsOpen])
+  }, [])
+  // }, [isDevToolsOpen])
 
   return (
     <>

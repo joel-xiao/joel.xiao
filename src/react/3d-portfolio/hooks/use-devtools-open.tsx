@@ -1,4 +1,4 @@
-import devtoolsDetector from 'devtools-detector'
+import { addListener, launch, stop } from 'devtools-detector'
 import { useEffect, useState } from 'react'
 
 export function useDevToolsOpen() {
@@ -7,8 +7,6 @@ export function useDevToolsOpen() {
   useEffect(() => {
     if (typeof window === 'undefined')
       return
-
-    const { addListener, launch, stop } = devtoolsDetector
 
     addListener((isOpen) => {
       if (isOpen) {
