@@ -95,7 +95,7 @@ function slug(name: string) {
     </div>
     <div class="prose pb5 mx-auto mt10 text-center">
       <div block mt-5>
-        <a href="https://antfu.me/stars-rank" target="_blank" op50>All projects sort by Stars</a>
+        <a href="https://github.com/search?l=&o=desc&s=stars&type=Repositories&q=user%3Ajoel-xiao" target="_blank" op50>All projects sort by Stars</a>
       </div>
       <hr>
       <SponsorButtons />
