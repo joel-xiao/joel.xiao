@@ -800,8 +800,8 @@ const projects: Project[] = [
     id: 'my-db',
     category: 'Visualization Editor',
     title: 'Visualization Editor',
-    src: '/assets/projects-screenshots/my-db/landing.jpg',
-    screenshots: ['landing.jpg'],
+    src: '/assets/projects-screenshots/my-db/my-db-editor.jpg',
+    screenshots: ['my-db-editor.jpg'],
     live: 'https://visual-studio-one.vercel.app',
     github: 'https://github.com/joel-xiao/visual-studio',
     skills: {
