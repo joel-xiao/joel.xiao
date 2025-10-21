@@ -785,8 +785,8 @@ const projects: Project[] = [
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/portfolio/projects.png`,
-              `${BASE_PATH}/portfolio/project.png`,
+              `${BASE_PATH}/portfolio/projects.jpg`,
+              `${BASE_PATH}/portfolio/project.jpg`,
             ]}
           />
           <p className="font-mono mb-2 mt-8 text-center">
