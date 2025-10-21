@@ -455,7 +455,7 @@ const projects: Project[] = [
   {
     id: 'pmone',
     category: 'PMone platform',
-    title: 'PMone - Performance Management One',
+    title: 'PMone — Performance Management One',
     src: '/assets/projects-screenshots/pmone/landing.png',
     screenshots: ['landing.png'],
     skills: {
