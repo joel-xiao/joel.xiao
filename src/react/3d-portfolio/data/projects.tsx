@@ -622,7 +622,7 @@ const projects: Project[] = [
 
           <SlideShow
             images={[
-              `${BASE_PATH}/pmone/pm-host.mg`,
+              `${BASE_PATH}/pmone/pm-host.png`,
             ]}
           />
 
