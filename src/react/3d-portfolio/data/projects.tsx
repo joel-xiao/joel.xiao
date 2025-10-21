@@ -1,23 +1,34 @@
 import type { ReactNode } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
+import { DiJava, DiRust } from 'react-icons/di'
 import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from 'react-icons/ri'
 import {
+  SiApachekafka,
+  SiCanvas,
   SiChakraui,
+  SiClickhouse,
   SiDocker,
+  SiElasticsearch,
   SiExpress,
   SiFirebase,
   SiJavascript,
+  SiJquery,
   SiMongodb,
+  SiOracle,
   SiPostgresql,
   SiPrisma,
   SiPython,
   SiReactquery,
+  SiRedis,
   SiSanity,
   SiShadcnui,
   SiSocketdotio,
   SiSupabase,
+  SiSvg,
+  SiSwift,
   SiTailwindcss,
+  SiTauri,
   SiThreedotjs,
   SiTypescript,
   SiVuedotjs,
@@ -175,6 +186,24 @@ const PROJECT_SKILLS = {
     fg: 'white',
     icon: <SiJavascript />,
   },
+  canvas: {
+    title: 'Canvas',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiCanvas />,
+  },
+  svg: {
+    title: 'Svg',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiSvg />,
+  },
+  jquery: {
+    title: 'jQuery',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiJquery />,
+  },
   ts: {
     title: 'TypeScript',
     bg: 'black',
@@ -223,6 +252,60 @@ const PROJECT_SKILLS = {
     fg: 'white',
     icon: <SiSupabase />,
   },
+  rust: {
+    title: 'Rust',
+    bg: 'black',
+    fg: 'white',
+    icon: <DiRust />,
+  },
+  java: {
+    title: 'Java',
+    bg: 'black',
+    fg: 'white',
+    icon: <DiJava />,
+  },
+  kafka: {
+    title: 'Kafka',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiApachekafka />,
+  },
+  redis: {
+    title: 'Redis',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiRedis />,
+  },
+  elasticsearch: {
+    title: 'Elasticsearch',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiElasticsearch />,
+  },
+  swift: {
+    title: 'Swift',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiSwift />,
+  },
+  oracle: {
+    title: 'Oracle',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiOracle />,
+  },
+  clickhouse: {
+    title: 'Clickhouse',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiClickhouse />,
+  },
+  tauri: {
+    title: 'Tauri',
+    bg: 'black',
+    fg: 'white',
+    icon: <SiTauri />,
+  },
 }
 export interface Project {
   id: string
@@ -237,259 +320,415 @@ export interface Project {
 }
 const projects: Project[] = [
   {
-    id: 'codingducks',
-    category: 'Coding platform',
-    title: 'Coding Ducks',
-    src: '/assets/projects-screenshots/codingducks/landing.png',
+    id: 'pmone-db',
+    category: 'PMone platform',
+    title: 'Low-Code Large Screen Editor',
+    src: '/assets/projects-screenshots/pmone-db/landing.png',
     screenshots: ['landing.png'],
     skills: {
       frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.chakra,
-        PROJECT_SKILLS.reactQuery,
-        PROJECT_SKILLS.firebase,
-      ],
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.prisma,
-        PROJECT_SKILLS.python,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.sockerio,
-      ],
-    },
-    live: 'https://www.codingducks.xyz/',
-    github: 'https://github.com/Naresh-Khatri/Coding-Ducks',
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono text-2xl text-center">
-            Coding ducks = LeetCode + CodePen + CSS Battles
-          </TypographyP>
-          <TypographyP className="font-mono ">
-            Coding Ducks is your coding dojo — where you level up your skills,
-            battle in real-time code duels, and earn badges like a true code
-            warrior. Track your progress, flex your brain, and climb the
-            leaderboard. Ready to quack the code?
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Problems </TypographyH3>
-          <p className="font-mono mb-2">
-            Solve coding problems similar to LeetCode, enhancing your
-            problem-solving skills across various languages.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/problems.png`,
-              `${BASE_PATH}/codingducks/problem.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Ducklets</TypographyH3>
-          <p className="font-mono mb-2">
-            Collaborate in real-time with others in a multiplayer coding
-            environment, just like CodePen but with a social twist.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/ducklets.png`,
-              `${BASE_PATH}/codingducks/ducklet1.png`,
-              `${BASE_PATH}/codingducks/ducklet2.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">UI Battles </TypographyH3>
-
-          <p className="font-mono mb-2">
-            Challenge yourself to create UI components with HTML/CSS/JS, and get
-            instant feedback with an automated similarity scoring.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/css-battles.png`,
-              `${BASE_PATH}/codingducks/css-battle.png`,
-              `${BASE_PATH}/codingducks/css-battle2.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Contests </TypographyH3>
-          <p className="font-mono mb-2">
-            Organize or participate in coding competitions. Successfully used to
-            host three contests during college.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/contests.png`]} />
-          <TypographyH3 className="my-4 mt-8">Playground </TypographyH3>
-          <p className="font-mono mb-2">
-            Test and execute your code instantly in my versatile online code
-            runner.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/playground.png`]} />
-          <TypographyH3 className="my-4 mt-8">Users</TypographyH3>
-
-          <p className="font-mono mb-2">
-            Track your progress, earn badges, and climb the rankings with
-            detailed user profiles and activity tracking.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/users.png`,
-              `${BASE_PATH}/codingducks/user.png`,
-            ]}
-          />
-        </div>
-      )
-    },
-  },
-  {
-    id: 'couponluxury',
-    category: 'Coupon site',
-    title: 'Coupon Luxury',
-    src: '/assets/projects-screenshots/couponluxury/landing.png',
-    screenshots: ['1.png', '2.png', '3.png', '4.png', '5.png'],
-    live: 'https://www.couponluxury.com/',
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.js,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.chakra,
         PROJECT_SKILLS.vue,
       ],
       backend: [
         PROJECT_SKILLS.node,
         PROJECT_SKILLS.express,
-        PROJECT_SKILLS.prisma,
         PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.docker,
       ],
     },
-    get content(): JSX.Element {
+    live: 'https://demo.dclingcloud.com:10443',
+    github: '',
+    get content() {
       return (
         <div>
-          <TypographyP className="font-mono ">
-            CouponLuxury is your go-to destination for snagging the best deals
-            without lifting a finger. Whether you&apos;re hunting for the latest
-            discounts or trying to save a buck at your favorite stores,
-            CouponLuxury&apos;s got you covered.
+          <TypographyP className="font-mono">
+            A low-code platform for building interactive data dashboards.
+            Design, configure, and deploy enterprise-grade visualizations — all in your browser,
+            without writing complex code.
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <p className="font-mono mb-2 mt-4">
-            As soon as you land, boom! You&apos;re greeted with the freshest
-            coupons and top-tier deals that&apos;ll make your wallet happy.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/couponluxury/landing.png`]} />
-          <TypographyH3 className="my-4 ">Stores</TypographyH3>
-          <p className="font-mono mb-2">
-            Dive into a comprehensive list of stores, each packed with exclusive
-            deals and discounts. It&apos;s like having a VIP pass to every sale
-            in town.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/couponluxury/stores.png`,
-              `${BASE_PATH}/couponluxury/store.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Categories</TypographyH3>
 
+          <ProjectsLinks live={this.live} repo={this.github} />
+
+          <TypographyH3 className="my-4 mt-8">🎨 Dataview Editor</TypographyH3>
           <p className="font-mono mb-2">
-            Whatever you&apos;re into—fashion, tech, food—you&apos;ll find it
-            neatly organized here. No more endless scrolling; just pick a
-            category and get the best offers instantly.
+            The visual editing workspace where you design and configure dataviews
+            with drag-and-drop components, real-time preview, and data binding.
+            Empower developers and analysts to build rich interfaces efficiently.
           </p>
-          <SlideShow images={[`${BASE_PATH}/couponluxury/categories.png`]} />
-          <TypographyH3 className="my-4 mt-8">Custom CMS </TypographyH3>
-          <p className="font-mono mb-2">
-            Powered by Vue.js, this bad boy allows us to keep the content
-            dynamic and up-to-date. From flash sales to limited-time offers, my
-            CMS ensures everything&apos;s live and relevant.
-          </p>
+
           <SlideShow
             images={[
-              `${BASE_PATH}/couponluxury/cms-1.png`,
-              `${BASE_PATH}/couponluxury/cms-2.png`,
+              `${BASE_PATH}/pmone-db/landing.png`,
+              `${BASE_PATH}/pmone-db/db-editor.jpg`,
+              `${BASE_PATH}/pmone-db/db-editor-2.jpg`,
+              `${BASE_PATH}/pmone-db/db-editor-3.jpg`,
+              `${BASE_PATH}/pmone-db/db-editor-4.jpg`,
+              `${BASE_PATH}/pmone-db/db-editor-5.jpg`,
+              `${BASE_PATH}/pmone-db/db-editor-6.jpg`,
             ]}
           />
-          <p className="font-mono mb-2 mt-5">
-            Plus, I&apos;ve sprinkled in some extra magic like personalized
-            deal recommendations, user-friendly search features, and a sleek,
-            responsive design that works like a charm on any device.
-          </p>
+
+          <TypographyH3 className="my-4 mt-8">Dataview Showcase</TypographyH3>
           <p className="font-mono mb-2">
-            CouponLuxury isn&apos;t just a website; it&apos;s your personal deal-hunting
-            assistant, ensuring you never miss out on a bargain!
+            Real-world data dataviews created with the editor — from enterprise
+            monitoring centers to smart city visualizations.
+            Each screen demonstrates the platform’s flexibility, scalability,
+            and high-performance rendering.
           </p>
-          {/* <TypographyP className="my-4 mt-8">
-          <strong>Misc:</strong>
-          Hosted not one, not two, but THREE coding contests (Codemacha) during
-          college. Safe to say, Coding Ducks passed the vibe check.
-        </TypographyP>
-        <TypographyP className="my-4 mt-8">
-          <strong>Target Audience:</strong>
-          For all the novice coders out there ready to make their mark.
-        </TypographyP> */}
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone-db/db-screen.png`,
+              `${BASE_PATH}/pmone-db/db-screen-2.png`,
+              `${BASE_PATH}/pmone-db/db-screen-3.png`,
+              `${BASE_PATH}/pmone-db/db-screen-4.png`,
+              `${BASE_PATH}/pmone-db/db-screen-5.png`,
+              `${BASE_PATH}/pmone-db/db-screen-6.png`,
+              `${BASE_PATH}/pmone-db/db-screen-7.png`,
+              `${BASE_PATH}/pmone-db/db-screen-8.png`,
+              `${BASE_PATH}/pmone-db/db-screen-9.png`,
+              `${BASE_PATH}/pmone-db/db-screen-10.png`,
+              `${BASE_PATH}/pmone-db/db-screen-11.png`,
+              `${BASE_PATH}/pmone-db/db-screen-12.png`,
+              `${BASE_PATH}/pmone-db/db-screen-13.png`,
+              `${BASE_PATH}/pmone-db/db-screen-14.png`,
+              `${BASE_PATH}/pmone-db/db-screen-15.png`,
+              `${BASE_PATH}/pmone-db/db-screen-16.png`,
+              `${BASE_PATH}/pmone-db/db-screen-17.png`,
+              `${BASE_PATH}/pmone-db/db-screen-18.png`,
+              `${BASE_PATH}/pmone-db/db-screen-19.png`,
+              `${BASE_PATH}/pmone-db/db-screen-20.png`,
+              `${BASE_PATH}/pmone-db/db-screen.jpg`,
+              `${BASE_PATH}/pmone-db/db-screen-2.jpg`,
+              `${BASE_PATH}/pmone-db/db-screen-3.jpg`,
+              `${BASE_PATH}/pmone-db/db-screen-4.jpg`,
+              `${BASE_PATH}/pmone-db/db-screen-5.jpg`,
+              `${BASE_PATH}/pmone-db/db-screen-6.jpg`,
+            ]}
+          />
         </div>
       )
     },
   },
   {
-    id: 'the-booking-desk',
-    category: 'Travel',
-    title: 'The Booking Desk',
-    src: '/assets/projects-screenshots/the-booking-desk/landing.png',
-    screenshots: ['1.png'],
-    live: 'https://thebookingdesk.com/',
+    id: 'pmone-report',
+    category: 'PMone platform',
+    title: 'Low-Code Report Editor',
+    src: '/assets/projects-screenshots/pmone-report/landing.png',
+    screenshots: ['landing.png'],
     skills: {
       frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.aceternity,
-        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.vue,
       ],
-      backend: [PROJECT_SKILLS.sanity],
+      backend: [
+        PROJECT_SKILLS.node,
+        PROJECT_SKILLS.express,
+        PROJECT_SKILLS.elasticsearch,
+        PROJECT_SKILLS.postgres,
+      ],
+    },
+    live: 'https://demo.dclingcloud.com:10443',
+    github: '',
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            A low-code report editor that lets users quickly create and customize reports through an intuitive visual interface. The backend automatically generates reports and sends them via email on a schedule, enabling automated data distribution.
+          </TypographyP>
+
+          <ProjectsLinks live={this.live} repo={this.github} />
+
+          <TypographyH3 className="my-4 mt-8">🎨 Report Editor</TypographyH3>
+          <p className="font-mono mb-2">
+            Users can design reports visually, configure automated email delivery, and ensure timely access to important data. This improves workflow efficiency and reduces manual effort.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone-report/landing.png`,
+              `${BASE_PATH}/pmone-report/report-editor.jpg`,
+            ]}
+          />
+        </div>
+      )
+    },
+  },
+  {
+    id: 'pmone',
+    category: 'PMone platform',
+    title: 'PMone',
+    src: '/assets/projects-screenshots/pmone/landing.png',
+    screenshots: ['landing.png'],
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.js,
+        PROJECT_SKILLS.jquery,
+        PROJECT_SKILLS.vue,
+        PROJECT_SKILLS.canvas,
+        PROJECT_SKILLS.svg,
+        PROJECT_SKILLS.swift,
+      ],
+      backend: [
+        PROJECT_SKILLS.node,
+        PROJECT_SKILLS.express,
+        PROJECT_SKILLS.rust,
+        PROJECT_SKILLS.java,
+        PROJECT_SKILLS.oracle,
+        PROJECT_SKILLS.clickhouse,
+        PROJECT_SKILLS.postgres,
+        PROJECT_SKILLS.elasticsearch,
+        PROJECT_SKILLS.kafka,
+        PROJECT_SKILLS.docker,
+      ],
+    },
+    live: 'https://demo.dclingcloud.com:10443',
+    github: '',
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            The PMone Monitoring Platform is a comprehensive, full-stack monitoring solution designed to provide enterprises with real-time insights into their systems, applications, and business processes. It enables operations, development, and business teams to proactively detect performance bottlenecks, understand user behavior, and ensure the stability and reliability of critical services.
+          </TypographyP>
+
+          <ProjectsLinks live={this.live} repo={this.github} />
+
+          <TypographyH3 className="my-4 mt-8">🎨 Server Monitoring</TypographyH3>
+          <p className="font-mono mb-2">
+            The Server Monitoring module gives operations teams a complete view of server health, including CPU, memory, disk, and network usage. It tracks service calls and interface performance to identify latency or errors, analyzes SQL queries for database optimization, monitors individual application instances, and captures program exceptions. By including external service monitoring, teams can also ensure that third-party dependencies do not disrupt business continuity, allowing issues to be resolved before they impact users.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-server.jpg`,
+              `${BASE_PATH}/pmone/pm-server-2.jpg`,
+              `${BASE_PATH}/pmone/pm-server-3.jpg`,
+              `${BASE_PATH}/pmone/pm-server-4.jpg`,
+              `${BASE_PATH}/pmone/pm-server-5.jpg`,
+              `${BASE_PATH}/pmone/pm-server-6.jpg`,
+              `${BASE_PATH}/pmone/pm-server-7.jpg`,
+              `${BASE_PATH}/pmone/pm-server-8.jpg`,
+              `${BASE_PATH}/pmone/pm-server-9.png`,
+              `${BASE_PATH}/pmone/pm-server-10.png`,
+              `${BASE_PATH}/pmone/pm-server-12.png`,
+              `${BASE_PATH}/pmone/pm-server-13.jpg`,
+              `${BASE_PATH}/pmone/pm-server-14.png`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨 Web Monitoring</TypographyH3>
+          <p className="font-mono mb-2">
+            The Web Monitoring module helps front-end and operations teams understand website performance and user behavior in detail. It provides an overall performance overview, page load and rendering analysis, and tracks interface requests and errors. Detailed logs allow teams to pinpoint problems, while JavaScript error monitoring ensures smoother user experiences. Additional features like regional and browser analytics, user tracking, and operation analysis help optimize user flows, improve conversion rates, and make informed design improvements.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-web.jpg`,
+              `${BASE_PATH}/pmone/pm-web-2.jpg`,
+              `${BASE_PATH}/pmone/pm-web-3.jpg`,
+              `${BASE_PATH}/pmone/pm-web-4.jpg`,
+              `${BASE_PATH}/pmone/pm-web-5.jpg`,
+              `${BASE_PATH}/pmone/pm-web-6.jpg`,
+              `${BASE_PATH}/pmone/pm-web-7.jpg`,
+              `${BASE_PATH}/pmone/pm-web-8.jpg`,
+              `${BASE_PATH}/pmone/pm-web-9.jpg`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨 APP Monitoring</TypographyH3>
+          <p className="font-mono mb-2">
+            For mobile applications, the APP Monitoring module provides visibility into both Android and iOS apps, enabling teams to track performance and user activity in real-world conditions. It monitors interface calls, network performance, crashes, lag, and startup speed, ensuring that applications remain responsive and stable. Page analytics, user tracking, regional analysis, and version comparisons support precise optimization, while crash and lag detection allow developers to quickly identify and fix issues that might affect the user experience.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-app.jpg`,
+              `${BASE_PATH}/pmone/pm-app-2.jpg`,
+              `${BASE_PATH}/pmone/pm-app-3.jpg`,
+              `${BASE_PATH}/pmone/pm-app-4.jpg`,
+            ]}
+          />
+          <TypographyH3 className="my-4 mt-8">🎨 Business Analysis</TypographyH3>
+          <p className="font-mono mb-2">
+            The Business Analysis module enables companies to monitor key business metrics and processes in real time, supporting management and operations teams in making data-driven decisions. By tracking critical business indicators, quickly retrieving business logs, and focusing on core business groups, the platform helps detect anomalies, optimize processes, and uncover opportunities for growth.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-business.jpg`,
+              `${BASE_PATH}/pmone/pm-business-2.jpg`,
+              `${BASE_PATH}/pmone/pm-business-3.jpg`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨 User Profiling Analysis</TypographyH3>
+          <p className="font-mono mb-2">
+            The User Profiling Analysis module provides valuable insights into user behavior, helping product, marketing, and operations teams make informed decisions. It analyzes overall user activity, tracks geographic distribution via IP statistics, and highlights high-value VIP users, providing actionable insights for retention strategies, targeted campaigns, and user experience optimization.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-user.jpg`,
+              `${BASE_PATH}/pmone/pm-user-2.jpg`,
+              `${BASE_PATH}/pmone/pm-user-3.jpg`,
+              `${BASE_PATH}/pmone/pm-user-4.jpg`,
+              `${BASE_PATH}/pmone/pm-user-5.png`,
+              `${BASE_PATH}/pmone/pm-user-6.png`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨  Service Topology</TypographyH3>
+          <p className="font-mono mb-2">
+            The Service Topology module visually maps the relationships and dependencies between services, enabling rapid diagnosis of system bottlenecks and potential failure points. By analyzing service calls and request chains, operations and development teams can quickly locate problematic nodes and improve system architecture reliability.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-topo-v2.png`,
+              `${BASE_PATH}/pmone/pm-topo-v2-2.png`,
+              `${BASE_PATH}/pmone/pm-topo-v2-3.png`,
+              `${BASE_PATH}/pmone/pm-topo-v2-4.png`,
+              `${BASE_PATH}/pmone/pm-topo-v2-5.png`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨 Middleware Monitoring</TypographyH3>
+          <p className="font-mono mb-2">
+            The Middleware Monitoring module ensures databases and message queues remain reliable and performant. It monitors relational and NoSQL databases, as well as messaging systems like Kafka, RabbitMQ, ActiveMQ, and MSMQ, helping teams detect bottlenecks, prevent data loss, and maintain smooth business operations.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-mid.jpg`,
+              `${BASE_PATH}/pmone/pm-mid-2.jpg`,
+              `${BASE_PATH}/pmone/pm-mid-3.jpg`,
+              `${BASE_PATH}/pmone/pm-mid-4.jpg`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨 Kubernetes Monitoring,</TypographyH3>
+          <p className="font-mono mb-2">
+            With Kubernetes Monitoring, teams gain full visibility into clusters and containerized applications. The module tracks cluster health, namespace resource allocation, node and container load, and individual pod performance, allowing teams to detect anomalies quickly and optimize resource scheduling for cloud-native environments.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-k8s.jpg`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨  Host Monitoring</TypographyH3>
+          <p className="font-mono mb-2">
+            The Host Monitoring module keeps track of physical and virtual machines, monitoring critical metrics such as CPU, memory, disk, and network usage. This ensures infrastructure stability and enables proactive resource scaling to avoid performance degradation.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-host.mg`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨 Alarm Monitoring</TypographyH3>
+          <p className="font-mono mb-2">
+            The Alarm Monitoring module automatically triggers alerts based on predefined thresholds and notifies responsible personnel immediately. By managing alert strategies, tracking exceptions, and analyzing historical alarm data, teams can reduce response times and ensure continuous business operations.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-alarm.jpg`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">🎨 Config Center</TypographyH3>
+          <p className="font-mono mb-2">
+            Finally, the Config Center serves as a unified hub for managing system parameters, business models, permissions, and alert strategies. It supports multi-tenant management, cross-system configurations, data push and email notifications, page permissions, SQL monitoring rules, and AI-driven workflows. This centralized management allows businesses to quickly adapt to changing requirements, streamline operations, and improve system reliability across servers, web, and mobile platforms.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/pmone/pm-config.jpg`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">&</TypographyH3>
+          <p className="font-mono mb-2">
+            Overall, PMone offers a holistic approach to monitoring, enabling organizations to maintain performance, improve user experience, and make intelligent, data-driven decisions across
+          </p>
+        </div>
+      )
+    },
+  },
+  {
+    id: 'ngnpm',
+    category: 'Network Performance Monitoring',
+    title: 'NGNPM — Intelligent Network Performance Platform',
+    src: '/assets/projects-screenshots/ngnpm/landing.jpg',
+    screenshots: ['landing.jpg'],
+    live: '',
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.vue,
+        PROJECT_SKILLS.canvas,
+        PROJECT_SKILLS.svg,
+      ],
+      backend: [
+        PROJECT_SKILLS.java,
+        PROJECT_SKILLS.postgres,
+        PROJECT_SKILLS.clickhouse,
+        PROJECT_SKILLS.kafka,
+        PROJECT_SKILLS.docker,
+      ],
     },
     get content() {
       return (
         <div>
           <TypographyP className="font-mono ">
-            The Booking Desk is your ultimate travel consultation hub, designed
-            to turn your wanderlust dreams into reality. With a focus on smooth
-            and visually captivating animations, navigating the site feels like
-            a breeze—it&apos;s almost as if the destinations are calling you.
+            Traffic Analytics
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <p className="font-mono mb-2 mt-8">
-            A sleek, modern interface greets you, featuring the latest travel
-            tips, deals, and must-visit spots around the globe.
+            NGNPM (Next-Generation Network Performance Monitor) is a full-featured network performance management platform.
+            It provides real-time traffic visualization, topology editing, and intelligent probe configuration to help engineers analyze, diagnose, and optimize complex network environments efficiently.
           </p>
-          <SlideShow images={[`${BASE_PATH}/the-booking-desk/landing.png`]} />
-          <TypographyH3 className="my-4 mt-8">Blogs</TypographyH3>
+          <SlideShow images={[
+            `${BASE_PATH}/ngnpm/landing.jpg`,
+            `${BASE_PATH}/ngnpm/ngpm.jpg`,
+            `${BASE_PATH}/ngnpm/ngpm-2.jpg`,
+          ]}
+          />
+          <TypographyH3 className="my-4 mt-8">Custom Workbench</TypographyH3>
           <p className="font-mono mb-2">
-            Dive into the curated articles written by travel experts. Whether
-            you&apos;re looking for hidden gems or travel hacks, our blog section has
-            you covered.
+            The customizable workbench allows users to configure and save personalized dashboards.
+            Each panel can display metrics, charts, or logs — enabling real-time monitoring and rapid access to key network insights.
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/the-booking-desk/blogs.png`,
-              `${BASE_PATH}/the-booking-desk/blog.png`,
+              `${BASE_PATH}/ngnpm/ngpm-work.jpg`,
             ]}
           />
-          <TypographyH3 className="my-4 mt-8">Sanity CMS</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Network Topology Editor</TypographyH3>
 
           <p className="font-mono mb-2">
-            Keeping everything fresh and up-to-date, I&apos;ve integrated Sanity CMS
-            to manage all the content with ease, ensuring you always get the
-            latest and greatest information.
+            An interactive topology editor built with Canvas and SVG, allowing users to visualize, design, and modify network structures intuitively.
+            It supports drag-and-drop nodes, live data overlays, and automatic layout algorithms.
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/the-booking-desk/cms-1.png`,
-              `${BASE_PATH}/the-booking-desk/cms-2.png`,
+              `${BASE_PATH}/ngnpm/ngpm-topo-editor.jpg`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">Probe Configuration</TypographyH3>
+
+          <p className="font-mono mb-2">
+            Integrated probe management enables users to deploy, configure, and monitor network probes.
+            The system automatically collects and aggregates metrics to measure latency, packet loss, and throughput across network nodes.
+          </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/ngnpm/ngpm-probe.jpg`,
             ]}
           />
           <p className="font-mono mb-2 my-8">
-            With a stunning 100% score on Lighthouse, The Booking Desk isn&apos;t
-            just beautiful—it&apos;s built to perform. Whether you&apos;re planning your
-            next adventure or just daydreaming, our site delivers a top-notch
-            experience that&apos;s both informative and enjoyable.
+            NGNPM combines high-performance backend services (Java, Kafka, ClickHouse, PostgreSQL) with a modern Vue-based frontend to deliver a responsive, scalable, and data-driven monitoring experience for enterprise networks.
           </p>
         </div>
       )
@@ -499,10 +738,10 @@ const projects: Project[] = [
     id: 'portfolio',
     category: 'Portfolio',
     title: 'My Portfolio',
-    src: '/assets/projects-screenshots/portfolio/landing.png',
+    src: '/assets/projects-screenshots/portfolio/landing.jpg',
     screenshots: ['1.png'],
-    live: 'http://nareshkhatri.vercel.app',
-    github: 'https://github.com/Naresh-Khatri/Portfolio',
+    live: '/3d-portfolio',
+    github: 'https://github.com/joel-xiao/joel.xiao',
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
@@ -535,15 +774,10 @@ const projects: Project[] = [
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/portfolio/landing.png`,
-              `${BASE_PATH}/portfolio/skills.png`,
+              `${BASE_PATH}/portfolio/landing.jpg`,
+              `${BASE_PATH}/portfolio/skills.jpg`,
             ]}
           />
-          <TypographyH3 className="my-4 ">Space Theme</TypographyH3>
-          <p className="font-mono mb-2">
-            Dark background + floating particles = out-of-this-world cool.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/portfolio/navbar.png`]} />
           <TypographyH3 className="my-4 mt-8">Projects</TypographyH3>
 
           <p className="font-mono mb-2">
@@ -563,144 +797,67 @@ const projects: Project[] = [
     },
   },
   {
-    id: 'ghostchat',
-    category: 'Anonymous chat',
-    title: 'GhostChat',
-    src: '/assets/projects-screenshots/ghostchat/1.png',
-    screenshots: ['1.png', '2.png', '3.png', '4.png'],
-    live: 'https://ghostchat.vercel.app',
-    github: 'https://github.com/Naresh-Khatri/GhostChat',
+    id: 'my-db',
+    category: 'Visualization Editor',
+    title: 'Visualization Editor',
+    src: '/assets/projects-screenshots/my-db/landing.jpg',
+    screenshots: ['landing.jpg'],
+    live: 'https://visual-studio-one.vercel.app',
+    github: 'https://github.com/joel-xiao/visual-studio',
     skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra],
-      backend: [PROJECT_SKILLS.supabase],
+      frontend: [
+        PROJECT_SKILLS.ts,
+        PROJECT_SKILLS.vue,
+        PROJECT_SKILLS.tauri,
+        PROJECT_SKILLS.rust,
+      ],
+      backend: [],
     },
     get content() {
       return (
         <div>
           <TypographyP className="font-mono ">
-            Ghostchat is your go-to spot for sending anonymous messages without
-            leaving a trace. Powered by Supabase, it&apos;s all about keeping things
-            low-key and secure. Whether you&apos;re sharing secrets, giving feedback,
-            or just having some fun, Ghostchat ensures your identity stays
-            hidden, while your voice is heard. Say what you want, without the
-            worry.
+            The Visualization Editor is an open-source desktop application built with Vue, TypeScript, and Tauri (powered by Rust).
+            It provides an elegant and efficient environment for building data-driven dashboards and interactive visualizations without
+            requiring deep programming experience.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <SlideShow
+            images={
+              [`${BASE_PATH}/my-db/landing.jpg`,
+              ]
+            }
+          />
+
+          <TypographyH3 className="my-4 mt-8">
+            Visualization Editor
+          </TypographyH3>
+          <p className="font-mono mb-2 mt-8 text-center">
+            The core of the project is the visual editing workspace — a drag-and-drop interface that lets users design layouts,
+            adjust component styles, and preview changes in real time. It combines flexibility and structure, giving developers
+            and designers an intuitive way to build visual dashboards and customize them freely without coding.
+          </p>
+          <SlideShow
             images={[
-              `${BASE_PATH}/ghostchat/1.png`,
-              `${BASE_PATH}/ghostchat/2.png`,
-              `${BASE_PATH}/ghostchat/3.png`,
-              `${BASE_PATH}/ghostchat/4.png`,
+              `${BASE_PATH}/my-db/my-db-editor.jpg`,
+              `${BASE_PATH}/my-db/my-db-editor-2.jpg`,
             ]}
           />
-        </div>
-      )
-    },
-  },
-  {
-    id: 'jra',
-    category: 'Result analyzer',
-    title: 'JNTUA Results Analyzer',
-    src: '/assets/projects-screenshots/jra/1.png',
-    screenshots: ['1.png'],
-    live: 'https://naresh-khatri.github.io/JNTUA-result-analyser-spa/#/',
-    skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.vue],
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.mongo,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.docker,
-      ],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            JNTUA Results Analyzer was a revolutionary tool designed to simplify
-            and enhance the experience of accessing academic results. It served
-            as a powerful proxy between the JNTUA university results website and
-            its users, offering a range of features that made result analysis
-            faster and more efficient. Here&apos;s what made it stand out:
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow images={[`${BASE_PATH}/jra/1.png`]} />
+
           <TypographyH3 className="my-4 mt-8">
-            Effortless Results Retrieval
+            Data Source Configuration & API Requests
           </TypographyH3>
-          {/* Effortless Results Retrieval: */}
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Search all your results using a single roll number, eliminating
-              the tedious task of sifting through thousands of rows on the
-              official site.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Class-Wise Results:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              class-wise results effortlessly by entering a roll number range.
-              No more manual searches or filtering.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Faculty Features:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Faculty members could download batch results in Excel format,
-              making administrative tasks a breeze.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">
-            Enhanced Data Insights:
-          </TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Each result came with additional features including:
-              <ul className="list-disc font-mono ml-6">
-                <li>
-                  <strong>CGPA Calculations: </strong>
-                  Easily track your
-                  cumulative grade point average.
-                </li>
-                <li>
-                  <strong>Charts:</strong>
-                  {' '}
-                  Visualize your academic performance
-                  with comprehensive charts.
-                </li>
-                <li>
-                  <strong>Future Projections:</strong>
-                  {' '}
-                  Get insights into
-                  potential future outcomes based on current performance.
-                </li>
-                <li>
-                  <strong> Backlog Counts: </strong>
-                  Keep track of your backlog
-                  subjects at a glance.
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Performance:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              The application was significantly faster and more efficient than
-              the official site, providing a smoother user experience.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Downfall:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Unfortunately, as of May 2022, the tool stopped working due to the
-              introduction of CAPTCHA on the official JNTUA results site, which
-              disrupted the seamless functionality of the app. JNTUA Results
-              Analyzer transformed the way students and faculty interacted with
-              academic results, making it a must-have tool until its unexpected
-              shutdown.
-            </li>
-          </ul>
+          <p className="font-mono mb-2 mt-8 text-center">
+            Beyond visualization, the application includes a built-in data management layer that allows users to connect APIs or
+            databases, define data models, and instantly view live responses. This visual data binding workflow transforms complex
+            API interactions into simple configuration steps, enabling seamless integration between your data and visuals.
+          </p>
+          <SlideShow
+            images={
+              [`${BASE_PATH}/my-db/my-db-data.jpg`,
+              ]
+            }
+          />
         </div>
       )
     },
