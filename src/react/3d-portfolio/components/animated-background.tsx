@@ -606,17 +606,19 @@ function AnimatedBackground() {
 
   return (
     <>
-      <Suspense fallback={<div></div>}>
-        <Spline
-          style={{ opacity: 0 }}
-          ref={splineContainer}
-          onLoad={(app: Application) => {
-            setSplineApp(app)
-            bypassLoading()
-          }}
-          scene="/assets/skills-keyboard.spline"
-        />
-      </Suspense>
+      <div className={`top-0 fixed w-full h-screen ${activeSection === 'contact' ? 'z--1' : 'z-0'}`}>
+        <Suspense fallback={<div></div>}>
+          <Spline
+            style={{ opacity: 0 }}
+            ref={splineContainer}
+            onLoad={(app: Application) => {
+              setSplineApp(app)
+              bypassLoading()
+            }}
+            scene="/assets/skills-keyboard.spline"
+          />
+        </Suspense>
+      </div>
     </>
   )
 }
