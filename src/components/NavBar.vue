@@ -96,7 +96,7 @@ const { y: scroll } = useWindowScroll()
 }
 
 .nav {
-  position: fixed;
+  position: absolute;
   padding: 2rem;
   width: 100%;
   display: grid;

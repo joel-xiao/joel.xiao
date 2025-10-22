@@ -71,13 +71,27 @@ onKeyStroke('Escape', (e) => {
     e.preventDefault()
   }
 })
+
+const MainClass = computed(() => {
+  const isNoSpecial = route.meta.layout !== 'special'
+  return {
+    'px-7': isNoSpecial,
+  }
+})
+
+const FooterClass = computed(() => {
+  const isSpecial = route.meta.layout === 'special'
+  return {
+    'px-7': isSpecial,
+  }
+})
 </script>
 
 <template>
   <NavBar />
-  <main class="px-7 py-10 of-x-hidden">
+  <main :class="MainClass" class="py-10 of-x-hidden">
     <RouterView />
-    <Footer :key="route.path" />
+    <Footer :key="route.path" :class="FooterClass" />
   </main>
   <Transition name="fade">
     <div v-if="imageModel" fixed top-0 left-0 right-0 bottom-0 z-500 backdrop-blur-7 @click="imageModel = undefined">
