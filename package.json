@@ -29,6 +29,7 @@
     "@unhead/vue": "catalog:frontend",
     "@unocss/reset": "catalog:frontend",
     "@unpic/placeholder": "catalog:frontend",
+    "@vercel/speed-insights": "catalog:frontend",
     "@vueuse/core": "catalog:frontend",
     "class-variance-authority": "catalog:3d-portfolio",
     "clsx": "catalog:3d-portfolio",
