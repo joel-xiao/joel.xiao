@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { SpeedInsights } from '@vercel/speed-insights/vue'
-
 const route = useRoute()
 
 const imageModel = ref<HTMLImageElement>()
