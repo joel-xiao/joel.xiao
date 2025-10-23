@@ -26,7 +26,7 @@ const config = {
   ],
   author: 'Joel Xiao',
   email: 'xiao2731962667@gmail.com',
-  resume: '/resume/XiaoWenlong_FullStackFrontend_Resume.pdf',
+  resume: '/resume/JoelXiao_FullStackFrontend_Resume.pdf',
   site: '/',
 
   get ogImg() {

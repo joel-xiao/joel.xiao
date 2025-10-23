@@ -5,7 +5,7 @@ image: https://antfu.me/og.png
 art: random
 ---
 
-Hi! I’m **Joel Xiao**, a full-stack frontend engineer based in **Beijing** with 6 years of experience building high-performance web applications and cross-platform SDKs. I’ve had the opportunity to contribute to `SOHU`, `China Bidding Co., Ltd.`, and `Shenzhou Lingyun`, leading frontend architecture, creating dashboards, topology editors, and cross-platform solutions that bring complex ideas to life.
+Hi! I’m **Joel Xiao**, a full-stack frontend engineer based in **Beijing** with 6 years of experience building high-performance web applications and cross-platform SDKs. I’ve had the opportunity to contribute to `Beijing Sohu New Media Information Technology Co., Ltd.`, `China Bidding Co., Ltd.`, and `DCLINGCLOUD (Beijing) Technology Co., Ltd.`, leading frontend architecture, creating dashboards, topology editors, and cross-platform solutions that bring complex ideas to life.
 
 I love transforming technical challenges into practical tools that enhance productivity — from Vue 2→3 migrations to AI-powered data visualization editors. Along the way, I’ve created projects like [Visualization Editor](https://visual-studio-one.vercel.app/) and maintained open-source tools such as `SVG Topology Editor` and `Cross-Platform SDK`.
 
