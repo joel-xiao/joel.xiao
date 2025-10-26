@@ -98,9 +98,11 @@ catalogs:
     d3-shape: ^3.2.0
     dayjs: ^1.11.18
     floating-vue: ^5.2.2
+    marked: ^16.4.1
     matter-attractors: ^0.1.6
     matter-js: ^0.20.0
     nprogress: ^0.2.0
+    pdfjs-dist: ^5.4.296
     pinia: ^3.0.3
     pixi.js: ^8.13.1
     react: ^19.2.0

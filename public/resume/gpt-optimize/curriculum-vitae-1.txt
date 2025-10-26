@@ -1,0 +1,76 @@
+肖文龙 - 资深前端开发工程师（5年经验）
+📞 18513029251✉️
+xiao2731962667@163.com
+📍 北京
+GitHub: https://github.com/joel-xiao
+个人主页: https://joelxiao.vercel.app/
+
+
+个人简介
+资深前端开发工程师，5年经验，精通 Vue3、React18、TypeScript，擅长前端架构设计及复杂业务开发。具备跨端（Web/移动端/桌面端）开发经验，熟悉全栈开发（Node.js + MySQL + ElasticSearch）。擅长前端性能优化、大数据可视化、拓扑编辑器开发及 WebAssembly（Rust + Tauri）技术。热衷开源，主导开发 Visual Studio 可视化编辑器。
+
+核心技能
+前端技术栈：HTML5、CSS3 (LESS/SASS)、JavaScript (ES6+)、TypeScript
+框架与库：Vue3、React18、Redux、Pinia、Uni-app、Electron、Tauri
+数据可视化：ECharts、D3.js、AntV/G6、Canvas、SVG
+全栈开发：Node.js (Express/Koa)、MySQL、ElasticSearch、WebSocket
+工具链：Webpack、Vite、Rollup、Git、Docker、Linux 服务器运维
+跨平台开发：小程序（微信/百度/抖音）、Hybrid App (iOS/Android)、桌面端（Windows/macOS）
+前端优化：首屏优化、代码拆分、性能监控、内存泄漏分析
+
+工作经历
+神州灵云（北京）科技有限公司 | 全栈开发工程师 | 2021.04 - 至今
+负责公司核心产品 PMone 全链路性能监控平台的前端架构设计与开发。
+主导 Vue2 至 Vue3 的架构升级，提高系统性能与可维护性。
+负责可视化编辑器（拓扑、地图、报表）的研发，提升数据呈现能力。
+解决内存泄漏及 CPU 100% 占用问题，优化系统性能。
+负责 SDK 开发（Web、小程序、Hybrid App），推动跨端兼容性优化。
+参与 ElasticSearch、Kafka、ActiveMQ 相关后端数据处理。
+定期组织 Code Review，提高团队代码质量。
+
+北京国信创新科技股份有限公司 | 前端全栈开发工程师 | 2019.01 - 2021.04
+负责国信 e 采招投标系统的前端架构设计，主导 UI 组件库开发。
+参与专家库、采购管理、投标流程等核心模块开发，优化用户体验。
+采用 Vue+Uni-app 实现 Windows/iOS/Android 多端兼容方案。
+通过 Code Review 统一代码风格，优化团队开发效率。
+负责 Redis 管理、内存监控等后端优化，提升系统稳定性。
+
+北京搜狐新媒体信息技术有限公司 | 前端开发工程师 | 2017.10 - 2019.01
+负责搜狐新闻、娱乐、体育、财经、视频等核心页面开发。
+采用 HTML5+CSS3+jQuery+Ajax 实现高性能数据交互。
+优化前端渲染，提高 SEO 友好度，提升页面访问速度 30%。
+
+核心项目经验
+PMone - 全链路性能监控平台（2021.04 - 至今）
+负责 Vue3 + Node.js + ElasticSearch 架构设计及前端开发。
+研发拓扑编辑器、地图编辑器、大屏可视化编辑器，提升数据展示能力。
+通过 ECharts、D3.js 及 AntV/G6 实现丰富的数据可视化能力。
+开发 WebSDK、小程序 SDK，增强系统适配能力。
+优化系统性能，减少页面首屏加载时间 40%。
+
+国信 e 采招投标系统（2019.01 - 2021.04）
+负责 Vue2 + Uni-app 跨平台架构，实现 Windows/iOS/Android 多端兼容。
+研发专家库、采购流程、集约化评标等 100+ 业务模块。
+通过 Code Review 统一团队代码风格，提升开发效率 20%。
+采用 Redis、Kafka 提高数据存储及分发能力。
+
+教育背景
+北京城市学院 | 计算机科学与技术 | 2012 - 2016
+
+证书与开源贡献
+PMP 5A级认证
+开源项目
+Visual Studio: https://github.com/joel-xiao/visual-studio - Rust + Tauri + Vue3 可视化编辑器
+技术博客
+CSDN: https://blog.csdn.net/XLL20001022
+LeetCode: https://leetcode.cn/u/xiaowenlong1022/
+
+个人优势
+✅ 具备卓越的前端架构设计能力，擅长大型项目研发与优化。
+✅ 拥有全栈开发能力，熟悉 Node.js + MySQL + ElasticSearch。
+✅ 精通可视化技术（ECharts、D3.js、AntV/G6），能独立开发拓扑/地图编辑器。
+✅ 热衷技术分享与团队成长，定期 Code Review 提升团队效率。
+✅ 具备跨端开发经验，能快速适配 Web、小程序、<D-s><D-s><D-s><D-s>:Hybrid App、桌面端。
+
+📌 求职意向：高级前端开发工程师 / 前端架构师 / 全栈开发工程师
+📌 期望薪资：面议 | 目标公司：技术驱动型企业

@@ -21,6 +21,7 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
     '/3d-portfolio': RouteRecordInfo<'/3d-portfolio', '/3d-portfolio', Record<never, never>, Record<never, never>>,
+    '/ai-portfolio': RouteRecordInfo<'/ai-portfolio', '/ai-portfolio', Record<never, never>, Record<never, never>>,
     '/bar': RouteRecordInfo<'/bar', '/bar', Record<never, never>, Record<never, never>>,
     '/bookmarks': RouteRecordInfo<'/bookmarks', '/bookmarks', Record<never, never>, Record<never, never>>,
     '/books': RouteRecordInfo<'/books', '/books', Record<never, never>, Record<never, never>>,
@@ -151,6 +152,10 @@ declare module 'vue-router/auto-routes' {
     }
     'pages/3d-portfolio.vue': {
       routes: '/3d-portfolio'
+      views: never
+    }
+    'pages/ai-portfolio.vue': {
+      routes: '/ai-portfolio'
       views: never
     }
     'pages/bar.md': {
