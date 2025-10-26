@@ -1,7 +1,14 @@
 <script setup lang="ts">
+// 新增：引入 jsdom 并模拟浏览器环境（仅添加这4行，解决 DOMMatrix 缺失）
+import { JSDOM } from 'jsdom'
+
 import * as pdfjs from 'pdfjs-dist'
 import pdfWorker from 'pdfjs-dist/build/pdf.worker?url'
 import { nextTick, onMounted, ref } from 'vue'
+
+const { window } = new JSDOM('<!DOCTYPE html>');
+(globalThis as any).window = window;
+(globalThis as any).DOMMatrix = window.DOMMatrix
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker
 const pdfCMapUrl = 'https://unpkg.com/pdfjs-dist@3.4.120/cmaps/'
