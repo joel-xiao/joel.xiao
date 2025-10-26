@@ -106,7 +106,6 @@
     "feed": "catalog:dev",
     "fs-extra": "catalog:dev",
     "gray-matter": "catalog:build",
-    "jsdom": "catalog:build",
     "lint-staged": "catalog:dev",
     "markdown-it": "catalog:build",
     "markdown-it-anchor": "catalog:build",

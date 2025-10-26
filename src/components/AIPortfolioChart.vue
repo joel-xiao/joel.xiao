@@ -1,17 +1,10 @@
 <script setup lang="ts">
-// 新增：引入 jsdom 并模拟浏览器环境（仅添加这4行，解决 DOMMatrix 缺失）
-import { JSDOM } from 'jsdom'
-
-import * as pdfjs from 'pdfjs-dist'
-import pdfWorker from 'pdfjs-dist/build/pdf.worker?url'
+// import * as pdfjs from 'pdfjs-dist'
+// import pdfWorker from 'pdfjs-dist/build/pdf.worker?url'
 import { nextTick, onMounted, ref } from 'vue'
 
-const { window } = new JSDOM('<!DOCTYPE html>');
-(globalThis as any).window = window;
-(globalThis as any).DOMMatrix = window.DOMMatrix
-
-pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker
-const pdfCMapUrl = 'https://unpkg.com/pdfjs-dist@3.4.120/cmaps/'
+// pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker
+// const pdfCMapUrl = 'https://unpkg.com/pdfjs-dist@3.4.120/cmaps/'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -37,17 +30,17 @@ const STATIC_FILES: StaticFile[] = [
   { name: 'Fullstack-6years.md', url: '/resume/全栈前端工程师-肖文龙-6年.md', type: 'md' },
 ]
 
-async function parsePdf(url: string) {
-  const task = pdfjs.getDocument({ url, cMapUrl: pdfCMapUrl, cMapPacked: true })
-  const pdf = await task.promise
-  let text = ''
-  for (let i = 1; i <= pdf.numPages; i++) {
-    const page = await pdf.getPage(i)
-    const content = await page.getTextContent()
-    text += `${content.items.map((it: any) => it.str || '').join(' ')}\n`
-  }
-  return text
-}
+// async function parsePdf(url: string) {
+//   const task = pdfjs.getDocument({ url, cMapUrl: pdfCMapUrl, cMapPacked: true })
+//   const pdf = await task.promise
+//   let text = ''
+//   for (let i = 1; i <= pdf.numPages; i++) {
+//     const page = await pdf.getPage(i)
+//     const content = await page.getTextContent()
+//     text += `${content.items.map((it: any) => it.str || '').join(' ')}\n`
+//   }
+//   return text
+// }
 
 function cleanText(text: string, type: string) {
   let t = text
@@ -60,7 +53,7 @@ async function loadFile(f: StaticFile) {
   try {
     let txt = ''
     if (f.type === 'pdf') {
-      txt = await parsePdf(f.url)
+      // txt = await parsePdf(f.url)
     }
     else {
       const r = await fetch(f.url)
