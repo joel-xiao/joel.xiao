@@ -128,7 +128,8 @@ ${context}
   try {
     const allMessages = [
       { role: 'system', content: systemPrompt },
-      ...messages.value.map(m => ({ role: m.role, content: m.content })),
+      { role: 'user', content: assistantMsg.content },
+      // ...messages.value.map(m => ({ role: m.role, content: m.content })),
     ]
 
     const resp = await fetch(API_URL, {
