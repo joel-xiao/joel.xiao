@@ -199,7 +199,10 @@ ${context}
 </script>
 
 <template>
-  <div class="flex h-[calc(100vh-17rem)] max-w-[1200px] mx-auto my-5 font-sans rounded-xl overflow-hidden shadow-lg bg-card">
+  <div class="flex h-[calc(100vh-17rem)] max-w-[1200px] mx-auto my-5 font-sans rounded-xl shadow-lg bg-card relative">
+    <!-- 内部添加一个伪元素来承载阴影（避免被overflow-hidden截断） -->
+    <div class="absolute inset-0 rounded-xl shadow-[0_0_15px_rgba(0,0,0,0.1)] -z-10" />
+
     <!-- Sidebar -->
     <aside class="w-[260px] min-w-[260px] p-5 flex flex-col items-center border-r border-border">
       <div class="w-[100px] h-[100px] mb-3.5 rounded-full border-2 border-border overflow-hidden">
