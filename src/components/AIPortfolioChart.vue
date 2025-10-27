@@ -199,60 +199,69 @@ ${context}
 </script>
 
 <template>
-  <div class="blog-ai-agent">
-    <aside class="agent-sidebar">
-      <div class="avatar">
-        <img src="https://picsum.photos/200/200?random=1" alt="AI Assistant Avatar">
+  <div class="flex h-[calc(100vh-17rem)] max-w-[1200px] mx-auto my-5 font-sans rounded-xl overflow-hidden shadow-lg bg-card">
+    <!-- Sidebar -->
+    <aside class="w-[260px] min-w-[260px] p-5 flex flex-col items-center border-r border-border">
+      <div class="w-[100px] h-[100px] mb-3.5 rounded-full border-2 border-border overflow-hidden">
+        <img src="https://picsum.photos/200/200?random=1" alt="AI Assistant Avatar" class="w-full h-full object-cover">
       </div>
-      <div class="sidebar-info">
-        <h1>Joel AI Assistant</h1>
-        <p>Answer professional questions about Joel based on documents</p>
-        <div v-if="loadedFiles.length" class="loaded-files">
+      <div class="text-center">
+        <h1 class="text-[1.3rem] mb-1.5 text-primary">
+          Joel AI Assistant
+        </h1>
+        <p class="text-sm mb-2.5 text-secondary">
+          Answer professional questions about Joel based on documents
+        </p>
+        <div v-if="loadedFiles.length" class="text-xs mb-1 text-tertiary">
           <span>Loaded Documents: </span>
-          <span v-for="(file, i) in loadedFiles" :key="i">
-            {{ file }}<span v-if="i < loadedFiles.length - 1">, </span>
-          </span>
+          <span v-for="(file, i) in loadedFiles" :key="i">{{ file }}<span v-if="i < loadedFiles.length - 1">, </span></span>
         </div>
-        <div class="load-status">
+        <div class="text-xs text-tertiary-light">
           {{ loadStatus }}
         </div>
       </div>
     </aside>
 
-    <main class="chat-container">
-      <div ref="messageList" class="message-list">
-        <div class="message-wrapper assistant-wrapper">
-          <div class="message assistant-message">
-            <div class="message-content">
-              Hello! I can answer questions about Joel's resume details, project experience, tech stack, etc. Feel free to ask~
-            </div>
+    <!-- Chat -->
+    <main class="flex flex-col flex-1 bg-card">
+      <div ref="messageList" class="flex-1 p-5 overflow-y-auto text-primary">
+        <!-- Initial assistant message -->
+        <div class="w-full mb-3.5 text-left">
+          <div class="inline-block max-w-[80%] animate-fadeIn bg-card-soft border border-border text-secondary shadow-md p-3.5 whitespace-pre-wrap leading-6 text-sm rounded-[18px] rounded-tl-[4px]">
+            Hello! I can answer questions about Joel's resume details, project experience, tech stack, etc. Feel free to ask~
           </div>
         </div>
 
-        <div
-          v-for="(msg, idx) in messages"
-          :key="idx"
-          class="message-wrapper" :class="[msg.role === 'user' ? 'user-wrapper' : 'assistant-wrapper']"
-        >
-          <div class="message" :class="[msg.role === 'user' ? 'user-message' : 'assistant-message']">
-            <div class="message-content">
-              <span>{{ msg.content }}</span>
-              <span v-if="msg.isThinking">Retrieving and organizing answer...</span>
-              <span v-if="msg.isTyping" class="cursor" />
-            </div>
+        <!-- User & assistant messages -->
+        <div v-for="(msg, idx) in messages" :key="idx" class="w-full mb-3.5" :class="msg.role === 'user' ? 'text-right' : 'text-left'">
+          <div
+            class="inline-block max-w-[80%] animate-fadeIn whitespace-pre-wrap leading-6 text-sm p-3.5 shadow-md"
+            :class="msg.role === 'user'
+              ? 'bg-primary text-white rounded-[18px] rounded-tr-[4px]'
+              : 'bg-card-soft border border-border text-secondary rounded-[18px] rounded-tl-[4px]'"
+          >
+            <span>{{ msg.content }}</span>
+            <span v-if="msg.isThinking" class="block text-xs text-tertiary mt-1">Retrieving and organizing answer...</span>
+            <span v-if="msg.isTyping" class="inline-block w-1.5 bg-primary ml-1 animate-blink" />
           </div>
         </div>
       </div>
 
-      <div class="input-area">
+      <!-- Input area -->
+      <div class="flex p-3.5 border-t border-border bg-card-soft">
         <input
           v-model="userInput"
           type="text"
           placeholder="e.g., What tech stack does Joel excel in? What are his core projects?"
           :disabled="sending"
+          class="flex-1 p-3.5 border border-border rounded-[24px] mr-2.5 text-sm outline-none focus:border-primary focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)] bg-card text-primary placeholder:text-tertiary"
           @keydown.enter="handleSend"
         >
-        <button :disabled="!userInput.trim() || sending" @click="handleSend">
+        <button
+          :disabled="!userInput.trim() || sending"
+          class="px-7 py-3 rounded-[24px] text-sm font-medium text-white disabled:bg-border disabled:cursor-not-allowed transition-all hover:bg-primary/90 active:translate-y-0.5 active:shadow-none bg-primary"
+          @click="handleSend"
+        >
           Send Query
         </button>
       </div>
@@ -260,100 +269,8 @@ ${context}
   </div>
 </template>
 
-<style scoped>
-.blog-ai-agent {
-  display: flex;
-  height: calc(100vh - 17rem);
-  max-width: 1200px;
-  margin: 20px auto;
-  font-family: sans-serif;
-  background: #121212;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.agent-sidebar {
-  width: 260px;
-  min-width: 260px;
-  background: #1e1e1e;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-right: 1px solid #2d2d2d;
-}
-.agent-sidebar .avatar img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 2px solid #333;
-  margin-bottom: 15px;
-}
-.sidebar-info h1 {
-  color: #fff;
-  font-size: 1.3rem;
-  margin: 0 0 5px;
-  text-align: center;
-}
-.sidebar-info p {
-  color: #ccc;
-  font-size: 0.9rem;
-  margin: 0 0 10px;
-  text-align: center;
-}
-.loaded-files {
-  color: #aaa;
-  font-size: 0.8rem;
-  margin-bottom: 5px;
-  text-align: center;
-}
-.load-status {
-  color: #888;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.chat-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background: #121212;
-}
-
-.message-list {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  color: #fff;
-}
-.message-list::-webkit-scrollbar {
-  width: 6px;
-}
-.message-list::-webkit-scrollbar-track {
-  background: #1e1e1e;
-}
-.message-list::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 3px;
-}
-
-.message-wrapper {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 15px;
-}
-.user-wrapper {
-  text-align: right;
-}
-.assistant-wrapper {
-  text-align: left;
-}
-.message {
-  display: inline-block;
-  max-width: 80%;
-  animation: fadeIn 0.3s ease-out;
-}
+<style>
+/* 保留原有动画，不重复定义全局样式 */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -364,34 +281,10 @@ ${context}
     transform: translateY(0);
   }
 }
-.message-content {
-  padding: 14px 20px;
-  border-radius: 18px;
-  white-space: pre-wrap;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-.user-message .message-content {
-  background: #0057b7;
-  color: white;
-  box-shadow: 0 2px 8px rgba(0, 87, 183, 0.3);
-  border-top-right-radius: 4px;
-}
-.assistant-message .message-content {
-  background: #1e1e1e;
-  border: 1px solid #333;
-  color: #ddd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border-top-left-radius: 4px;
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
 }
 
-.cursor {
-  display: inline-block;
-  width: 6px;
-  background: #0057b7;
-  margin-left: 3px;
-  animation: blink 0.9s infinite;
-}
 @keyframes blink {
   0%,
   100% {
@@ -401,55 +294,54 @@ ${context}
     opacity: 1;
   }
 }
+.animate-blink {
+  animation: blink 0.9s infinite;
+}
 
-.input-area {
-  display: flex;
-  padding: 15px 20px;
-  border-top: 1px solid #2d2d2d;
-  background: #1e1e1e;
+/* 主题变量映射（基于全局样式） */
+:root {
+  --color-primary: #3b82f6; /* 蓝色主色调 */
+  --color-secondary: #4b5563; /* 次要文本 */
+  --color-tertiary: #6b7280; /*  tertiary文本 */
+  --color-tertiary-light: #9ca3af; /* 更浅的tertiary文本 */
+  --color-border: #e5e7eb; /* 边框色 */
+  --color-card: #fff; /* 卡片背景 */
+  --color-card-soft: #f3f4f6; /* 次要卡片背景 */
 }
-.input-area input {
-  flex: 1;
-  padding: 14px 20px;
-  border: 1px solid #333;
-  border-radius: 24px;
-  outline: none;
-  margin-right: 10px;
-  background: #2d2d2d;
-  color: #fff;
-  font-size: 0.95rem;
+
+.dark {
+  --color-primary: #2563eb; /* 深色模式蓝色 */
+  --color-secondary: #d1d5db; /* 次要文本 */
+  --color-tertiary: #6b7280; /* tertiary文本 */
+  --color-tertiary-light: #4b5563; /* 更浅的tertiary文本 */
+  --color-border: #2d2d2d; /* 边框色 */
+  --color-card: #121212; /* 卡片背景 */
+  --color-card-soft: #1e1e1e; /* 次要卡片背景 */
 }
-.input-area input::placeholder {
-  color: #aaa;
+
+/* 组件样式使用变量 */
+.bg-primary {
+  background-color: var(--color-primary);
 }
-.input-area input:focus {
-  border-color: #0057b7;
-  box-shadow: 0 0 0 2px rgba(0, 87, 183, 0.2);
+.text-primary {
+  color: var(--color-primary);
 }
-.input-area button {
-  padding: 14px 28px;
-  background: #0057b7;
-  color: white;
-  border: none;
-  border-radius: 24px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
+.text-secondary {
+  color: var(--color-secondary);
 }
-.input-area button:hover {
-  background: #0068d9;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 87, 183, 0.4);
+.text-tertiary {
+  color: var(--color-tertiary);
 }
-.input-area button:active {
-  transform: translateY(0);
-  box-shadow: none;
+.text-tertiary-light {
+  color: var(--color-tertiary-light);
 }
-.input-area button:disabled {
-  background: #333;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+.border-border {
+  border-color: var(--color-border);
+}
+.bg-card {
+  background-color: var(--color-card);
+}
+.bg-card-soft {
+  background-color: var(--color-card-soft);
 }
 </style>
