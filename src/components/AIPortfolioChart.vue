@@ -259,7 +259,7 @@ ${context}
         >
         <button
           :disabled="!userInput.trim() || sending"
-          class="px-7 py-3 rounded-[24px] text-sm font-medium text-white disabled:bg-border disabled:cursor-not-allowed transition-all hover:bg-primary/90 active:translate-y-0.5 active:shadow-none bg-primary"
+          class="px-7 py-3 rounded-[24px] text-sm font-medium text-white disabled:bg-border disabled:cursor-not-allowed transition-all hover:bg-primary/90 active:translate-y-0.5 active:shadow-none bg-primary dark:bg-[#3b82f6] dark:hover:bg-[#2563eb]"
           @click="handleSend"
         >
           Send Query
@@ -300,23 +300,23 @@ ${context}
 
 /* 主题变量映射（基于全局样式） */
 :root {
-  --color-primary: #3b82f6; /* 蓝色主色调 */
-  --color-secondary: #4b5563; /* 次要文本 */
-  --color-tertiary: #6b7280; /*  tertiary文本 */
-  --color-tertiary-light: #9ca3af; /* 更浅的tertiary文本 */
-  --color-border: #e5e7eb; /* 边框色 */
-  --color-card: #fff; /* 卡片背景 */
-  --color-card-soft: #f3f4f6; /* 次要卡片背景 */
+  --color-primary: #000000; /* 黑色主色调 */
+  --color-secondary: #333333; /* 深灰次要文本 */
+  --color-tertiary: #666666; /* 中灰文本 */
+  --color-tertiary-light: #999999; /* 浅灰文本 */
+  --color-border: #e0e0e0; /* 亮灰色边框 */
+  --color-card: #ffffff; /* 白色卡片背景 */
+  --color-card-soft: #f5f5f5; /* 浅灰次要卡片背景 */
 }
 
 .dark {
-  --color-primary: #2563eb; /* 深色模式蓝色 */
-  --color-secondary: #d1d5db; /* 次要文本 */
-  --color-tertiary: #6b7280; /* tertiary文本 */
-  --color-tertiary-light: #4b5563; /* 更浅的tertiary文本 */
-  --color-border: #2d2d2d; /* 边框色 */
-  --color-card: #121212; /* 卡片背景 */
-  --color-card-soft: #1e1e1e; /* 次要卡片背景 */
+  --color-primary: #ffffff; /* 白色主色调 */
+  --color-secondary: #cccccc; /* 浅灰次要文本 */
+  --color-tertiary: #999999; /* 中灰文本 */
+  --color-tertiary-light: #666666; /* 深灰文本 */
+  --color-border: #333333; /* 深灰色边框 */
+  --color-card: #121212; /* 黑色卡片背景 */
+  --color-card-soft: #1e1e1e; /* 深灰次要卡片背景 */
 }
 
 /* 组件样式使用变量 */
