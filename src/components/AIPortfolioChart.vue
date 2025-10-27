@@ -122,8 +122,8 @@ ${context}
 规则：
 - 对于涉及 Joel 的问题，请以文档为核心依据，同时可以进行合理分析、总结和推理，使回答更完整、更有洞察力。
 - 对于非 Joel 相关问题，可以自由回答，保持智能和友好。
-- 不使用 Markdown / HTML 格式。
-- 默认使用英文回答，除非用户明确要求中文。
+- 不准使用 Markdown / HTML 格式返回。
+- 默认必须使用英文回答，除非用户明确要求中文。
 - 如果文档未提及某个信息，请回答“文档未提及”。`
 
   try {
@@ -263,7 +263,7 @@ ${context}
 <style scoped>
 .blog-ai-agent {
   display: flex;
-  height: 76vh;
+  height: calc(100vh - 17rem);
   max-width: 1200px;
   margin: 20px auto;
   font-family: sans-serif;
