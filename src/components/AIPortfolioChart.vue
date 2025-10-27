@@ -23,11 +23,11 @@ const STATIC_FILES: StaticFile[] = [
   { name: 'PMP.pdf', url: '/resume/PMP-肖文龙.pdf', type: 'pdf' },
   { name: 'Frontend-5years.txt', url: '/resume/前端开发-5年-肖文龙.txt', type: 'txt' },
   { name: 'Fullstack-6years.md', url: '/resume/全栈前端工程师-肖文龙-6年.md', type: 'md' },
-  { name: 'curriculum-vitae-1.txt', url: '/resume/gpt-optimize/curriculum-vitae-1.txt', type: 'txt' },
-  { name: 'curriculum-vitae-2.txt', url: '/resume/gpt-optimize/curriculum-vitae-2.txt', type: 'txt' },
-  { name: 'curriculum-vitae-3.txt', url: '/resume/gpt-optimize/curriculum-vitae-3.txt', type: 'txt' },
-  { name: 'deepseek-curriculum-vitae-1.txt', url: '/resume/gpt-optimize/deepseek-curriculum-vitae-1.txt', type: 'md' },
-  { name: 'deepseek-curriculum-vitae-2.txt', url: '/resume/gpt-optimize//resume/gpt-optimize/deepseek-curriculum-vitae-2.txt', type: 'txt' },
+  // { name: 'curriculum-vitae-1.txt', url: '/resume/gpt-optimize/curriculum-vitae-1.txt', type: 'txt' },
+  // { name: 'curriculum-vitae-2.txt', url: '/resume/gpt-optimize/curriculum-vitae-2.txt', type: 'txt' },
+  // { name: 'curriculum-vitae-3.txt', url: '/resume/gpt-optimize/curriculum-vitae-3.txt', type: 'txt' },
+  // { name: 'deepseek-curriculum-vitae-1.txt', url: '/resume/gpt-optimize/deepseek-curriculum-vitae-1.txt', type: 'md' },
+  // { name: 'deepseek-curriculum-vitae-2.txt', url: '/resume/gpt-optimize//resume/gpt-optimize/deepseek-curriculum-vitae-2.txt', type: 'txt' },
 ]
 
 function cleanText(text: string, type: string) {
@@ -94,6 +94,7 @@ const API_URL = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions'
 const MODEL = 'doubao-1-5-thinking-pro-250415'
 
 async function typeWriterAppend(targetMsg: Message, text: string, delay = 25) {
+  targetMsg.isThinking = false
   targetMsg.isTyping = true
   for (let i = 0; i < text.length; i++) {
     targetMsg.content += text[i]
@@ -121,19 +122,18 @@ async function handleSend() {
   const systemPrompt = `你是 Joel 智能助手。
 默认必须使用英文回答。若用户的问题使用中文，自动切换为中文回复；若用户的问题使用其他语言，保持英文回复。仅当用户明确要求“用中文回答”时，无论其提问语言是什么，均强制使用中文回复。
 你具备广泛知识和智能推理能力，可以回答各种问题。
-当用户的问题涉及 Joel 的个人信息或文档内容时，请基于以下文档回答：
+当用户的问题涉及 Joel Xiao 或者 肖文龙 的个人信息或文档内容时，请基于以下文档回答：
 ${context}
 
 规则：
-- 对于涉及 Joel 的问题，请以文档为核心依据，同时可以进行合理分析、总结和推理，使回答更完整、更有洞察力。
+- 对于涉及 Joel 的问题，请以文档为核心依据，同时可以进行合理分析、总结和推理，使回答更完整、更有洞察力，但不要说废话。
 - 对于非 Joel 相关问题，可以自由回答。
-- 不准使用 Markdown / HTML 格式返回。
 - 如果文档未提及某个信息，请回答“文档未提及”。`
 
   try {
     const allMessages = [
       { role: 'system', content: systemPrompt },
-      ...messages.value.slice(-1).map(m => ({ role: m.role, content: m.content })),
+      ...messages.value.map(m => ({ role: m.role, content: m.content })),
     ]
 
     const resp = await fetch(API_URL, {
@@ -146,7 +146,9 @@ ${context}
         model: MODEL,
         messages: allMessages,
         stream: true,
-        temperature: 0.1,
+        temperature: 0.5,
+        enable_reasoning: false,
+        reasoning_type: 'none',
       }),
     })
     if (!resp.body)
@@ -155,7 +157,6 @@ ${context}
     const reader = resp.body.getReader()
     const decoder = new TextDecoder('utf-8')
     let buffer = ''
-    let gotFirstPiece = false
 
     while (true) {
       const { value, done } = await reader.read()
@@ -177,10 +178,6 @@ ${context}
           const piece = delta?.content ?? delta?.reasoning_content ?? ''
           if (!piece)
             continue
-          if (!gotFirstPiece) {
-            gotFirstPiece = true
-            assistantMsg.isThinking = false
-          }
           await typeWriterAppend(assistantMsg, piece)
         }
         catch (e) {
