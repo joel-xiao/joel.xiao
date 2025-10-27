@@ -32,7 +32,7 @@ const { y: scroll } = useWindowScroll()
       <div class="spacer" />
       <div class="right" print:op0>
         <RouterLink to="/ai-portfolio" title="AI">
-          <span class="lt-md:hidden">AI Chart</span>
+          <span class="lt-md:hidden">AI</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
         <RouterLink to="/3d-portfolio" title="3D Portfolio">
