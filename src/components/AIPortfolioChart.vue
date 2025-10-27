@@ -23,6 +23,11 @@ const STATIC_FILES: StaticFile[] = [
   { name: 'PMP.pdf', url: '/resume/PMP-肖文龙.pdf', type: 'pdf' },
   { name: 'Frontend-5years.txt', url: '/resume/前端开发-5年-肖文龙.txt', type: 'txt' },
   { name: 'Fullstack-6years.md', url: '/resume/全栈前端工程师-肖文龙-6年.md', type: 'md' },
+  { name: 'curriculum-vitae-1.txt', url: '/resume/gpt-optimize/curriculum-vitae-1.txt', type: 'txt' },
+  { name: 'curriculum-vitae-2.txt', url: '/resume/gpt-optimize/curriculum-vitae-2.txt', type: 'txt' },
+  { name: 'curriculum-vitae-3.txt', url: '/resume/gpt-optimize/curriculum-vitae-3.txt', type: 'txt' },
+  { name: 'deepseek-curriculum-vitae-1.txt', url: '/resume/gpt-optimize/deepseek-curriculum-vitae-1.txt', type: 'md' },
+  { name: 'deepseek-curriculum-vitae-2.txt', url: '/resume/gpt-optimize//resume/gpt-optimize/deepseek-curriculum-vitae-2.txt', type: 'txt' },
 ]
 
 function cleanText(text: string, type: string) {
@@ -114,22 +119,21 @@ async function handleSend() {
   const chunks = retrieveChunks(input)
   const context = chunks.map(c => `[${c.source}] ${c.text}`).join('\n\n')
   const systemPrompt = `你是 Joel 智能助手。
+默认必须使用英文回答。若用户的问题使用中文，自动切换为中文回复；若用户的问题使用其他语言，保持英文回复。仅当用户明确要求“用中文回答”时，无论其提问语言是什么，均强制使用中文回复。
 你具备广泛知识和智能推理能力，可以回答各种问题。
 当用户的问题涉及 Joel 的个人信息或文档内容时，请基于以下文档回答：
 ${context}
 
 规则：
 - 对于涉及 Joel 的问题，请以文档为核心依据，同时可以进行合理分析、总结和推理，使回答更完整、更有洞察力。
-- 对于非 Joel 相关问题，可以自由回答，保持智能和友好。
+- 对于非 Joel 相关问题，可以自由回答。
 - 不准使用 Markdown / HTML 格式返回。
-- 默认必须使用英文回答，除非用户明确要求中文。
 - 如果文档未提及某个信息，请回答“文档未提及”。`
 
   try {
     const allMessages = [
       { role: 'system', content: systemPrompt },
-      { role: 'user', content: assistantMsg.content },
-      // ...messages.value.map(m => ({ role: m.role, content: m.content })),
+      ...messages.value.slice(-1).map(m => ({ role: m.role, content: m.content })),
     ]
 
     const resp = await fetch(API_URL, {
