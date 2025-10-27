@@ -1,10 +1,5 @@
 <script setup lang="ts">
-// import * as pdfjs from 'pdfjs-dist'
-// import pdfWorker from 'pdfjs-dist/build/pdf.worker?url'
-import { nextTick, onMounted, ref } from 'vue'
-
-// pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker
-// const pdfCMapUrl = 'https://unpkg.com/pdfjs-dist@3.4.120/cmaps/'
+import { nextTick, onMounted, reactive, ref } from 'vue'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -29,18 +24,6 @@ const STATIC_FILES: StaticFile[] = [
   { name: 'Frontend-5years.txt', url: '/resume/前端开发-5年-肖文龙.txt', type: 'txt' },
   { name: 'Fullstack-6years.md', url: '/resume/全栈前端工程师-肖文龙-6年.md', type: 'md' },
 ]
-
-// async function parsePdf(url: string) {
-//   const task = pdfjs.getDocument({ url, cMapUrl: pdfCMapUrl, cMapPacked: true })
-//   const pdf = await task.promise
-//   let text = ''
-//   for (let i = 1; i <= pdf.numPages; i++) {
-//     const page = await pdf.getPage(i)
-//     const content = await page.getTextContent()
-//     text += `${content.items.map((it: any) => it.str || '').join(' ')}\n`
-//   }
-//   return text
-// }
 
 function cleanText(text: string, type: string) {
   let t = text
@@ -69,7 +52,24 @@ async function loadFile(f: StaticFile) {
   }
 }
 
+function saveMessages() {
+  localStorage.setItem('joel_chat_messages', JSON.stringify(messages.value))
+}
+
+function loadMessages() {
+  const raw = localStorage.getItem('joel_chat_messages')
+  if (raw) {
+    try {
+      messages.value = JSON.parse(raw)
+    }
+    catch {
+      console.warn('Failed to parse messages cache')
+    }
+  }
+}
+
 onMounted(async () => {
+  loadMessages()
   for (const f of STATIC_FILES) await loadFile(f)
   loadStatus.value = `Documents loaded, parsed ${textChunks.value.length} core sections`
 })
@@ -96,7 +96,6 @@ async function typeWriterAppend(targetMsg: Message, text: string, delay = 25) {
     messageList.value?.scrollTo({ top: messageList.value.scrollHeight, behavior: 'smooth' })
     await new Promise(r => setTimeout(r, delay))
   }
-  targetMsg.isTyping = false
 }
 
 async function handleSend() {
@@ -107,7 +106,7 @@ async function handleSend() {
   userInput.value = ''
   sending.value = true
 
-  const assistantMsg: Message = { role: 'assistant', content: '', isThinking: true, isTyping: false }
+  const assistantMsg: Message = reactive({ role: 'assistant', content: '', isThinking: true, isTyping: false })
   messages.value.push(assistantMsg)
   await nextTick()
   messageList.value?.scrollTo({ top: messageList.value.scrollHeight, behavior: 'smooth' })
@@ -127,6 +126,11 @@ ${context}
 - 如果文档未提及某个信息，请回答“文档未提及”。`
 
   try {
+    const allMessages = [
+      { role: 'system', content: systemPrompt },
+      ...messages.value.map(m => ({ role: m.role, content: m.content })),
+    ]
+
     const resp = await fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -135,10 +139,7 @@ ${context}
       },
       body: JSON.stringify({
         model: MODEL,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: input },
-        ],
+        messages: allMessages,
         stream: true,
         temperature: 0.1,
       }),
@@ -192,6 +193,7 @@ ${context}
     assistantMsg.isTyping = false
     assistantMsg.isThinking = false
     sending.value = false
+    saveMessages()
     await nextTick()
     messageList.value?.scrollTo({ top: messageList.value.scrollHeight, behavior: 'smooth' })
   }
@@ -200,10 +202,7 @@ ${context}
 
 <template>
   <div class="flex h-[calc(100vh-17rem)] max-w-[1200px] mx-auto my-5 font-sans rounded-xl shadow-lg bg-card relative">
-    <!-- 内部添加一个伪元素来承载阴影（避免被overflow-hidden截断） -->
     <div class="absolute inset-0 rounded-xl shadow-[0_0_15px_rgba(0,0,0,0.1)] -z-10" />
-
-    <!-- Sidebar -->
     <aside class="w-[260px] min-w-[260px] p-5 flex flex-col items-center border-r border-border">
       <div class="w-[100px] h-[100px] mb-3.5 rounded-full border-2 border-border overflow-hidden">
         <img src="https://picsum.photos/200/200?random=1" alt="AI Assistant Avatar" class="w-full h-full object-cover">
@@ -225,17 +224,14 @@ ${context}
       </div>
     </aside>
 
-    <!-- Chat -->
     <main class="flex flex-col flex-1 bg-card">
       <div ref="messageList" class="flex-1 p-5 overflow-y-auto text-primary">
-        <!-- Initial assistant message -->
         <div class="w-full mb-3.5 text-left">
           <div class="inline-block max-w-[80%] animate-fadeIn bg-card-soft border border-border text-secondary shadow-md p-3.5 whitespace-pre-wrap leading-6 text-sm rounded-[18px] rounded-tl-[4px]">
             Hello! I can answer questions about Joel's resume details, project experience, tech stack, etc. Feel free to ask~
           </div>
         </div>
 
-        <!-- User & assistant messages -->
         <div v-for="(msg, idx) in messages" :key="idx" class="w-full mb-3.5" :class="msg.role === 'user' ? 'text-right' : 'text-left'">
           <div
             class="inline-block max-w-[80%] animate-fadeIn whitespace-pre-wrap leading-6 text-sm p-3.5 shadow-md"
@@ -243,14 +239,13 @@ ${context}
               ? 'bg-primary text-white rounded-[18px] rounded-tr-[4px]'
               : 'bg-card-soft border border-border text-secondary rounded-[18px] rounded-tl-[4px]'"
           >
-            <span>{{ msg.content }}</span>
+            <span v-html="msg.content" />
             <span v-if="msg.isThinking" class="block text-xs text-tertiary mt-1">Retrieving and organizing answer...</span>
             <span v-if="msg.isTyping" class="inline-block w-1.5 bg-primary ml-1 animate-blink" />
           </div>
         </div>
       </div>
 
-      <!-- Input area -->
       <div class="flex p-3.5 border-t border-border bg-card-soft">
         <input
           v-model="userInput"
@@ -265,7 +260,7 @@ ${context}
           class="px-7 py-3 rounded-[24px] text-sm font-medium text-white disabled:bg-border disabled:cursor-not-allowed transition-all hover:bg-primary/90 active:translate-y-0.5 active:shadow-none bg-primary dark:bg-[#3b82f6] dark:hover:bg-[#2563eb]"
           @click="handleSend"
         >
-          Send Query
+          Send
         </button>
       </div>
     </main>
@@ -273,7 +268,6 @@ ${context}
 </template>
 
 <style>
-/* 保留原有动画，不重复定义全局样式 */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -301,28 +295,26 @@ ${context}
   animation: blink 0.9s infinite;
 }
 
-/* 主题变量映射（基于全局样式） */
 :root {
-  --color-primary: #000000; /* 黑色主色调 */
-  --color-secondary: #333333; /* 深灰次要文本 */
-  --color-tertiary: #666666; /* 中灰文本 */
-  --color-tertiary-light: #999999; /* 浅灰文本 */
-  --color-border: #e0e0e0; /* 亮灰色边框 */
-  --color-card: #ffffff; /* 白色卡片背景 */
-  --color-card-soft: #f5f5f5; /* 浅灰次要卡片背景 */
+  --color-primary: #000000;
+  --color-secondary: #333333;
+  --color-tertiary: #666666;
+  --color-tertiary-light: #999999;
+  --color-border: #e0e0e0;
+  --color-card: #ffffff;
+  --color-card-soft: #f5f5f5;
 }
-
 .dark {
-  --color-primary: #ffffff; /* 白色主色调 */
-  --color-secondary: #cccccc; /* 浅灰次要文本 */
-  --color-tertiary: #999999; /* 中灰文本 */
-  --color-tertiary-light: #666666; /* 深灰文本 */
-  --color-border: #333333; /* 深灰色边框 */
-  --color-card: #121212; /* 黑色卡片背景 */
-  --color-card-soft: #1e1e1e; /* 深灰次要卡片背景 */
+  --color-primary: #ffffff;
+  --color-secondary: #cccccc;
+  --color-tertiary: #999999;
+  --color-tertiary-light: #666666;
+  --color-border: #333333;
+  --color-card: #121212;
+  --color-card-soft: #1e1e1e;
+  --color-user-bg-dark: #3b82f6;
 }
 
-/* 组件样式使用变量 */
 .bg-primary {
   background-color: var(--color-primary);
 }
@@ -346,5 +338,9 @@ ${context}
 }
 .bg-card-soft {
   background-color: var(--color-card-soft);
+}
+
+.dark .bg-primary {
+  background-color: var(--color-user-bg-dark);
 }
 </style>
