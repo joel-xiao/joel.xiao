@@ -203,7 +203,7 @@ ${context}
 </script>
 
 <template>
-  <div class="flex h-[calc(100vh-17rem)] max-w-[1200px] mx-auto my-5 font-sans rounded-xl shadow-lg bg-card relative">
+  <div class="ai-portfolio-chart flex h-[calc(100vh-17rem)] max-w-[1200px] mx-auto my-5 font-sans rounded-xl shadow-lg bg-card relative">
     <div class="absolute inset-0 rounded-xl shadow-[0_0_15px_rgba(0,0,0,0.1)] -z-10" />
     <aside class="w-[260px] min-w-[260px] p-5 flex flex-col items-center border-r border-border">
       <div class="w-[100px] h-[100px] mb-3.5 rounded-full border-2 border-border overflow-hidden">
@@ -280,7 +280,8 @@ ${context}
     transform: translateY(0);
   }
 }
-.animate-fadeIn {
+
+.ai-portfolio-chart .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
 }
 
@@ -297,7 +298,7 @@ ${context}
   animation: blink 0.9s infinite;
 }
 
-:root {
+.ai-portfolio-chart {
   --color-primary: #000000;
   --color-secondary: #333333;
   --color-tertiary: #666666;
@@ -306,7 +307,8 @@ ${context}
   --color-card: #ffffff;
   --color-card-soft: #f5f5f5;
 }
-.dark {
+
+.dark .ai-portfolio-chart {
   --color-primary: #ffffff;
   --color-secondary: #cccccc;
   --color-tertiary: #999999;
@@ -317,32 +319,32 @@ ${context}
   --color-user-bg-dark: #3b82f6;
 }
 
-.bg-primary {
+.ai-portfolio-chart .bg-primary {
   background-color: var(--color-primary);
 }
-.text-primary {
+.ai-portfolio-chart .text-primary {
   color: var(--color-primary);
 }
-.text-secondary {
+.ai-portfolio-chart .text-secondary {
   color: var(--color-secondary);
 }
-.text-tertiary {
+.ai-portfolio-chart .text-tertiary {
   color: var(--color-tertiary);
 }
-.text-tertiary-light {
+.ai-portfolio-chart .text-tertiary-light {
   color: var(--color-tertiary-light);
 }
-.border-border {
+.ai-portfolio-chart .border-border {
   border-color: var(--color-border);
 }
-.bg-card {
+.ai-portfolio-chart .bg-card {
   background-color: var(--color-card);
 }
-.bg-card-soft {
+.ai-portfolio-chart .bg-card-soft {
   background-color: var(--color-card-soft);
 }
 
-.dark .bg-primary {
+.dark .ai-portfolio-chart .bg-primary {
   background-color: var(--color-user-bg-dark);
 }
 </style>
