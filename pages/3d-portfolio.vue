@@ -7,5 +7,5 @@ meta:
 </script>
 
 <template>
-  <Portfolio3D style="margin-top: -60px;" />
+  <Portfolio3D style="margin-top: -80px;" />
 </template>
