@@ -1024,12 +1024,12 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'pages/posts/hello-tokyo.md': {
-      routes:
-        | '/posts/hello-tokyo'
-      views:
-        | never
-    }
+    // 'pages/posts/hello-tokyo.md': {
+    //   routes:
+    //     | '/posts/hello-tokyo'
+    //   views:
+    //     | never
+    // }
     'pages/posts/icons-in-pure-css.md': {
       routes:
         | '/posts/icons-in-pure-css'
