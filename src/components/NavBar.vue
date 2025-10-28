@@ -31,10 +31,6 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <RouterLink to="/ai-portfolio" title="AI Chart">
-          <span class="lt-md:hidden">AI</span>
-          <div i-ri-message-ai-3-line class="md:hidden" />
-        </RouterLink>
         <RouterLink to="/3d-portfolio" title="3D Portfolio">
           <span class="lt-md:hidden">3D Portfolio</span>
           <div i-ri-blender-line class="md:hidden" />
@@ -73,6 +69,10 @@ const { y: scroll } = useWindowScroll()
         <!-- <a href="https://bsky.app/profile/antfu.me" target="_blank" title="Bluesky" class="lt-md:hidden"> -->
         <!--   <div i-ri-bluesky-line /> -->
         <!-- </a> -->
+        <RouterLink to="/ai-portfolio" title="AI Chart">
+          <!-- <span class="lt-md:hidden">AI</span> -->
+          <div i-ri-message-ai-3-line />
+        </RouterLink>
         <a href="https://github.com/joel-xiao" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
         </a>
