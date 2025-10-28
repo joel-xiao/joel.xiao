@@ -187,9 +187,7 @@ ${context}
     }
   }
   catch (err) {
-    assistantMsg.content = `❌ Service error: ${(err as Error).message}`
-    assistantMsg.isTyping = false
-    assistantMsg.isThinking = false
+    assistantMsg.content = `Service error: ${(err as Error).message}`
   }
   finally {
     assistantMsg.isTyping = false
@@ -203,9 +201,10 @@ ${context}
 </script>
 
 <template>
-  <div class="ai-portfolio-chart flex h-[calc(100vh-17rem)] max-w-[1200px] mx-auto my-5 font-sans rounded-xl shadow-lg bg-card relative">
+  <div class="ai-portfolio-chart flex flex-col md:flex-row h-[calc(100vh-10rem)] md:h-[calc(100vh-12rem)] w-screen md:max-w-[1200px] mx-auto md:my-5 my-0 font-sans rounded-none md:rounded-xl shadow-lg bg-card relative">
     <div class="absolute inset-0 rounded-xl shadow-[0_0_15px_rgba(0,0,0,0.1)] -z-10" />
-    <aside class="w-[260px] min-w-[260px] p-5 flex flex-col items-center border-r border-border">
+
+    <aside class="hidden md:flex w-[260px] min-w-[260px] p-5 flex-col items-center border-r border-border">
       <div class="w-[100px] h-[100px] mb-3.5 rounded-full border-2 border-border overflow-hidden">
         <img src="https://picsum.photos/200/200?random=1" alt="AI Assistant Avatar" class="w-full h-full object-cover">
       </div>
@@ -337,6 +336,7 @@ ${context}
 .ai-portfolio-chart .border-border {
   border-color: var(--color-border);
 }
+.ai-portfolio-chart.bg-card,
 .ai-portfolio-chart .bg-card {
   background-color: var(--color-card);
 }

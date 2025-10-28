@@ -1,3 +1,8 @@
+<route lang="yaml">
+meta:
+  layout: "main-only"
+</route>
+
 <script setup>
 
 </script>

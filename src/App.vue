@@ -72,24 +72,33 @@ onKeyStroke('Escape', (e) => {
   }
 })
 
+const currentLayout = computed(() => route.meta.layout)
+
 const MainClass = computed(() => {
-  const isNoSpecial = route.meta.layout !== 'special'
-  return {
-    'px-7': isNoSpecial,
+  switch (currentLayout.value) {
+    case 'full-width':
+    case 'main-only':
+      return { 'px-7': false, 'py-10': false }
+    default:
+      return { 'px-7': true, 'py-10': true }
   }
 })
 
 const FooterClass = computed(() => {
-  const isSpecial = route.meta.layout === 'special'
-  return {
-    'px-7': isSpecial,
+  switch (currentLayout.value) {
+    case 'full-width':
+      return { 'px-7': true }
+    case 'main-only':
+      return { 'lt-md:hidden': true }
+    default:
+      return {}
   }
 })
 </script>
 
 <template>
   <NavBar />
-  <main :class="MainClass" class="py-10 of-x-hidden">
+  <main :class="MainClass" class="of-x-hidden">
     <RouterView />
     <Footer :key="route.path" :class="FooterClass" />
   </main>
