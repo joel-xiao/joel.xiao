@@ -31,7 +31,7 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <RouterLink to="/ai-portfolio" title="AI">
+        <RouterLink to="/ai-portfolio" title="AI Chart">
           <span class="lt-md:hidden">AI</span>
           <div i-ri-message-ai-3-line class="md:hidden" />
         </RouterLink>
@@ -45,7 +45,7 @@ const { y: scroll } = useWindowScroll()
         <!-- </RouterLink> -->
         <RouterLink to="/projects" title="Projects">
           <span class="lt-md:hidden">Projects</span>
-          <div i-ri-timeline-view class="md:hidden" />
+          <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
         <RouterLink to="/books" title="Books">
           <span class="lt-md:hidden">Books</span>
