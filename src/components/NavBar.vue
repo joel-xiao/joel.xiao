@@ -47,6 +47,9 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Books</span>
           <div i-ri-book-shelf-line class="md:hidden" />
         </RouterLink>
+        <RouterLink to="/ai-portfolio" title="AI Chart">
+          <div i-ri-message-ai-3-line />
+        </RouterLink>
         <!-- <RouterLink to="/talks" class="lt-md:hidden" title="Talks"> -->
         <!--   Talks -->
         <!-- </RouterLink> -->
@@ -57,22 +60,18 @@ const { y: scroll } = useWindowScroll()
         <!-- <RouterLink to="/podcasts" class="lt-md:hidden" title="Podcasts"> -->
         <!--   <div i-ri-mic-line /> -->
         <!-- </RouterLink> -->
-        <!-- <RouterLink to="/photos" title="Photos"> -->
-        <!--   <div i-ri-camera-3-line /> -->
-        <!-- </RouterLink> -->
-        <!-- <RouterLink to="/demos" title="Demos"> -->
-        <!--   <div i-ri-screenshot-line /> -->
-        <!-- </RouterLink> -->
+        <RouterLink to="/photos" title="Photos">
+          <div i-ri-camera-3-line />
+        </RouterLink>
+        <RouterLink to="/demos" title="Demos">
+          <div i-ri-screenshot-line />
+        </RouterLink>
         <!-- <RouterLink to="/chat" title="Let's Chat">
           <div i-ri-chat-1-line />
         </RouterLink> -->
         <!-- <a href="https://bsky.app/profile/antfu.me" target="_blank" title="Bluesky" class="lt-md:hidden"> -->
         <!--   <div i-ri-bluesky-line /> -->
         <!-- </a> -->
-        <RouterLink to="/ai-portfolio" title="AI Chart">
-          <!-- <span class="lt-md:hidden">AI</span> -->
-          <div i-ri-message-ai-3-line />
-        </RouterLink>
         <a href="https://github.com/joel-xiao" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
         </a>
