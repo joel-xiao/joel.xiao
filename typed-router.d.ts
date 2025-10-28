@@ -114,44 +114,9 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/name_detail': RouteRecordInfo<
-      '/name_detail',
-      '/name_detail',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/notes': RouteRecordInfo<
       '/notes',
       '/notes',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/old_index': RouteRecordInfo<
-      '/old_index',
-      '/old_index',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/old_index_v2': RouteRecordInfo<
-      '/old_index_v2',
-      '/old_index_v2',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/old_index_v3': RouteRecordInfo<
-      '/old_index_v3',
-      '/old_index_v3',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
-    '/old_index_v4': RouteRecordInfo<
-      '/old_index_v4',
-      '/old_index_v4',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -891,39 +856,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'pages/name_detail.md': {
-      routes:
-        | '/name_detail'
-      views:
-        | never
-    }
     'pages/notes.md': {
       routes:
         | '/notes'
-      views:
-        | never
-    }
-    'pages/old_index.md': {
-      routes:
-        | '/old_index'
-      views:
-        | never
-    }
-    'pages/old_index_v2.md': {
-      routes:
-        | '/old_index_v2'
-      views:
-        | never
-    }
-    'pages/old_index_v3.md': {
-      routes:
-        | '/old_index_v3'
-      views:
-        | never
-    }
-    'pages/old_index_v4.md': {
-      routes:
-        | '/old_index_v4'
       views:
         | never
     }
