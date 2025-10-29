@@ -13,11 +13,10 @@ const folder = fileURLToPath(new URL('../photos', import.meta.url))
 let files = (await fg('**/*.{jpg,png,jpeg}', {
   caseSensitiveMatch: false,
   absolute: true,
-  cwd: fileURLToPath(new URL('../photos', import.meta.url)),
-}))
-  .sort((a, b) => a.localeCompare(b))
+  cwd: folder,
+})).sort((a, b) => a.localeCompare(b))
 
-// Compress photos
+// Compress photos and handle videos
 for (const filepath of files) {
   if (basename(filepath).startsWith('p-')) {
     continue
@@ -38,18 +37,11 @@ for (const filepath of files) {
     dateRaw = dateRaw[0] as string
   dateRaw = String(dateRaw)
 
-  // convert 2025:02:02 10:07:10 to date object
-  let date = new Date(dateRaw.replace(/:/g, (x, idx) => {
-    if (idx < 10)
-      return '-'
-    return x
-  }))
-  if (Number.isNaN(+date)) {
+  let date = new Date(dateRaw.replace(/:/g, (x, idx) => idx < 10 ? '-' : x))
+  if (Number.isNaN(+date))
     date = new Date()
-  }
 
   const timeDiff = Date.now() - +date
-  // 1 hour
   if (timeDiff < 1000 * 60 * 60) {
     console.warn(`Date of ${filepath} is too recent: ${dateRaw}`)
     continue
@@ -67,31 +59,51 @@ for (const filepath of files) {
   if (outFile !== filepath)
     await fs.unlink(filepath)
 
-  if (title) {
-    await fs.writeFile(outFile.replace(/\.\w+$/, '.json'), JSON.stringify({ text: title }, null, 2))
+  // Rename corresponding videos
+  const videoExts = ['.mp4', '.mov', '.MP4', '.MOV']
+  for (const vExt of videoExts) {
+    const videoPath = filepath.replace(ext, vExt)
+    if (existsSync(videoPath)) {
+      const newVideoPath = writepath.replace(ext, vExt)
+      await fs.rename(videoPath, newVideoPath)
+    }
   }
+
+  // Write JSON meta
+  const jsonPath = writepath.replace(/\.\w+$/, '.json')
+  const config: Record<string, any> = {}
+  for (const vExt of videoExts) {
+    const newVideoPath = writepath.replace(ext, vExt)
+    if (existsSync(newVideoPath)) {
+      config.isLive = true
+      config.liveUrl = `./${basename(newVideoPath)}`
+      break
+    }
+  }
+  if (title)
+    config.text = title
+  if (Object.keys(config).length)
+    await fs.writeFile(jsonPath, JSON.stringify(config, null, 2))
 }
 
 // Generate blurhash
 files = (await fg('**/*.{jpg,png,jpeg}', {
   caseSensitiveMatch: false,
   absolute: true,
-  cwd: fileURLToPath(new URL('../photos', import.meta.url)),
-}))
-  .sort((a, b) => a.localeCompare(b))
+  cwd: folder,
+})).sort((a, b) => a.localeCompare(b))
 
 for (const filepath of files) {
-  if (!basename(filepath).startsWith('p-')) {
+  if (!basename(filepath).startsWith('p-'))
     continue
-  }
   const configFile = filepath.replace(/\.\w+$/, '.json')
   let config: Record<string, any> = {}
   if (existsSync(configFile)) {
     config = JSON.parse(await fs.readFile(configFile, 'utf-8'))
   }
-  if (config.blurhash) {
+  if (config.blurhash)
     continue
-  }
+
   const buffer = await fs.readFile(filepath)
   const img = sharp(buffer)
   const { data, info } = await img
@@ -108,7 +120,7 @@ for (const filepath of files) {
 for (const json of await fg('**/*.json', {
   caseSensitiveMatch: false,
   absolute: true,
-  cwd: fileURLToPath(new URL('../photos', import.meta.url)),
+  cwd: folder,
 })) {
   if (!existsSync(json.replace(/\.json$/, '.jpg')))
     await fs.unlink(json)
