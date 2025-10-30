@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Photo } from '../../../photos/data'
 import { blurhashToGradientCssObject } from '@unpic/placeholder'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 defineProps<{
   photos: Photo[]
@@ -9,28 +9,22 @@ defineProps<{
 }>()
 
 const activeLiveIndex = ref<number | null>(null)
-let longPressTimer: number | null = null
+const isMobile = ref(false)
+
+onMounted(() => {
+  isMobile.value = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+})
 
 function handleMouseEnter(idx: number) {
-  activeLiveIndex.value = idx
+  if (!isMobile.value) {
+    activeLiveIndex.value = idx
+  }
 }
 
 function handleMouseLeave() {
-  activeLiveIndex.value = null
-}
-
-function handleTouchStart(idx: number) {
-  longPressTimer = window.setTimeout(() => {
-    activeLiveIndex.value = idx
-  }, 400)
-}
-
-function handleTouchEnd() {
-  if (longPressTimer) {
-    clearTimeout(longPressTimer)
-    longPressTimer = null
+  if (!isMobile.value) {
+    activeLiveIndex.value = null
   }
-  activeLiveIndex.value = null
 }
 </script>
 
@@ -43,11 +37,8 @@ function handleTouchEnd() {
       overflow-hidden
       @mouseenter="handleMouseEnter(idx)"
       @mouseleave="handleMouseLeave"
-      @touchstart="handleTouchStart(idx)"
-      @touchend="handleTouchEnd"
     >
       <img
-        v-if="!(photo.isLive && photo.liveUrl && activeLiveIndex === idx)"
         :src="photo.url"
         :alt="photo.text"
         :data-photo-index="idx"
@@ -58,7 +49,7 @@ function handleTouchEnd() {
       >
 
       <video
-        v-else
+        v-if="photo.isLive && photo.liveUrl && (isMobile || activeLiveIndex === idx)"
         :src="photo.liveUrl"
         :poster="photo.url"
         :data-photo-index="idx"
@@ -71,6 +62,9 @@ function handleTouchEnd() {
         top-0
         left-0
         :class="view === 'contain' ? 'object-contain sm:aspect-square' : 'object-cover aspect-square'"
+        :style="{
+          opacity: isMobile ? (activeLiveIndex === idx ? 1 : 0) : 1,
+        }"
       />
 
       <LiveBadge v-if="photo.isLive" class="absolute top-2 left-2" />
