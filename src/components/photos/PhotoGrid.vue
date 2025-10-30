@@ -55,7 +55,6 @@ function handleMouseLeave() {
         :data-photo-index="idx"
         autoplay
         loop
-        muted
         playsinline
         w-full
         absolute

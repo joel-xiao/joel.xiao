@@ -118,7 +118,6 @@ const FooterClass = computed(() => {
         :src="imageModel.src"
         autoplay
         loop
-        muted
         playsinline
         max-w-screen max-h-screen w-full h-full object-contain
       />
