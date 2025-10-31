@@ -1,203 +1,41 @@
 <script setup lang="ts">
-import { nextTick, onMounted, reactive, ref } from 'vue'
+import { onMounted } from 'vue'
+import { AI_MODELS } from '~/ai'
+import { useAIChat } from '~/ai/useAIChat'
 
-interface Message {
-  role: 'user' | 'assistant'
-  content: string
-  isThinking?: boolean
-  isTyping?: boolean
-}
-interface StaticFile { name: string, url: string, type: 'pdf' | 'txt' | 'md' }
-interface TextChunk { text: string, source: string }
-
-const userInput = ref('')
-const messages = ref<Message[]>([])
-const sending = ref(false)
-const messageList = ref<HTMLDivElement | null>(null)
-const loadedFiles = ref<string[]>([])
-const loadStatus = ref('Initializing...')
-const textChunks = ref<TextChunk[]>([])
-
-const STATIC_FILES: StaticFile[] = [
-  { name: 'Resume.pdf', url: '/resume/JoelXiao_FullStackFrontend_Resume.pdf', type: 'pdf' },
-  { name: 'PMP.pdf', url: '/resume/PMP-肖文龙.pdf', type: 'pdf' },
-  { name: 'Frontend-5years.txt', url: '/resume/前端开发-5年-肖文龙.txt', type: 'txt' },
-  { name: 'Fullstack-6years.md', url: '/resume/全栈前端工程师-肖文龙-6年.md', type: 'md' },
-  // { name: 'curriculum-vitae-1.txt', url: '/resume/gpt-optimize/curriculum-vitae-1.txt', type: 'txt' },
-  // { name: 'curriculum-vitae-2.txt', url: '/resume/gpt-optimize/curriculum-vitae-2.txt', type: 'txt' },
-  // { name: 'curriculum-vitae-3.txt', url: '/resume/gpt-optimize/curriculum-vitae-3.txt', type: 'txt' },
-  // { name: 'deepseek-curriculum-vitae-1.txt', url: '/resume/gpt-optimize/deepseek-curriculum-vitae-1.txt', type: 'md' },
-  // { name: 'deepseek-curriculum-vitae-2.txt', url: '/resume/gpt-optimize//resume/gpt-optimize/deepseek-curriculum-vitae-2.txt', type: 'txt' },
-]
-
-function cleanText(text: string, type: string) {
-  let t = text
-  if (type === 'md')
-    t = t.replace(/[#>*_`~\-]/g, '')
-  return t.replace(/<[^>]+>/g, '').replace(/\n{2,}/g, '\n').trim()
-}
-
-async function loadFile(f: StaticFile) {
-  try {
-    let txt = ''
-    if (f.type === 'pdf') {
-      // txt = await parsePdf(f.url)
-    }
-    else {
-      const r = await fetch(f.url)
-      txt = await r.text()
-    }
-    if (txt.trim()) {
-      textChunks.value.push({ text: cleanText(txt, f.type), source: f.name })
-      loadedFiles.value.push(f.name)
-    }
-  }
-  catch (e) {
-    console.warn('Load failed', f.name, e)
-  }
-}
-
-function saveMessages() {
-  localStorage.setItem('joel_chat_messages', JSON.stringify(messages.value))
-}
-
-function loadMessages() {
-  const raw = localStorage.getItem('joel_chat_messages')
-  if (raw) {
-    try {
-      messages.value = JSON.parse(raw)
-    }
-    catch {
-      console.warn('Failed to parse messages cache')
-    }
-  }
-}
+const {
+  userInput,
+  messages,
+  sending,
+  messageList,
+  loadedFiles,
+  loadStatus,
+  selectedModelName,
+  selectedModel,
+  modelNames,
+  keyInputVisible,
+  keyInputValue,
+  keyInputModelName,
+  modelInputVisible,
+  modelInputValue,
+  modelInputModelName,
+  currentKeySource,
+  isModelFree,
+  initialize,
+  handleSend,
+  switchModel,
+  openKeyInput,
+  saveKeyInput,
+  cancelKeyInput,
+  openModelInput,
+  saveModelInput,
+  cancelModelInput,
+  resetModelInput,
+} = useAIChat()
 
 onMounted(async () => {
-  loadMessages()
-  for (const f of STATIC_FILES) await loadFile(f)
-  loadStatus.value = `Documents loaded, parsed ${textChunks.value.length} core sections`
+  await initialize()
 })
-
-function retrieveChunks(q: string, k = 3) {
-  const words = q.toLowerCase().split(/\s+/).filter(w => w.length > 1)
-  if (!words.length)
-    return textChunks.value.slice(0, k)
-  return textChunks.value
-    .map(c => ({ ...c, score: words.filter(w => c.text.toLowerCase().includes(w)).length }))
-    .sort((a, b) => (b.score || 0) - (a.score || 0))
-    .slice(0, k)
-}
-
-const API_KEY = 'ca882504-ddb0-4649-a541-39dbe480da4d'
-const API_URL = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions'
-const MODEL = 'doubao-1-5-thinking-pro-250415'
-
-async function typeWriterAppend(targetMsg: Message, text: string, delay = 25) {
-  targetMsg.isThinking = false
-  targetMsg.isTyping = true
-  for (let i = 0; i < text.length; i++) {
-    targetMsg.content += text[i]
-    await nextTick()
-    messageList.value?.scrollTo({ top: messageList.value.scrollHeight, behavior: 'smooth' })
-    await new Promise(r => setTimeout(r, delay))
-  }
-}
-
-async function handleSend() {
-  const input = userInput.value.trim()
-  if (!input || sending.value)
-    return
-  messages.value.push({ role: 'user', content: input })
-  userInput.value = ''
-  sending.value = true
-
-  const assistantMsg: Message = reactive({ role: 'assistant', content: '', isThinking: true, isTyping: false })
-  messages.value.push(assistantMsg)
-  await nextTick()
-  messageList.value?.scrollTo({ top: messageList.value.scrollHeight, behavior: 'smooth' })
-
-  const chunks = retrieveChunks(input)
-  const context = chunks.map(c => `[${c.source}] ${c.text}`).join('\n\n')
-  const systemPrompt = `你是 Joel 智能助手。
-默认必须使用英文回答。若用户的问题使用中文，自动切换为中文回复；若用户的问题使用其他语言，保持英文回复。仅当用户明确要求“用中文回答”时，无论其提问语言是什么，均强制使用中文回复。
-你具备广泛知识和智能推理能力，可以回答各种问题。
-当用户的问题涉及 Joel Xiao 或者 肖文龙 的个人信息或文档内容时，请基于以下文档回答：
-${context}
-
-规则：
-- 对于涉及 Joel 的问题，请以文档为核心依据，同时可以进行合理分析、总结和推理，使回答更完整、更有洞察力，但不要说废话。
-- 对于非 Joel 相关问题，可以自由回答。
-- 如果文档未提及某个信息，请回答“文档未提及”。`
-
-  try {
-    const allMessages = [
-      { role: 'system', content: systemPrompt },
-      ...messages.value.map(m => ({ role: m.role, content: m.content })),
-    ]
-
-    const resp = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        messages: allMessages,
-        stream: true,
-        temperature: 0.5,
-        enable_reasoning: false,
-        reasoning_type: 'none',
-      }),
-    })
-    if (!resp.body)
-      throw new Error('No stream response')
-
-    const reader = resp.body.getReader()
-    const decoder = new TextDecoder('utf-8')
-    let buffer = ''
-
-    while (true) {
-      const { value, done } = await reader.read()
-      if (done)
-        break
-      buffer += decoder.decode(value, { stream: true })
-      const parts = buffer.split('\n\n')
-      buffer = parts.pop() || ''
-      for (const p of parts) {
-        const line = p.trim()
-        if (!line.startsWith('data:'))
-          continue
-        const dataStr = line.replace(/^data:\s*/, '')
-        if (dataStr === '[DONE]')
-          continue
-        try {
-          const json = JSON.parse(dataStr)
-          const delta = json.choices?.[0]?.delta
-          const piece = delta?.content ?? delta?.reasoning_content ?? ''
-          if (!piece)
-            continue
-          await typeWriterAppend(assistantMsg, piece)
-        }
-        catch (e) {
-          console.warn('Stream parse failed', e)
-        }
-      }
-    }
-  }
-  catch (err) {
-    assistantMsg.content = `Service error: ${(err as Error).message}`
-  }
-  finally {
-    assistantMsg.isTyping = false
-    assistantMsg.isThinking = false
-    sending.value = false
-    saveMessages()
-    await nextTick()
-    messageList.value?.scrollTo({ top: messageList.value.scrollHeight, behavior: 'smooth' })
-  }
-}
 </script>
 
 <template>
@@ -225,10 +63,58 @@ ${context}
       </div>
     </aside>
 
-    <main class="flex flex-col flex-1 bg-card  min-h-0">
-      <div class="px-5 py-2 text-center text-sm text-tertiary bg-card-soft border-t border-border">
-        ⚠️ The AI model is currently paid. Please wait until a free version is available.
+    <main class="flex flex-col flex-1 bg-card min-h-0">
+      <div class="px-5 py-2 bg-card-soft border-t border-border">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <div class="flex items-center gap-2 flex-1 min-w-0">
+            <label class="text-xs text-tertiary whitespace-nowrap">Model:</label>
+            <select
+              :value="selectedModelName"
+              class="flex-1 text-sm p-2 border border-border rounded-lg bg-card text-primary outline-none focus:border-primary focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)] min-w-0"
+              @change="switchModel(($event.target as HTMLSelectElement).value)"
+            >
+              <option v-for="model in AI_MODELS" :key="model.name" :value="model.name">
+                {{ model.label }}
+              </option>
+            </select>
+          </div>
+          <div class="flex gap-2">
+            <button
+              class="text-xs px-3 py-2 border border-border rounded-lg bg-card text-secondary hover:bg-card-soft transition-colors whitespace-nowrap"
+              @click="openModelInput(selectedModelName)"
+            >
+              Edit Model
+            </button>
+            <button
+              class="text-xs px-3 py-2 border border-border rounded-lg bg-card text-secondary hover:bg-card-soft transition-colors whitespace-nowrap"
+              @click="openKeyInput(selectedModelName)"
+            >
+              Set API Key
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-xs mb-2">
+          <span class="text-tertiary">Current Model:</span>
+          <span class="text-secondary font-mono text-xs">{{ selectedModel?.model }}</span>
+          <button
+            v-if="modelNames[selectedModelName]"
+            class="text-xs px-2 py-0.5 text-tertiary hover:text-primary transition-colors"
+            @click="resetModelInput(selectedModelName)"
+          >
+            Reset
+          </button>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="text-tertiary">Key Status:</span>
+          <span :class="currentKeySource === 'user' ? 'text-primary' : 'text-tertiary-light'">
+            {{ currentKeySource === 'user' ? 'User Key' : 'Default Key' }}
+          </span>
+          <span v-if="isModelFree" class="px-2 py-0.5 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded text-xs">
+            Free
+          </span>
+        </div>
       </div>
+
       <div ref="messageList" class="flex-1 p-5 overflow-y-auto text-primary">
         <div class="w-full mb-3.5 text-left">
           <div class="inline-block max-w-[80%] animate-fadeIn bg-card-soft border border-border text-secondary shadow-md p-3.5 whitespace-pre-wrap leading-6 text-sm rounded-[18px] rounded-tl-[4px]">
@@ -268,6 +154,83 @@ ${context}
         </button>
       </div>
     </main>
+
+    <!-- Key Input Modal -->
+    <div
+      v-if="keyInputVisible"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      @click="cancelKeyInput"
+    >
+      <div
+        class="bg-card border border-border rounded-xl shadow-lg p-5 w-[90%] max-w-md"
+        @click.stop
+      >
+        <h3 class="text-lg mb-3 text-primary">
+          Set API Key for {{ AI_MODELS.find(m => m.name === keyInputModelName)?.label }}
+        </h3>
+        <input
+          v-model="keyInputValue"
+          type="password"
+          placeholder="Enter API Key"
+          class="w-full p-3 border border-border rounded-lg bg-card text-primary placeholder:text-tertiary mb-3 outline-none focus:border-primary focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)]"
+          @keydown.enter="saveKeyInput"
+        >
+        <div class="flex gap-2 justify-end">
+          <button
+            class="px-4 py-2 border border-border rounded-lg bg-card-soft text-secondary hover:bg-border transition-colors"
+            @click="cancelKeyInput"
+          >
+            Cancel
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg text-white bg-primary hover:bg-primary/90 transition-colors"
+            @click="saveKeyInput"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model Input Modal -->
+    <div
+      v-if="modelInputVisible"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      @click="cancelModelInput"
+    >
+      <div
+        class="bg-card border border-border rounded-xl shadow-lg p-5 w-[90%] max-w-md"
+        @click.stop
+      >
+        <h3 class="text-lg mb-3 text-primary">
+          Edit Model for {{ AI_MODELS.find(m => m.name === modelInputModelName)?.label }}
+        </h3>
+        <div class="mb-2 text-xs text-tertiary">
+          Default: {{ AI_MODELS.find(m => m.name === modelInputModelName)?.model }}
+        </div>
+        <input
+          v-model="modelInputValue"
+          type="text"
+          placeholder="Enter Model ID (e.g., gpt-4, claude-3-opus)"
+          class="w-full p-3 border border-border rounded-lg bg-card text-primary placeholder:text-tertiary mb-3 outline-none focus:border-primary focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)] font-mono text-sm"
+          @keydown.enter="saveModelInput"
+        >
+        <div class="flex gap-2 justify-end">
+          <button
+            class="px-4 py-2 border border-border rounded-lg bg-card-soft text-secondary hover:bg-border transition-colors"
+            @click="cancelModelInput"
+          >
+            Cancel
+          </button>
+          <button
+            class="px-4 py-2 rounded-lg text-white bg-primary hover:bg-primary/90 transition-colors"
+            @click="saveModelInput"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

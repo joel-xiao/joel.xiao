@@ -1,0 +1,83 @@
+import type { AIModelConfig } from './types'
+
+export const AI_MODELS: AIModelConfig[] = [
+  {
+    name: 'openrouter',
+    label: 'OpenRouter (Multi-Model)',
+    endpoint: 'https://openrouter.ai/api/v1/chat/completions',
+    model: 'minimax/minimax-m2:free',
+    defaultKey: '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',
+    free: true,
+  },
+  {
+    name: 'qwen',
+    label: '阿里通义 Qwen Turbo',
+    endpoint: 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions',
+    model: 'qwen-turbo',
+    free: true,
+  },
+  {
+    name: 'bigmodel',
+    label: 'BigModel AI',
+    endpoint: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
+    model: 'glm-4.5-flash',
+    free: true,
+  },
+  {
+    name: 'moonshot',
+    label: 'Moonshot AI',
+    endpoint: 'https://api.moonshot.cn/v1/chat/completions',
+    model: 'kimi-k2-turbo-preview',
+    defaultKey: 'sk-wT3ag5dEFeiLExTTfxcJHB8YD8A8DFIfHnrCJPA9eU3IvUhV',
+    free: false,
+  },
+  {
+    name: 'deepseek',
+    label: 'DeepSeek Chat',
+    endpoint: 'https://api.deepseek.com/chat/completions',
+    model: 'deepseek-chat',
+    free: false,
+  },
+  {
+    name: 'claude',
+    label: 'Anthropic Claude 3.5 Sonnet',
+    endpoint: 'https://api.anthropic.com/v1/messages',
+    model: 'claude-3-5-sonnet',
+    free: false,
+  },
+  {
+    name: 'chatgpt',
+    label: 'OpenAI GPT-3.5 Turbo',
+    endpoint: 'https://api.openai.com/v1/chat/completions',
+    model: 'gpt-3.5-turbo',
+    free: false,
+  },
+  {
+    name: 'gemini',
+    label: 'Google Gemini 1.5 Flash',
+    endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent',
+    model: 'gemini-1.5-flash',
+    free: true,
+  },
+  {
+    name: 'mistral',
+    label: 'Mistral Small',
+    endpoint: 'https://api.mistral.ai/v1/chat/completions',
+    model: 'mistral-small',
+    free: false,
+  },
+  // {
+  //    name: 'modelscope',
+  //    label: '魔搭 ModelScope',
+  //    endpoint: 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions',
+  //    model: 'qwen-turbo',
+  //    free: true,
+  //  },
+  {
+    name: 'yi',
+    label: '零一万物 Yi-Large',
+    endpoint: 'https://api.lingyiwanwu.com/v1/chat/completions',
+    model: 'yi-large',
+    free: true,
+  },
+]
