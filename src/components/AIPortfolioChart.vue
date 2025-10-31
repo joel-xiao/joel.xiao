@@ -158,32 +158,36 @@ onMounted(async () => {
     <!-- Key Input Modal -->
     <div
       v-if="keyInputVisible"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
       @click="cancelKeyInput"
     >
       <div
-        class="bg-card border border-border rounded-xl shadow-lg p-5 w-[90%] max-w-md"
+        class="bg-card border border-border rounded-xl shadow-lg p-5 w-full max-w-md"
         @click.stop
       >
-        <h3 class="text-lg mb-3 text-primary">
-          Set API Key for {{ AI_MODELS.find(m => m.name === keyInputModelName)?.label }}
+        <h3 class="text-lg mb-2 text-primary">
+          Set API Key
         </h3>
+        <p class="text-sm mb-4 text-tertiary">
+          {{ AI_MODELS.find(m => m.name === keyInputModelName)?.label }}
+        </p>
         <input
           v-model="keyInputValue"
           type="password"
           placeholder="Enter API Key"
-          class="w-full p-3 border border-border rounded-lg bg-card text-primary placeholder:text-tertiary mb-3 outline-none focus:border-primary focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)]"
+          class="w-full p-3 border border-border rounded-lg bg-card text-primary placeholder:text-tertiary mb-4 outline-none focus:border-primary focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)] font-mono text-sm"
           @keydown.enter="saveKeyInput"
+          @keydown.esc="cancelKeyInput"
         >
-        <div class="flex gap-2 justify-end">
+        <div class="flex flex-col sm:flex-row gap-2 sm:justify-end">
           <button
-            class="px-4 py-2 border border-border rounded-lg bg-card-soft text-secondary hover:bg-border transition-colors"
+            class="px-4 py-2 rounded-lg border border-border bg-card-soft text-secondary hover:bg-border transition-colors order-2 sm:order-1"
             @click="cancelKeyInput"
           >
             Cancel
           </button>
           <button
-            class="px-4 py-2 rounded-lg text-white bg-primary hover:bg-primary/90 transition-colors"
+            class="px-4 py-2 rounded-lg text-white bg-primary hover:bg-primary/90 transition-colors order-1 sm:order-2"
             @click="saveKeyInput"
           >
             Save
@@ -195,35 +199,44 @@ onMounted(async () => {
     <!-- Model Input Modal -->
     <div
       v-if="modelInputVisible"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
       @click="cancelModelInput"
     >
       <div
-        class="bg-card border border-border rounded-xl shadow-lg p-5 w-[90%] max-w-md"
+        class="bg-card border border-border rounded-xl shadow-lg p-5 w-full max-w-md"
         @click.stop
       >
-        <h3 class="text-lg mb-3 text-primary">
-          Edit Model for {{ AI_MODELS.find(m => m.name === modelInputModelName)?.label }}
+        <h3 class="text-lg mb-2 text-primary">
+          Edit Model
         </h3>
-        <div class="mb-2 text-xs text-tertiary">
-          Default: {{ AI_MODELS.find(m => m.name === modelInputModelName)?.model }}
+        <p class="text-sm mb-4 text-tertiary">
+          {{ AI_MODELS.find(m => m.name === modelInputModelName)?.label }}
+        </p>
+        <div class="mb-3 p-2.5 rounded-lg bg-card-soft border border-border">
+          <div class="text-xs text-tertiary mb-1">
+            Default Model
+          </div>
+          <div class="text-sm font-mono text-secondary break-all">
+            {{ AI_MODELS.find(m => m.name === modelInputModelName)?.model }}
+          </div>
         </div>
         <input
           v-model="modelInputValue"
           type="text"
           placeholder="Enter Model ID (e.g., gpt-4, claude-3-opus)"
-          class="w-full p-3 border border-border rounded-lg bg-card text-primary placeholder:text-tertiary mb-3 outline-none focus:border-primary focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)] font-mono text-sm"
+          class="w-full p-3 border border-border rounded-lg bg-card text-primary placeholder:text-tertiary mb-4 outline-none focus:border-primary focus:shadow-[0_0_0_2px_rgba(59,130,246,0.2)] font-mono text-sm"
           @keydown.enter="saveModelInput"
+          @keydown.esc="cancelModelInput"
         >
-        <div class="flex gap-2 justify-end">
+        <div class="flex flex-col sm:flex-row gap-2 sm:justify-end">
           <button
-            class="px-4 py-2 border border-border rounded-lg bg-card-soft text-secondary hover:bg-border transition-colors"
+            class="px-4 py-2 rounded-lg border border-border bg-card-soft text-secondary hover:bg-border transition-colors order-2 sm:order-1"
             @click="cancelModelInput"
           >
             Cancel
           </button>
           <button
-            class="px-4 py-2 rounded-lg text-white bg-primary hover:bg-primary/90 transition-colors"
+            class="px-4 py-2 rounded-lg text-white bg-primary hover:bg-primary/90 transition-colors order-1 sm:order-2"
             @click="saveModelInput"
           >
             Save
