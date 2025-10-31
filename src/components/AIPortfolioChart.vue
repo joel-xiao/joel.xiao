@@ -226,6 +226,9 @@ ${context}
     </aside>
 
     <main class="flex flex-col flex-1 bg-card  min-h-0">
+      <div class="px-5 py-2 text-center text-sm text-tertiary bg-card-soft border-t border-border">
+        ⚠️ The AI model is currently paid. Please wait until a free version is available.
+      </div>
       <div ref="messageList" class="flex-1 p-5 overflow-y-auto text-primary">
         <div class="w-full mb-3.5 text-left">
           <div class="inline-block max-w-[80%] animate-fadeIn bg-card-soft border border-border text-secondary shadow-md p-3.5 whitespace-pre-wrap leading-6 text-sm rounded-[18px] rounded-tl-[4px]">
