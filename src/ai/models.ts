@@ -2,34 +2,26 @@ import type { AIModelConfig } from './types'
 
 export const AI_MODELS: AIModelConfig[] = [
   {
-    name: 'openrouter',
-    label: 'OpenRouter (Multi-Model)',
-    endpoint: 'https://openrouter.ai/api/v1/chat/completions',
-    model: 'minimax/minimax-m2:free',
-    defaultKey: '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',
-    free: true,
-  },
-  {
-    name: 'qwen',
-    label: '阿里通义 Qwen Turbo',
-    endpoint: 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions',
-    model: 'qwen-turbo',
-    free: true,
-  },
-  {
-    name: 'bigmodel',
-    label: 'BigModel AI',
-    endpoint: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
-    model: 'glm-4.5-flash',
-    free: true,
-  },
-  {
     name: 'moonshot',
     label: 'Moonshot AI',
     endpoint: 'https://api.moonshot.cn/v1/chat/completions',
     model: 'kimi-k2-turbo-preview',
     defaultKey: 'sk-wT3ag5dEFeiLExTTfxcJHB8YD8A8DFIfHnrCJPA9eU3IvUhV',
     free: false,
+  },
+  {
+    name: 'qwen',
+    label: 'Qwen',
+    endpoint: 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions',
+    model: 'qwen-turbo',
+    // free: true,
+  },
+  {
+    name: 'bigmodel',
+    label: 'BigModel AI',
+    endpoint: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
+    model: 'glm-4.5-flash',
+    // free: true,
   },
   {
     name: 'deepseek',
@@ -39,8 +31,20 @@ export const AI_MODELS: AIModelConfig[] = [
     free: false,
   },
   {
+    name: 'openrouter',
+    label: 'OpenRouter (Multi-Model)',
+    endpoint: 'https://openrouter.ai/api/v1/chat/completions',
+    model: 'minimax/minimax-m2:free',
+  },
+  {
+    name: 'doubao',
+    label: 'Doubao',
+    endpoint: 'https://ark.cn-beijing.volces.com/api/v3/chat/completions',
+    model: 'doubao-seed-1-6-flash',
+  },
+  {
     name: 'claude',
-    label: 'Anthropic Claude 3.5 Sonnet',
+    label: 'Anthropic Claude ',
     endpoint: 'https://api.anthropic.com/v1/messages',
     model: 'claude-3-5-sonnet',
     free: false,
@@ -57,7 +61,7 @@ export const AI_MODELS: AIModelConfig[] = [
     label: 'Google Gemini 1.5 Flash',
     endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent',
     model: 'gemini-1.5-flash',
-    free: true,
+    // free: true,
   },
   {
     name: 'mistral',
@@ -75,9 +79,9 @@ export const AI_MODELS: AIModelConfig[] = [
   //  },
   {
     name: 'yi',
-    label: '零一万物 Yi-Large',
+    label: 'Yi-Large',
     endpoint: 'https://api.lingyiwanwu.com/v1/chat/completions',
     model: 'yi-large',
-    free: true,
+    // free: true,
   },
 ]

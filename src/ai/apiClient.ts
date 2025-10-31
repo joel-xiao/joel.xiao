@@ -112,6 +112,9 @@ export async function callAIModel(
 ): Promise<void> {
   const modelName = config.name
 
+  const maxMessages = config.maxMessages ?? 2
+  const limitedMessages = messages.slice(-maxMessages)
+
   if (modelName === 'gemini') {
     // Gemini uses a different API format
     const contents = [
@@ -119,7 +122,7 @@ export async function callAIModel(
         role: 'user',
         parts: [{ text: systemPrompt }],
       },
-      ...messages.map(m => ({
+      ...limitedMessages.map(m => ({
         role: m.role === 'user' ? 'user' : 'model',
         parts: [{ text: m.content }],
       })),
@@ -150,7 +153,7 @@ export async function callAIModel(
   }
   else if (modelName === 'claude') {
     // Claude uses a different API format
-    const conversationMessages = messages.map(m => ({
+    const conversationMessages = limitedMessages.map(m => ({
       role: m.role === 'user' ? 'user' : 'assistant',
       content: m.content,
     }))
@@ -185,7 +188,7 @@ export async function callAIModel(
     // OpenAI-style API (doubao, deepseek, chatgpt, etc.)
     const allMessages = [
       { role: 'system', content: systemPrompt },
-      ...messages.map(m => ({ role: m.role, content: m.content })),
+      ...limitedMessages.map(m => ({ role: m.role, content: m.content })),
     ]
 
     const headers: Record<string, string> = {
