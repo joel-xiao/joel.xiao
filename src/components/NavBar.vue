@@ -13,7 +13,7 @@ const { y: scroll } = useWindowScroll()
   <header class="header z-40">
     <RouterLink
       style="z-index: 2;"
-      class="w-14 h-auto absolute xl:fixed m-5 select-none outline-none"
+      class="w-18 h-auto absolute xl:fixed m-6 select-none outline-none"
       to="/"
       focusable="false"
     >
