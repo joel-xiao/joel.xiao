@@ -44,7 +44,7 @@ onMounted(async () => {
 
     <aside class="hidden md:flex w-[260px] min-w-[260px] p-5 flex-col items-center border-r border-border">
       <div class="w-[100px] h-[100px] mb-3.5 rounded-full border-2 border-border overflow-hidden">
-        <img src="https://picsum.photos/200/200?random=1" alt="AI Assistant Avatar" class="w-full h-full object-cover">
+        <img src="/me_photos/xiao-v3-1.png" alt="AI Assistant Avatar" class="w-full h-full object-cover">
       </div>
       <div class="text-center">
         <h1 class="text-[1.3rem] mb-1.5 text-primary">
