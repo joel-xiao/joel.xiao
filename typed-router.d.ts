@@ -177,13 +177,6 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/posts/animated-svg-logo': RouteRecordInfo<
-      '/posts/animated-svg-logo',
-      '/posts/animated-svg-logo',
-      Record<never, never>,
-      Record<never, never>,
-      | never
-    >,
     '/posts/async-sync-in-between': RouteRecordInfo<
       '/posts/async-sync-in-between',
       '/posts/async-sync-in-between',
@@ -900,12 +893,6 @@ declare module 'vue-router/auto-routes' {
     'pages/posts/ai-qrcode-refine.md': {
       routes:
         | '/posts/ai-qrcode-refine'
-      views:
-        | never
-    }
-    'pages/posts/animated-svg-logo.md': {
-      routes:
-        | '/posts/animated-svg-logo'
       views:
         | never
     }
