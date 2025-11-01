@@ -1,6 +1,5 @@
 <template>
   <svg viewBox="170 350 660 310" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <title>Xiao @ joel.xiao</title>
     <g>
       <path
         class="path1"
@@ -21,83 +20,12 @@
 </template>
 
 <style scoped>
-@media (prefers-reduced-motion) {
-  .path1,
-  .path2 {
-    animation: none !important;
-    stroke-dasharray: unset !important;
-    stroke-dashoffset: unset !important;
-  }
-}
-@media print {
-  .path1,
-  .path2 {
-    animation: none !important;
-    stroke-dasharray: unset !important;
-    stroke-dashoffset: unset !important;
-  }
-}
-@keyframes grow {
-  0% {
-    stroke-dashoffset: 3000px;
-    stroke-dasharray: 0 3000px;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  40% {
-    stroke-dashoffset: 0;
-    stroke-dasharray: 3000px 0;
-  }
-  85% {
-    stroke-dashoffset: 0;
-    stroke-dasharray: 3000px 0;
-  }
-  95%,
-  100% {
-    stroke-dashoffset: -3000px;
-    stroke-dasharray: 0 3000px;
-  }
-}
-@keyframes growSmall {
-  0% {
-    stroke-dashoffset: 200px;
-    stroke-dasharray: 0 200px;
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  45% {
-    stroke-dashoffset: 0;
-    stroke-dasharray: 200px 0;
-  }
-  85% {
-    stroke-dashoffset: 0;
-    stroke-dasharray: 200px 0;
-  }
-  95%,
-  100% {
-    stroke-dashoffset: -200px;
-    stroke-dasharray: 0 200px;
-  }
-}
 .path1 {
   stroke: #303030;
-  stroke-dasharray: 3000px;
-  stroke-dashoffset: 3000px;
-  animation: grow 12s ease-in-out infinite;
-  transform-origin: center;
   fill: none;
 }
 .path2 {
   stroke: #303030;
-  stroke-dasharray: 200px;
-  stroke-dashoffset: 200px;
-  animation: growSmall 12s ease-in-out infinite;
-  animation-delay: 0.5s;
-  transform-origin: center;
   fill: none;
 }
 .dark .path1,
