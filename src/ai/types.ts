@@ -23,6 +23,7 @@ export interface AIModelConfig {
   endpoint: string
   model: string
   defaultKey?: string
+  maxMessages?: number
   free?: boolean
 }
 
